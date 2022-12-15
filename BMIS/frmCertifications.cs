@@ -92,102 +92,113 @@ namespace BMIS
             using (var checkRecords = new MySqlCommand("SELECT COUNT(*) AS Records FROM tbl_blotter WHERE residentID LIKE @residentID", connection))
             {
                 checkRecords.Parameters.AddWithValue("@residentID", txtResidentID.Text);
-
                 connection.Open();
                 int count = Convert.ToInt32(checkRecords.ExecuteScalar());
                 if (count > 0)
                 {
-                    labelRecordFound.Visible = true;
-                    labelNoRecord.Visible = false;
                     issueButtonOff();
+                    lblRecordStatus.Visible = true;
+                    lblRecordStatus.ForeColor = System.Drawing.Color.Red;
+                    lblRecordStatus.Text = "THIS RESIDENT HAS UNSETTLED ISSUE FOUND IN OUR DATABASE!";
+
                 }
                 else if (txtResidentID.Text.Equals("") && count == 0)
                 {
                     MessageBox.Show("Nothing to check", "Information", MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
                 }
-                else if (count == 0)
+                else if (count.Equals(0))
                 {
-                    labelRecordFound.Visible = false;
-                    labelNoRecord.Visible = true;
+                    // ISSUE BUTTON ON
                     btnIssue.Enabled = true;
+                    lblRecordStatus.Visible = true;
+                    lblRecordStatus.ForeColor = System.Drawing.Color.Green;
+                    lblRecordStatus.Text = "THIS RESIDENT HAS A CLEAN RECORD IN OUR DATABASE!";
+
                 }
                 connection.Close();
             }
         }
         private void btnIssue_Click(object sender, EventArgs e)
         {
-
             using (var connection = new MySqlConnection(connectionString))
-            using (var command = new MySqlCommand("SELECT * FROM tbl_resident WHERE residentID = @ResidentID", connection))
             {
-                command.Parameters.AddWithValue("@ResidentID", txtResidentID.Text);
-                connection.Open();
-                using (var sqlDA = new MySqlDataAdapter(command))
+                using (var command = new MySqlCommand("SELECT * FROM tbl_resident WHERE residentID = @ResidentID", connection))
                 {
-                    DataTable table = new DataTable();
-                    sqlDA.Fill(table);
-
-                    string residentID = txtResidentID.Text;
-                    string residentName = table.Rows[0][1].ToString();
-                    string residentAge = table.Rows[0][5].ToString();
-                    string residentCivilStatus = table.Rows[0][7].ToString();
-                    string residentAddress = table.Rows[0][15].ToString();
-                    string residentNationality = table.Rows[0][8].ToString();
-                    string clearanceType = cboClearanceType.Text;
-
-                    switch (cboClearanceType.SelectedIndex)
+                    command.Parameters.AddWithValue("@ResidentID", txtResidentID.Text);
+                    connection.Open();
+                    using (var sqlDA = new MySqlDataAdapter(command))
                     {
-                        case 0:
-                            MessageBox.Show("Please Select Type of Certificate!", "Error", MessageBoxButtons.OK,
-                             MessageBoxIcon.Error);
-                            break;
-                        case 1:
-                            frm1.ResidentID = residentID;
-                            frm1.ResidentFullName = residentName;
-                            frm1.ResidentAge = residentAge;
-                            frm1.ResidentCivilStatus = residentCivilStatus;
-                            frm1.ResidentNationality = residentNationality;
-                            frm1.ResidentAddress = residentAddress;
-                            frm1.CertificationType = clearanceType;
-                            frm1.ShowDialog();
-                            break;
-                        case 2:
-                            frm1.ResidentID = txtResidentID.Text;
-                            frm1.ResidentFullName = residentName;
-                            frm1.ResidentAge = residentAge;
-                            frm1.ResidentCivilStatus = residentCivilStatus;
-                            frm1.ResidentNationality = residentNationality;
-                            frm1.ResidentAddress = residentAddress;
-                            frm1.CertificationType = clearanceType;
-                            frm1.ShowDialog();
-                            break;
-                        case 3:
-                            frm1.ResidentID = residentID;
-                            frm1.ResidentFullName = residentName;
-                            frm1.ResidentAge = residentAge;
-                            frm1.ResidentCivilStatus = residentCivilStatus;
-                            frm1.ResidentNationality = residentNationality;
-                            frm1.ResidentAddress = residentAddress;
-                            frm1.CertificationType = clearanceType;
-                            frm1.ShowDialog();
-                            break;
-                        case 4:
-                            frm2.ResidentID = residentID;
-                            frm2.FullName = residentName;
-                            frm2.OwnersAddress = residentAddress;
-                            frm2.CertificationType = clearanceType;
-                            frm2.ShowDialog();
-                            break;
+                        DataTable table = new DataTable();
+                        sqlDA.Fill(table);
+                        try
+                        {
+                            string residentID = txtResidentID.Text;
+                            string residentName = table.Rows[0][1].ToString();
+                            string residentAge = table.Rows[0][5].ToString();
+                            string residentCivilStatus = table.Rows[0][7].ToString();
+                            string residentAddress = table.Rows[0][15].ToString();
+                            string residentNationality = table.Rows[0][8].ToString();
+                            string clearanceType = cboClearanceType.Text;
+
+                            switch (cboClearanceType.SelectedIndex)
+                            {
+                                case 0:
+                                    MessageBox.Show("Please select type of certificate!", "Error", MessageBoxButtons.OK,
+                                    MessageBoxIcon.Error);
+                                    break;
+                                case 1:
+                                    frm1.ResidentID = residentID;
+                                    frm1.ResidentFullName = residentName;
+                                    frm1.ResidentAge = residentAge;
+                                    frm1.ResidentCivilStatus = residentCivilStatus;
+                                    frm1.ResidentNationality = residentNationality;
+                                    frm1.ResidentAddress = residentAddress;
+                                    frm1.CertificationType = clearanceType;
+                                    frm1.ShowDialog();
+                                    break;
+                                case 2:
+                                    frm1.ResidentID = txtResidentID.Text;
+                                    frm1.ResidentFullName = residentName;
+                                    frm1.ResidentAge = residentAge;
+                                    frm1.ResidentCivilStatus = residentCivilStatus;
+                                    frm1.ResidentNationality = residentNationality;
+                                    frm1.ResidentAddress = residentAddress;
+                                    frm1.CertificationType = clearanceType;
+                                    frm1.ShowDialog();
+                                    break;
+                                case 3:
+                                    frm1.ResidentID = residentID;
+                                    frm1.ResidentFullName = residentName;
+                                    frm1.ResidentAge = residentAge;
+                                    frm1.ResidentCivilStatus = residentCivilStatus;
+                                    frm1.ResidentNationality = residentNationality;
+                                    frm1.ResidentAddress = residentAddress;
+                                    frm1.CertificationType = clearanceType;
+                                    frm1.ShowDialog();
+                                    break;
+                                case 4:
+                                    frm2.ResidentID = residentID;
+                                    frm2.FullName = residentName;
+                                    frm2.OwnersAddress = residentAddress;
+                                    frm2.CertificationType = clearanceType;
+                                    frm2.ShowDialog();
+                                    break;
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine(ex.Message);
+                        }
                     }
+                    connection.Close();
                 }
-                connection.Close();
             }
         }
         private void txtResidentName_TextChanged(object sender, EventArgs e)
         {
-            labelNoRecord.Visible = false;
-            labelRecordFound.Visible = false;
+            lblRecordStatus.Visible = false;
+            lblRecordStatus.Visible = false;
             issueButtonOff();
         }
         private void btnRefresh_Click(object sender, EventArgs e)

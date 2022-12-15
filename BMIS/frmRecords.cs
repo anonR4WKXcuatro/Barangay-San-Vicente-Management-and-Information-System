@@ -14,7 +14,7 @@ namespace BMIS
         {
             InitializeComponent();
         }
-        public void ReleaseObject(object obj) //Release the excel objects
+        private void ReleaseObject(object obj) //Release the excel objects
         {
             try
             {
@@ -31,12 +31,15 @@ namespace BMIS
                 GC.Collect();
             }
         }
-        protected void ResidentTable()
+
+        private void ResidentTable()
         {
+            byte alive = 1;
             using (var connection = new MySqlConnection(connectionString))
-            using (var selectQuery = new MySqlCommand("SELECT * FROM tbl_resident", connection))
+            using (var selectQuery = new MySqlCommand("SELECT * FROM tbl_resident WHERE isDead = @isAlive", connection))
             {
                 connection.Open();
+                selectQuery.Parameters.AddWithValue("@isAlive", alive);
                 using (var sqlDA = new MySqlDataAdapter(selectQuery))
                 {
                     DataSet dSet = new DataSet();
@@ -63,7 +66,7 @@ namespace BMIS
                 connection.Close();
             }
         }
-        protected void BlotterTable()
+        private void BlotterTable()
         {
             using (var connection = new MySqlConnection(connectionString))
             using (var selectQuery = new MySqlCommand("SELECT * FROM tbl_blotter", connection))
@@ -96,7 +99,7 @@ namespace BMIS
                 connection.Close();
             }
         }
-        protected void ClearanceTable()
+        private void ClearanceTable()
         {
             using (var connection = new MySqlConnection(connectionString))
             using (var selectQuery = new MySqlCommand("SELECT * FROM tbl_clearance", connection))
@@ -122,7 +125,7 @@ namespace BMIS
                 connection.Close();
             }
         }
-        protected void SettlementTable()
+        private void SettlementTable()
         {
             using (var connection = new MySqlConnection(connectionString))
             using (var selectQuery = new MySqlCommand("SELECT * FROM tbl_settlement", connection))
@@ -146,7 +149,7 @@ namespace BMIS
                 connection.Close();
             }
         }
-        protected void BusinessClearanceTable()
+        private void BusinessClearanceTable()
         {
             using (var connection = new MySqlConnection(connectionString))
             using (var selectQuery = new MySqlCommand("SELECT * FROM tbl_businessclearance", connection))
@@ -156,24 +159,58 @@ namespace BMIS
                 {
                     dgvBusinessClearance.DataSource = null;
                     dgvBusinessClearance.AutoGenerateColumns = false;
-                    dgvBusinessClearance.ColumnCount = 9;
+                    dgvBusinessClearance.ColumnCount = 8;
                     DataTable dSet = new DataTable();
                     sqlDA.Fill(dSet);
-                    dgvBusinessClearance.Columns[0].DataPropertyName = "";
-                    dgvBusinessClearance.Columns[1].DataPropertyName = "orNumber";
-                    dgvBusinessClearance.Columns[2].DataPropertyName = "permitNumber";
-                    dgvBusinessClearance.Columns[3].DataPropertyName = "residentID";
-                    dgvBusinessClearance.Columns[4].DataPropertyName = "ownersName";
-                    dgvBusinessClearance.Columns[5].DataPropertyName = "ownersAddress";
-                    dgvBusinessClearance.Columns[6].DataPropertyName = "businessName";
-                    dgvBusinessClearance.Columns[7].DataPropertyName = "businessAddress";
-                    dgvBusinessClearance.Columns[8].DataPropertyName = "businessNature";
+                    dgvBusinessClearance.Columns[0].DataPropertyName = "orNumber";
+                    dgvBusinessClearance.Columns[1].DataPropertyName = "permitNumber";
+                    dgvBusinessClearance.Columns[2].DataPropertyName = "residentID";
+                    dgvBusinessClearance.Columns[3].DataPropertyName = "ownersName";
+                    dgvBusinessClearance.Columns[4].DataPropertyName = "ownersAddress";
+                    dgvBusinessClearance.Columns[5].DataPropertyName = "businessName";
+                    dgvBusinessClearance.Columns[6].DataPropertyName = "businessAddress";
+                    dgvBusinessClearance.Columns[7].DataPropertyName = "businessNature";
                     dgvBusinessClearance.DataSource = dSet;
                     dgvBusinessClearance.Refresh();
                 }
                 connection.Close();
             }
         }
+        private void DeceasedResidentTable()
+        {
+            byte dead = 0;
+            using (var connection = new MySqlConnection(connectionString))
+            using (var selectQuery = new MySqlCommand("SELECT * FROM tbl_resident WHERE isDead = @isDead", connection))
+            {
+                selectQuery.Parameters.AddWithValue("@isDead", dead);
+                connection.Open();
+                using (var sqlDA = new MySqlDataAdapter(selectQuery))
+                {
+                    DataSet dSet = new DataSet();
+                    sqlDA.Fill(dSet);
+                    dgvDeceasedResidentTable.AutoGenerateColumns = false;
+                    dgvDeceasedResidentTable.ColumnCount = 15;
+                    dgvDeceasedResidentTable.Columns[0].DataPropertyName = "residentID";
+                    dgvDeceasedResidentTable.Columns[1].DataPropertyName = "fullname";
+                    dgvDeceasedResidentTable.Columns[2].DataPropertyName = "sex";
+                    dgvDeceasedResidentTable.Columns[3].DataPropertyName = "age";
+                    dgvDeceasedResidentTable.Columns[4].DataPropertyName = "civil_status";
+                    dgvDeceasedResidentTable.Columns[5].DataPropertyName = "occupation";
+                    dgvDeceasedResidentTable.Columns[6].DataPropertyName = "address";
+                    dgvDeceasedResidentTable.Columns[7].DataPropertyName = "nationality";
+                    dgvDeceasedResidentTable.Columns[8].DataPropertyName = "religion";
+                    dgvDeceasedResidentTable.Columns[9].DataPropertyName = "birthdate";
+                    dgvDeceasedResidentTable.Columns[10].DataPropertyName = "contact_no";
+                    dgvDeceasedResidentTable.Columns[11].DataPropertyName = "category";
+                    dgvDeceasedResidentTable.Columns[12].DataPropertyName = "purok";
+                    dgvDeceasedResidentTable.Columns[13].DataPropertyName = "voter_status";
+                    dgvDeceasedResidentTable.Columns[14].DataPropertyName = "vaccination_status";
+                    dgvDeceasedResidentTable.DataSource = dSet.Tables[0];
+                }
+                connection.Close();
+            }
+        }
+
         private void searchResident(string valueToSearch1)
         {
             using (var connection = new MySqlConnection(connectionString))
@@ -257,13 +294,11 @@ namespace BMIS
             ClearanceTable();
             SettlementTable();
             BusinessClearanceTable();
+            DeceasedResidentTable();
         }
 
 
-        private void dgvBusinessClearance_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
-        {
-            this.dgvBusinessClearance.Rows[e.RowIndex].Cells["rn2"].Value = (e.RowIndex + 1).ToString();
-        }
+
         private void dgvClearanceLogs_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
             this.dgvClearanceLogs.Rows[e.RowIndex].Cells["rn3"].Value = (e.RowIndex + 1).ToString();
@@ -329,7 +364,6 @@ namespace BMIS
                 MessageBoxIcon.Error);
             }
         }
-
         private void TSMIResidentsTable_Click(object sender, EventArgs e)
         {
             if (dgvResidentTable.Rows.Count < 1)
@@ -587,6 +621,15 @@ namespace BMIS
                 txtSearchBarSettlement.Visible = false;
                 txtSearchBarCertificate.Visible = false;
                 txtSearchBarBusinessClearance.Visible = true;
+            }
+            else if (tabControl1.SelectedTab.Text == "DECEASED RESIDENTS")
+            {
+                txtSearchBar.Visible = false;
+                txtSearchBarBlotters.Visible = false;
+                txtSearchBarSettlement.Visible = false;
+                txtSearchBarCertificate.Visible = false;
+                txtSearchBarBusinessClearance.Visible = false;
+                // INSERT CODE HERE
             }
         }
         private void txtSearchBar_KeyPress(object sender, KeyPressEventArgs e)

@@ -29,22 +29,20 @@ namespace BMIS
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle52 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle49 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle50 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle51 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnRefresh = new Guna.UI2.WinForms.Guna2Button();
-            this.btnAddBlotter = new Guna.UI2.WinForms.Guna2Button();
             this.label5 = new System.Windows.Forms.Label();
             this.txtFullName = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtAge = new Guna.UI2.WinForms.Guna2TextBox();
@@ -75,13 +73,8 @@ namespace BMIS
             this.txtPurok = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtSex = new Guna.UI2.WinForms.Guna2TextBox();
             this.label18 = new System.Windows.Forms.Label();
-            this.btnSaveInfo = new Guna.UI2.WinForms.Guna2Button();
             this.txtResidentID = new Guna.UI2.WinForms.Guna2TextBox();
             this.dgvBlotter = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label17 = new System.Windows.Forms.Label();
-            this.dtpIncidentTime = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.cboIncidentType = new Guna.UI2.WinForms.Guna2ComboBox();
             this.blotterID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fullname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.purok = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -99,6 +92,14 @@ namespace BMIS
             this.incident_narrative = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SETTLE = new System.Windows.Forms.DataGridViewButtonColumn();
             this.MANAGE = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label17 = new System.Windows.Forms.Label();
+            this.dtpIncidentTime = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.cboIncidentType = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.btnPaste = new System.Windows.Forms.Button();
+            this.btnSaveInfo = new Guna.UI2.WinForms.Guna2Button();
+            this.btnRefresh = new Guna.UI2.WinForms.Guna2Button();
+            this.btnAddBlotter = new Guna.UI2.WinForms.Guna2Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBlotter)).BeginInit();
             this.panel2.SuspendLayout();
@@ -116,44 +117,6 @@ namespace BMIS
             this.panel1.Size = new System.Drawing.Size(1198, 79);
             this.panel1.TabIndex = 1;
             // 
-            // btnRefresh
-            // 
-            this.btnRefresh.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnRefresh.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnRefresh.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnRefresh.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnRefresh.FillColor = System.Drawing.Color.Transparent;
-            this.btnRefresh.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRefresh.ForeColor = System.Drawing.Color.White;
-            this.btnRefresh.Image = global::BMIS.Properties.Resources.icons8_sync_30;
-            this.btnRefresh.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnRefresh.Location = new System.Drawing.Point(579, 3);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(158, 74);
-            this.btnRefresh.TabIndex = 57;
-            this.btnRefresh.Text = "   REFRESH";
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
-            // 
-            // btnAddBlotter
-            // 
-            this.btnAddBlotter.Animated = true;
-            this.btnAddBlotter.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnAddBlotter.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnAddBlotter.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnAddBlotter.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnAddBlotter.FillColor = System.Drawing.Color.Transparent;
-            this.btnAddBlotter.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddBlotter.ForeColor = System.Drawing.Color.White;
-            this.btnAddBlotter.Image = global::BMIS.Properties.Resources.icons8_plus___30;
-            this.btnAddBlotter.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnAddBlotter.Location = new System.Drawing.Point(415, 3);
-            this.btnAddBlotter.Name = "btnAddBlotter";
-            this.btnAddBlotter.Size = new System.Drawing.Size(158, 76);
-            this.btnAddBlotter.TabIndex = 46;
-            this.btnAddBlotter.Text = "FILE CASE";
-            this.btnAddBlotter.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnAddBlotter.Click += new System.EventHandler(this.btnAddBlotter_Click);
-            // 
             // label5
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -168,6 +131,7 @@ namespace BMIS
             // 
             // txtFullName
             // 
+            this.txtFullName.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
             this.txtFullName.BorderRadius = 15;
             this.txtFullName.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtFullName.DefaultText = "";
@@ -175,7 +139,7 @@ namespace BMIS
             this.txtFullName.DisabledState.FillColor = System.Drawing.Color.LightGray;
             this.txtFullName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtFullName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtFullName.FillColor = System.Drawing.Color.LightGray;
+            this.txtFullName.Enabled = false;
             this.txtFullName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtFullName.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtFullName.ForeColor = System.Drawing.Color.Black;
@@ -184,7 +148,6 @@ namespace BMIS
             this.txtFullName.Name = "txtFullName";
             this.txtFullName.PasswordChar = '\0';
             this.txtFullName.PlaceholderText = "";
-            this.txtFullName.ReadOnly = true;
             this.txtFullName.SelectedText = "";
             this.txtFullName.Size = new System.Drawing.Size(365, 45);
             this.txtFullName.TabIndex = 2;
@@ -192,6 +155,7 @@ namespace BMIS
             // 
             // txtAge
             // 
+            this.txtAge.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
             this.txtAge.BorderRadius = 15;
             this.txtAge.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtAge.DefaultText = "";
@@ -199,17 +163,17 @@ namespace BMIS
             this.txtAge.DisabledState.FillColor = System.Drawing.Color.LightGray;
             this.txtAge.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtAge.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtAge.FillColor = System.Drawing.Color.LightGray;
+            this.txtAge.Enabled = false;
+            this.txtAge.FillColor = System.Drawing.Color.LightYellow;
             this.txtAge.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtAge.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtAge.ForeColor = System.Drawing.Color.Black;
+            this.txtAge.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtAge.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtAge.Location = new System.Drawing.Point(10, 367);
             this.txtAge.MaxLength = 3;
             this.txtAge.Name = "txtAge";
             this.txtAge.PasswordChar = '\0';
             this.txtAge.PlaceholderText = "";
-            this.txtAge.ReadOnly = true;
             this.txtAge.SelectedText = "";
             this.txtAge.Size = new System.Drawing.Size(108, 45);
             this.txtAge.TabIndex = 3;
@@ -217,6 +181,7 @@ namespace BMIS
             // 
             // txtContactNo
             // 
+            this.txtContactNo.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
             this.txtContactNo.BorderRadius = 15;
             this.txtContactNo.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtContactNo.DefaultText = "";
@@ -224,7 +189,7 @@ namespace BMIS
             this.txtContactNo.DisabledState.FillColor = System.Drawing.Color.LightGray;
             this.txtContactNo.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtContactNo.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtContactNo.FillColor = System.Drawing.Color.LightGray;
+            this.txtContactNo.Enabled = false;
             this.txtContactNo.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtContactNo.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtContactNo.ForeColor = System.Drawing.Color.Black;
@@ -234,7 +199,6 @@ namespace BMIS
             this.txtContactNo.Name = "txtContactNo";
             this.txtContactNo.PasswordChar = '\0';
             this.txtContactNo.PlaceholderText = "";
-            this.txtContactNo.ReadOnly = true;
             this.txtContactNo.SelectedText = "";
             this.txtContactNo.Size = new System.Drawing.Size(365, 45);
             this.txtContactNo.TabIndex = 6;
@@ -330,6 +294,7 @@ namespace BMIS
             // 
             // txtBlotterNo
             // 
+            this.txtBlotterNo.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
             this.txtBlotterNo.BorderRadius = 15;
             this.txtBlotterNo.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtBlotterNo.DefaultText = "";
@@ -337,17 +302,17 @@ namespace BMIS
             this.txtBlotterNo.DisabledState.FillColor = System.Drawing.Color.LightGray;
             this.txtBlotterNo.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtBlotterNo.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtBlotterNo.FillColor = System.Drawing.Color.LightGray;
+            this.txtBlotterNo.Enabled = false;
+            this.txtBlotterNo.FillColor = System.Drawing.Color.LightYellow;
             this.txtBlotterNo.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtBlotterNo.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtBlotterNo.ForeColor = System.Drawing.Color.Black;
+            this.txtBlotterNo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtBlotterNo.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtBlotterNo.Location = new System.Drawing.Point(387, 127);
             this.txtBlotterNo.MaxLength = 20;
             this.txtBlotterNo.Name = "txtBlotterNo";
             this.txtBlotterNo.PasswordChar = '\0';
             this.txtBlotterNo.PlaceholderText = "";
-            this.txtBlotterNo.ReadOnly = true;
             this.txtBlotterNo.SelectedText = "";
             this.txtBlotterNo.Size = new System.Drawing.Size(365, 45);
             this.txtBlotterNo.TabIndex = 14;
@@ -376,6 +341,7 @@ namespace BMIS
             // 
             // txtIncidentPlace
             // 
+            this.txtIncidentPlace.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
             this.txtIncidentPlace.BorderRadius = 15;
             this.txtIncidentPlace.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtIncidentPlace.DefaultText = "";
@@ -383,7 +349,7 @@ namespace BMIS
             this.txtIncidentPlace.DisabledState.FillColor = System.Drawing.Color.LightGray;
             this.txtIncidentPlace.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtIncidentPlace.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtIncidentPlace.FillColor = System.Drawing.Color.LightGray;
+            this.txtIncidentPlace.Enabled = false;
             this.txtIncidentPlace.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtIncidentPlace.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtIncidentPlace.ForeColor = System.Drawing.Color.Black;
@@ -392,7 +358,6 @@ namespace BMIS
             this.txtIncidentPlace.Name = "txtIncidentPlace";
             this.txtIncidentPlace.PasswordChar = '\0';
             this.txtIncidentPlace.PlaceholderText = "";
-            this.txtIncidentPlace.ReadOnly = true;
             this.txtIncidentPlace.SelectedText = "";
             this.txtIncidentPlace.Size = new System.Drawing.Size(365, 45);
             this.txtIncidentPlace.TabIndex = 18;
@@ -411,6 +376,7 @@ namespace BMIS
             // 
             // txtComplainant
             // 
+            this.txtComplainant.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
             this.txtComplainant.BorderRadius = 15;
             this.txtComplainant.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtComplainant.DefaultText = "";
@@ -418,7 +384,7 @@ namespace BMIS
             this.txtComplainant.DisabledState.FillColor = System.Drawing.Color.LightGray;
             this.txtComplainant.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtComplainant.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtComplainant.FillColor = System.Drawing.Color.LightGray;
+            this.txtComplainant.Enabled = false;
             this.txtComplainant.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtComplainant.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtComplainant.ForeColor = System.Drawing.Color.Black;
@@ -427,7 +393,6 @@ namespace BMIS
             this.txtComplainant.Name = "txtComplainant";
             this.txtComplainant.PasswordChar = '\0';
             this.txtComplainant.PlaceholderText = "";
-            this.txtComplainant.ReadOnly = true;
             this.txtComplainant.SelectedText = "";
             this.txtComplainant.Size = new System.Drawing.Size(365, 45);
             this.txtComplainant.TabIndex = 20;
@@ -493,7 +458,7 @@ namespace BMIS
             this.txtSuspect.DisabledState.FillColor = System.Drawing.Color.LightGray;
             this.txtSuspect.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtSuspect.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtSuspect.FillColor = System.Drawing.Color.LightGray;
+            this.txtSuspect.Enabled = false;
             this.txtSuspect.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtSuspect.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtSuspect.ForeColor = System.Drawing.Color.Black;
@@ -501,8 +466,8 @@ namespace BMIS
             this.txtSuspect.Location = new System.Drawing.Point(775, 127);
             this.txtSuspect.Name = "txtSuspect";
             this.txtSuspect.PasswordChar = '\0';
+            this.txtSuspect.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
             this.txtSuspect.PlaceholderText = "";
-            this.txtSuspect.ReadOnly = true;
             this.txtSuspect.SelectedText = "";
             this.txtSuspect.Size = new System.Drawing.Size(411, 45);
             this.txtSuspect.TabIndex = 26;
@@ -512,10 +477,10 @@ namespace BMIS
             // 
             this.txtIncidentNarration.BackColor = System.Drawing.Color.LightGray;
             this.txtIncidentNarration.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtIncidentNarration.Enabled = false;
             this.txtIncidentNarration.Location = new System.Drawing.Point(775, 207);
             this.txtIncidentNarration.Multiline = true;
             this.txtIncidentNarration.Name = "txtIncidentNarration";
-            this.txtIncidentNarration.ReadOnly = true;
             this.txtIncidentNarration.Size = new System.Drawing.Size(411, 283);
             this.txtIncidentNarration.TabIndex = 28;
             this.txtIncidentNarration.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIncidentNarration_KeyPress);
@@ -544,6 +509,7 @@ namespace BMIS
             // 
             // txtCivilStatus
             // 
+            this.txtCivilStatus.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
             this.txtCivilStatus.BorderRadius = 15;
             this.txtCivilStatus.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtCivilStatus.DefaultText = "";
@@ -551,7 +517,7 @@ namespace BMIS
             this.txtCivilStatus.DisabledState.FillColor = System.Drawing.Color.LightGray;
             this.txtCivilStatus.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtCivilStatus.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtCivilStatus.FillColor = System.Drawing.Color.LightGray;
+            this.txtCivilStatus.Enabled = false;
             this.txtCivilStatus.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtCivilStatus.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtCivilStatus.ForeColor = System.Drawing.Color.Black;
@@ -560,7 +526,6 @@ namespace BMIS
             this.txtCivilStatus.Name = "txtCivilStatus";
             this.txtCivilStatus.PasswordChar = '\0';
             this.txtCivilStatus.PlaceholderText = "";
-            this.txtCivilStatus.ReadOnly = true;
             this.txtCivilStatus.SelectedText = "";
             this.txtCivilStatus.Size = new System.Drawing.Size(136, 45);
             this.txtCivilStatus.TabIndex = 42;
@@ -568,6 +533,7 @@ namespace BMIS
             // 
             // txtPurok
             // 
+            this.txtPurok.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
             this.txtPurok.BorderRadius = 15;
             this.txtPurok.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtPurok.DefaultText = "";
@@ -575,7 +541,7 @@ namespace BMIS
             this.txtPurok.DisabledState.FillColor = System.Drawing.Color.LightGray;
             this.txtPurok.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtPurok.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtPurok.FillColor = System.Drawing.Color.LightGray;
+            this.txtPurok.Enabled = false;
             this.txtPurok.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtPurok.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtPurok.ForeColor = System.Drawing.Color.Black;
@@ -584,7 +550,6 @@ namespace BMIS
             this.txtPurok.Name = "txtPurok";
             this.txtPurok.PasswordChar = '\0';
             this.txtPurok.PlaceholderText = "";
-            this.txtPurok.ReadOnly = true;
             this.txtPurok.SelectedText = "";
             this.txtPurok.Size = new System.Drawing.Size(365, 45);
             this.txtPurok.TabIndex = 43;
@@ -592,6 +557,7 @@ namespace BMIS
             // 
             // txtSex
             // 
+            this.txtSex.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
             this.txtSex.BorderRadius = 15;
             this.txtSex.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtSex.DefaultText = "";
@@ -599,7 +565,7 @@ namespace BMIS
             this.txtSex.DisabledState.FillColor = System.Drawing.Color.LightGray;
             this.txtSex.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtSex.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtSex.FillColor = System.Drawing.Color.LightGray;
+            this.txtSex.Enabled = false;
             this.txtSex.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtSex.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtSex.ForeColor = System.Drawing.Color.Black;
@@ -608,7 +574,6 @@ namespace BMIS
             this.txtSex.Name = "txtSex";
             this.txtSex.PasswordChar = '\0';
             this.txtSex.PlaceholderText = "";
-            this.txtSex.ReadOnly = true;
             this.txtSex.SelectedText = "";
             this.txtSex.Size = new System.Drawing.Size(108, 45);
             this.txtSex.TabIndex = 44;
@@ -625,31 +590,9 @@ namespace BMIS
             this.label18.TabIndex = 45;
             this.label18.Text = "(Last name, First name, MI)";
             // 
-            // btnSaveInfo
-            // 
-            this.btnSaveInfo.Animated = true;
-            this.btnSaveInfo.AutoRoundedCorners = true;
-            this.btnSaveInfo.BorderRadius = 20;
-            this.btnSaveInfo.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnSaveInfo.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnSaveInfo.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnSaveInfo.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnSaveInfo.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnSaveInfo.Enabled = false;
-            this.btnSaveInfo.FillColor = System.Drawing.Color.LightGray;
-            this.btnSaveInfo.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnSaveInfo.ForeColor = System.Drawing.Color.White;
-            this.btnSaveInfo.Image = global::BMIS.Properties.Resources.icons8_plus___30;
-            this.btnSaveInfo.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnSaveInfo.Location = new System.Drawing.Point(1060, 505);
-            this.btnSaveInfo.Name = "btnSaveInfo";
-            this.btnSaveInfo.Size = new System.Drawing.Size(126, 43);
-            this.btnSaveInfo.TabIndex = 37;
-            this.btnSaveInfo.Text = "SAVE";
-            this.btnSaveInfo.Click += new System.EventHandler(this.btnSaveInfo_Click);
-            // 
             // txtResidentID
             // 
+            this.txtResidentID.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
             this.txtResidentID.BorderRadius = 15;
             this.txtResidentID.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtResidentID.DefaultText = "";
@@ -657,10 +600,11 @@ namespace BMIS
             this.txtResidentID.DisabledState.FillColor = System.Drawing.Color.LightGray;
             this.txtResidentID.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtResidentID.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtResidentID.FillColor = System.Drawing.Color.LightGray;
+            this.txtResidentID.Enabled = false;
+            this.txtResidentID.FillColor = System.Drawing.Color.LightYellow;
             this.txtResidentID.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtResidentID.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtResidentID.ForeColor = System.Drawing.Color.Black;
+            this.txtResidentID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtResidentID.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtResidentID.IconRightOffset = new System.Drawing.Point(5, 0);
             this.txtResidentID.Location = new System.Drawing.Point(9, 127);
@@ -669,7 +613,6 @@ namespace BMIS
             this.txtResidentID.PasswordChar = '\0';
             this.txtResidentID.PlaceholderForeColor = System.Drawing.Color.Gray;
             this.txtResidentID.PlaceholderText = "";
-            this.txtResidentID.ReadOnly = true;
             this.txtResidentID.SelectedText = "";
             this.txtResidentID.Size = new System.Drawing.Size(365, 45);
             this.txtResidentID.TabIndex = 2;
@@ -681,21 +624,21 @@ namespace BMIS
             this.dgvBlotter.AllowUserToDeleteRows = false;
             this.dgvBlotter.AllowUserToResizeColumns = false;
             this.dgvBlotter.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dgvBlotter.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle40.BackColor = System.Drawing.Color.White;
+            this.dgvBlotter.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle40;
             this.dgvBlotter.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvBlotter.BackgroundColor = System.Drawing.Color.White;
             this.dgvBlotter.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvBlotter.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvBlotter.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(54)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvBlotter.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle41.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle41.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(54)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle41.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle41.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle41.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle41.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle41.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBlotter.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle41;
             this.dgvBlotter.ColumnHeadersHeight = 29;
             this.dgvBlotter.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvBlotter.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -716,14 +659,14 @@ namespace BMIS
             this.incident_narrative,
             this.SETTLE,
             this.MANAGE});
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvBlotter.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle52.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle52.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle52.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle52.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle52.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle52.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle52.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvBlotter.DefaultCellStyle = dataGridViewCellStyle52;
             this.dgvBlotter.EnableHeadersVisualStyles = false;
             this.dgvBlotter.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvBlotter.Location = new System.Drawing.Point(0, 561);
@@ -758,76 +701,11 @@ namespace BMIS
             this.dgvBlotter.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dgvBlotter.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBlotter_CellClick);
             // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(54)))), ((int)(((byte)(64)))));
-            this.panel2.Controls.Add(this.label17);
-            this.panel2.Location = new System.Drawing.Point(0, 533);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(272, 28);
-            this.panel2.TabIndex = 55;
-            // 
-            // label17
-            // 
-            this.label17.BackColor = System.Drawing.Color.Transparent;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.Color.White;
-            this.label17.Location = new System.Drawing.Point(0, 0);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(272, 28);
-            this.label17.TabIndex = 53;
-            this.label17.Text = "LIST OF BLOTTERS";
-            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // dtpIncidentTime
-            // 
-            this.dtpIncidentTime.BackColor = System.Drawing.SystemColors.Control;
-            this.dtpIncidentTime.BorderRadius = 15;
-            this.dtpIncidentTime.Checked = true;
-            this.dtpIncidentTime.CustomFormat = "hh:mm tt";
-            this.dtpIncidentTime.Enabled = false;
-            this.dtpIncidentTime.FillColor = System.Drawing.Color.White;
-            this.dtpIncidentTime.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.dtpIncidentTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpIncidentTime.Location = new System.Drawing.Point(592, 287);
-            this.dtpIncidentTime.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.dtpIncidentTime.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.dtpIncidentTime.Name = "dtpIncidentTime";
-            this.dtpIncidentTime.ShowUpDown = true;
-            this.dtpIncidentTime.Size = new System.Drawing.Size(160, 43);
-            this.dtpIncidentTime.TabIndex = 56;
-            this.dtpIncidentTime.Value = new System.DateTime(2022, 1, 5, 0, 0, 0, 0);
-            // 
-            // cboIncidentType
-            // 
-            this.cboIncidentType.BackColor = System.Drawing.Color.Transparent;
-            this.cboIncidentType.BorderRadius = 15;
-            this.cboIncidentType.DisabledState.FillColor = System.Drawing.Color.LightGray;
-            this.cboIncidentType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cboIncidentType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboIncidentType.Enabled = false;
-            this.cboIncidentType.FillColor = System.Drawing.Color.LightGray;
-            this.cboIncidentType.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cboIncidentType.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cboIncidentType.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cboIncidentType.ForeColor = System.Drawing.Color.Black;
-            this.cboIncidentType.ItemHeight = 30;
-            this.cboIncidentType.Items.AddRange(new object[] {
-            "",
-            "Criminal Fraud",
-            "Anti-Violence Against Women and Their Children Act",
-            "Concubinage",
-            "Adultery"});
-            this.cboIncidentType.Location = new System.Drawing.Point(387, 207);
-            this.cboIncidentType.Name = "cboIncidentType";
-            this.cboIncidentType.Size = new System.Drawing.Size(365, 36);
-            this.cboIncidentType.TabIndex = 57;
-            // 
             // blotterID
             // 
             this.blotterID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.blotterID.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle42.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.blotterID.DefaultCellStyle = dataGridViewCellStyle42;
             this.blotterID.HeaderText = "BLOTTER NO";
             this.blotterID.MinimumWidth = 6;
             this.blotterID.Name = "blotterID";
@@ -837,8 +715,8 @@ namespace BMIS
             // fullname
             // 
             this.fullname.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fullname.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle43.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fullname.DefaultCellStyle = dataGridViewCellStyle43;
             this.fullname.HeaderText = "REPORTED RESIDENT";
             this.fullname.MinimumWidth = 6;
             this.fullname.Name = "fullname";
@@ -887,8 +765,8 @@ namespace BMIS
             // 
             // incident_type
             // 
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.incident_type.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle44.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.incident_type.DefaultCellStyle = dataGridViewCellStyle44;
             this.incident_type.HeaderText = "TYPE";
             this.incident_type.MinimumWidth = 6;
             this.incident_type.Name = "incident_type";
@@ -897,8 +775,8 @@ namespace BMIS
             // incident_date
             // 
             this.incident_date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.incident_date.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle45.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.incident_date.DefaultCellStyle = dataGridViewCellStyle45;
             this.incident_date.HeaderText = "DATE";
             this.incident_date.MinimumWidth = 6;
             this.incident_date.Name = "incident_date";
@@ -908,8 +786,8 @@ namespace BMIS
             // incident_time
             // 
             this.incident_time.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.incident_time.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle46.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.incident_time.DefaultCellStyle = dataGridViewCellStyle46;
             this.incident_time.HeaderText = "TIME";
             this.incident_time.MinimumWidth = 6;
             this.incident_time.Name = "incident_time";
@@ -919,8 +797,8 @@ namespace BMIS
             // date_filed
             // 
             this.date_filed.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.date_filed.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle47.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.date_filed.DefaultCellStyle = dataGridViewCellStyle47;
             this.date_filed.HeaderText = "DATE FILED";
             this.date_filed.MinimumWidth = 6;
             this.date_filed.Name = "date_filed";
@@ -938,8 +816,8 @@ namespace BMIS
             // complainant_name
             // 
             this.complainant_name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.complainant_name.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle48.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.complainant_name.DefaultCellStyle = dataGridViewCellStyle48;
             this.complainant_name.HeaderText = "COMPLAINANT";
             this.complainant_name.MinimumWidth = 6;
             this.complainant_name.Name = "complainant_name";
@@ -948,8 +826,8 @@ namespace BMIS
             // 
             // suspect_identity
             // 
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.suspect_identity.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle49.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.suspect_identity.DefaultCellStyle = dataGridViewCellStyle49;
             this.suspect_identity.HeaderText = "SUSPECT";
             this.suspect_identity.MinimumWidth = 6;
             this.suspect_identity.Name = "suspect_identity";
@@ -968,9 +846,9 @@ namespace BMIS
             // 
             this.SETTLE.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.SETTLE.DataPropertyName = "SETTLE";
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SETTLE.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle50.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle50.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SETTLE.DefaultCellStyle = dataGridViewCellStyle50;
             this.SETTLE.HeaderText = "";
             this.SETTLE.MinimumWidth = 6;
             this.SETTLE.Name = "SETTLE";
@@ -983,9 +861,9 @@ namespace BMIS
             // 
             this.MANAGE.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.MANAGE.DataPropertyName = "MANAGE";
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MANAGE.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle51.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle51.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MANAGE.DefaultCellStyle = dataGridViewCellStyle51;
             this.MANAGE.HeaderText = "";
             this.MANAGE.MinimumWidth = 6;
             this.MANAGE.Name = "MANAGE";
@@ -994,12 +872,153 @@ namespace BMIS
             this.MANAGE.UseColumnTextForButtonValue = true;
             this.MANAGE.Width = 6;
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(54)))), ((int)(((byte)(64)))));
+            this.panel2.Controls.Add(this.label17);
+            this.panel2.Location = new System.Drawing.Point(0, 533);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(207, 28);
+            this.panel2.TabIndex = 55;
+            // 
+            // label17
+            // 
+            this.label17.BackColor = System.Drawing.Color.Transparent;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.White;
+            this.label17.Location = new System.Drawing.Point(0, 0);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(232, 28);
+            this.label17.TabIndex = 53;
+            this.label17.Text = "LIST OF BLOTTERS";
+            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // dtpIncidentTime
+            // 
+            this.dtpIncidentTime.BackColor = System.Drawing.SystemColors.Control;
+            this.dtpIncidentTime.BorderRadius = 15;
+            this.dtpIncidentTime.Checked = true;
+            this.dtpIncidentTime.CustomFormat = "hh:mm tt";
+            this.dtpIncidentTime.Enabled = false;
+            this.dtpIncidentTime.FillColor = System.Drawing.Color.White;
+            this.dtpIncidentTime.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.dtpIncidentTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpIncidentTime.Location = new System.Drawing.Point(592, 287);
+            this.dtpIncidentTime.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dtpIncidentTime.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dtpIncidentTime.Name = "dtpIncidentTime";
+            this.dtpIncidentTime.ShowUpDown = true;
+            this.dtpIncidentTime.Size = new System.Drawing.Size(160, 43);
+            this.dtpIncidentTime.TabIndex = 56;
+            this.dtpIncidentTime.Value = new System.DateTime(2022, 1, 5, 0, 0, 0, 0);
+            // 
+            // cboIncidentType
+            // 
+            this.cboIncidentType.BackColor = System.Drawing.Color.Transparent;
+            this.cboIncidentType.BorderRadius = 15;
+            this.cboIncidentType.DisabledState.FillColor = System.Drawing.Color.LightGray;
+            this.cboIncidentType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboIncidentType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboIncidentType.Enabled = false;
+            this.cboIncidentType.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cboIncidentType.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cboIncidentType.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboIncidentType.ForeColor = System.Drawing.Color.Black;
+            this.cboIncidentType.ItemHeight = 30;
+            this.cboIncidentType.Items.AddRange(new object[] {
+            "",
+            "CRIMINAL FRAUD",
+            "ANTI-VIOLENCE AGAINST WOMEN AND CHILDREN",
+            "CONCUBINAGE",
+            "ADULTERY"});
+            this.cboIncidentType.Location = new System.Drawing.Point(387, 207);
+            this.cboIncidentType.Name = "cboIncidentType";
+            this.cboIncidentType.Size = new System.Drawing.Size(365, 36);
+            this.cboIncidentType.TabIndex = 57;
+            // 
+            // btnPaste
+            // 
+            this.btnPaste.BackColor = System.Drawing.SystemColors.Control;
+            this.btnPaste.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPaste.Enabled = false;
+            this.btnPaste.FlatAppearance.BorderSize = 0;
+            this.btnPaste.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPaste.Image = global::BMIS.Properties.Resources.icons8_paste_24;
+            this.btnPaste.Location = new System.Drawing.Point(336, 88);
+            this.btnPaste.Name = "btnPaste";
+            this.btnPaste.Size = new System.Drawing.Size(38, 36);
+            this.btnPaste.TabIndex = 64;
+            this.btnPaste.UseVisualStyleBackColor = false;
+            this.btnPaste.Click += new System.EventHandler(this.btnPaste_Click);
+            // 
+            // btnSaveInfo
+            // 
+            this.btnSaveInfo.Animated = true;
+            this.btnSaveInfo.AutoRoundedCorners = true;
+            this.btnSaveInfo.BorderRadius = 20;
+            this.btnSaveInfo.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnSaveInfo.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnSaveInfo.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnSaveInfo.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnSaveInfo.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnSaveInfo.Enabled = false;
+            this.btnSaveInfo.FillColor = System.Drawing.Color.LightGray;
+            this.btnSaveInfo.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnSaveInfo.ForeColor = System.Drawing.Color.White;
+            this.btnSaveInfo.Image = global::BMIS.Properties.Resources.icons8_plus___30;
+            this.btnSaveInfo.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnSaveInfo.Location = new System.Drawing.Point(1060, 505);
+            this.btnSaveInfo.Name = "btnSaveInfo";
+            this.btnSaveInfo.Size = new System.Drawing.Size(126, 43);
+            this.btnSaveInfo.TabIndex = 37;
+            this.btnSaveInfo.Text = "SAVE";
+            this.btnSaveInfo.Click += new System.EventHandler(this.btnSaveInfo_Click);
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnRefresh.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnRefresh.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnRefresh.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnRefresh.FillColor = System.Drawing.Color.Transparent;
+            this.btnRefresh.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefresh.ForeColor = System.Drawing.Color.White;
+            this.btnRefresh.Image = global::BMIS.Properties.Resources.icons8_sync_30;
+            this.btnRefresh.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnRefresh.Location = new System.Drawing.Point(579, 3);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(158, 74);
+            this.btnRefresh.TabIndex = 57;
+            this.btnRefresh.Text = "   REFRESH";
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
+            // btnAddBlotter
+            // 
+            this.btnAddBlotter.Animated = true;
+            this.btnAddBlotter.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnAddBlotter.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnAddBlotter.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnAddBlotter.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnAddBlotter.FillColor = System.Drawing.Color.Transparent;
+            this.btnAddBlotter.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddBlotter.ForeColor = System.Drawing.Color.White;
+            this.btnAddBlotter.Image = global::BMIS.Properties.Resources.icons8_plus___30;
+            this.btnAddBlotter.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnAddBlotter.Location = new System.Drawing.Point(415, 3);
+            this.btnAddBlotter.Name = "btnAddBlotter";
+            this.btnAddBlotter.Size = new System.Drawing.Size(158, 76);
+            this.btnAddBlotter.TabIndex = 46;
+            this.btnAddBlotter.Text = "FILE CASE";
+            this.btnAddBlotter.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnAddBlotter.Click += new System.EventHandler(this.btnAddBlotter_Click);
+            // 
             // frmCases
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1198, 812);
             this.ControlBox = false;
+            this.Controls.Add(this.btnPaste);
             this.Controls.Add(this.cboIncidentType);
             this.Controls.Add(this.dtpIncidentTime);
             this.Controls.Add(this.dgvBlotter);
@@ -1107,5 +1126,6 @@ namespace BMIS
         private System.Windows.Forms.DataGridViewTextBoxColumn incident_narrative;
         private System.Windows.Forms.DataGridViewButtonColumn SETTLE;
         private System.Windows.Forms.DataGridViewButtonColumn MANAGE;
+        private System.Windows.Forms.Button btnPaste;
     }
 }

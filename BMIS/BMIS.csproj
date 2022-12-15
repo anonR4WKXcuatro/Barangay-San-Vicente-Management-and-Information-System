@@ -7,7 +7,7 @@
     <ProjectGuid>{D86D6BBD-53B8-4259-80D2-9D6B270F6AC4}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>BMIS</RootNamespace>
-    <AssemblyName>BMIS</AssemblyName>
+    <AssemblyName>Barangay Management and Information System</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -50,8 +50,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>
-    </ApplicationIcon>
+    <ApplicationIcon>SVLogo.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>8D05F186A129B00E42FF540246BC64580D5DBC93</ManifestCertificateThumbprint>
@@ -92,6 +91,13 @@
     <NoWarn>0168</NoWarn>
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
   </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <Win32Resource>
+    </Win32Resource>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup />
   <PropertyGroup>
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
@@ -464,6 +470,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
+    <None Include="Resources\icons8-paste-24.png" />
+    <Content Include="SVLogo.ico" />
     <None Include="Resources\New sto tomas logo-modified.png" />
     <None Include="Resources\icons8-headstone-30.png" />
     <None Include="Resources\SVLogo.ico" />

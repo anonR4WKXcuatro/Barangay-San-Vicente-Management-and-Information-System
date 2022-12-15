@@ -17,18 +17,20 @@ namespace BMIS
             string uv = "NOT REGISTERED";
             string snr = "SENIOR";
             string pwd = "PWD";
+            byte alive = 1;
             using (var connection = new MySqlConnection(connectionString))
             using (var blotterCounts = new MySqlCommand("SELECT COUNT(blotterID) AS NumberOfBlotters FROM tbl_blotter", connection))
             using (var unregisteredVoter = new MySqlCommand("SELECT COUNT(*) AS NumberOfUnregisteredVoters FROM tbl_resident WHERE voter_status LIKE @noUV", connection))
             using (var issuedClearances = new MySqlCommand("SELECT COUNT(*) AS NumberOfIssuedClearances FROM tbl_clearance WHERE date LIKE @date", connection))
             using (var totalSeniors = new MySqlCommand("SELECT COUNT(*) AS NumberOfSeniors FROM tbl_resident WHERE category LIKE @senior", connection))
             using (var totalPWD = new MySqlCommand("SELECT COUNT(*) AS NumberOfPWD FROM tbl_resident WHERE category LIKE @pwd", connection))
-            using (var totalResidents = new MySqlCommand("SELECT COUNT(residentID) AS NumberOfResidents FROM tbl_resident", connection))
+            using (var totalResidents = new MySqlCommand("SELECT COUNT(isDead) AS NumberOfResidents FROM tbl_resident WHERE isDead LIKE @isDead", connection))
             {
                 unregisteredVoter.Parameters.AddWithValue("@noUV", uv);
                 issuedClearances.Parameters.AddWithValue("@date", currentDate);
                 totalSeniors.Parameters.AddWithValue("@senior", snr);
                 totalPWD.Parameters.AddWithValue("@pwd", pwd);
+                totalResidents.Parameters.AddWithValue("@isDead", alive);
                 connection.Open();
                 int count2 = Convert.ToInt32(totalPWD.ExecuteScalar());
                 int count3 = Convert.ToInt32(blotterCounts.ExecuteScalar());

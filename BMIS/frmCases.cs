@@ -17,86 +17,75 @@ namespace BMIS
         }
         private void controlsOn()
         {
-            //textboxes
-            txtResidentID.FillColor = Color.White;
-            txtResidentID.ReadOnly = false;
-            txtBlotterNo.FillColor = Color.LightYellow;
-            txtFullName.ReadOnly = false;
-            txtFullName.FillColor = Color.White;
-            txtPurok.ReadOnly = false;
-            txtPurok.FillColor = Color.White;
-            txtAge.ReadOnly = false;
-            txtAge.FillColor = Color.White;
-            txtSex.ReadOnly = false;
-            txtSex.FillColor = Color.White;
-            txtCivilStatus.ReadOnly = false;
-            txtCivilStatus.FillColor = Color.White;
-            txtContactNo.ReadOnly = false;
-            txtContactNo.FillColor = Color.White;
+            bool t = true;
+            //BUTTON
+            btnPaste.Enabled = t;
 
+            //TEXTBOX
+            txtResidentID.Enabled = t;
+            txtResidentID.ReadOnly = t;
 
-            txtIncidentPlace.ReadOnly = false;
-            txtIncidentPlace.FillColor = Color.White;
-            txtComplainant.ReadOnly = false;
-            txtComplainant.FillColor = Color.White;
-            txtSuspect.ReadOnly = false;
-            txtSuspect.FillColor = Color.White;
-            txtIncidentNarration.ReadOnly = false;
+            txtFullName.Enabled = t;
+            txtPurok.Enabled = t;
+            txtAge.Enabled = t;
+
+            txtAge.ReadOnly = t;
+            txtSex.Enabled = t;
+
+            txtCivilStatus.Enabled = t;
+            txtContactNo.Enabled = t;
+
+            txtBlotterNo.Enabled = t;
+            txtBlotterNo.ReadOnly = t;
+
+            cboIncidentType.Enabled = t;
+            txtIncidentPlace.Enabled = t;
+            txtComplainant.Enabled = t;
+            txtSuspect.Enabled = t;
+            txtIncidentNarration.Enabled = t;
             txtIncidentNarration.BackColor = Color.White;
+            //
 
-            //dtp
-            dtpIncidentDate.Enabled = true;
-            dtpIncidentTime.Enabled = true;
-            cboIncidentType.Enabled = true;
-            cboIncidentType.FillColor = Color.White;
+            dtpIncidentDate.Enabled = t;
+            dtpIncidentTime.Enabled = t;
+
+
         }
         private void controlsOff()
         {
-            //buttons
-            btnSaveInfo.FillColor = Color.LightGray;
-            btnSaveInfo.Enabled = false;
-            //textboxes
-            txtResidentID.FillColor = Color.LightGray;
-            txtResidentID.ReadOnly = true;
-            txtBlotterNo.FillColor = Color.LightGray;
-            txtFullName.ReadOnly = true;
-            txtFullName.FillColor = Color.LightGray;
-            txtPurok.ReadOnly = true;
-            txtPurok.FillColor = Color.LightGray;
-            txtAge.ReadOnly = true;
-            txtAge.FillColor = Color.LightGray;
-            txtSex.ReadOnly = true;
-            txtSex.FillColor = Color.LightGray;
-            txtCivilStatus.ReadOnly = true;
-            txtCivilStatus.FillColor = Color.LightGray;
-            txtContactNo.ReadOnly = true;
-            txtContactNo.FillColor = Color.LightGray;
+            bool f = false;
+        
+            //TEXTBOX
+            txtResidentID.Enabled = f;
+            txtResidentID.ReadOnly = f;
 
+            txtFullName.Enabled = f;
+            txtPurok.Enabled = f;
 
-            txtIncidentPlace.ReadOnly = true;
-            txtIncidentPlace.FillColor = Color.LightGray;
-            txtComplainant.ReadOnly = true;
-            txtComplainant.FillColor = Color.LightGray;
-            txtSuspect.ReadOnly = true;
-            txtSuspect.FillColor = Color.LightGray;
-            txtIncidentNarration.ReadOnly = true;
+            txtAge.Enabled = f;
+            txtAge.ReadOnly = f;
+            txtSex.Enabled = f;
+
+            txtCivilStatus.Enabled = f;
+            txtContactNo.Enabled = f;
+
+            txtBlotterNo.Enabled = f;
+            txtBlotterNo.ReadOnly = f;
+
+            cboIncidentType.Enabled = f;
+           
+
+            txtIncidentPlace.Enabled = f;
+            txtComplainant.Enabled = f;
+            txtSuspect.Enabled = f;
+            txtIncidentNarration.Enabled = f;
             txtIncidentNarration.BackColor = Color.LightGray;
-
-
-            //COMBOBOX
-            cboIncidentType.Enabled = false;
-            cboIncidentType.SelectedIndex = -1;
-            cboIncidentType.FillColor = Color.LightGray;
-
-
-            //DATAGRID
-            dgvBlotter.Enabled = true;
-
-            //DATE TIME PICKER
-            dtpIncidentDate.Enabled = false;
-            dtpIncidentTime.Enabled = false;
-
-
+            //
+            dtpIncidentDate.Enabled = f;
+            dtpIncidentTime.Enabled = f;
+            //BUTTON
+            btnPaste.Enabled = f;
+            btnSaveInfo.Enabled = f;
         }
         private void resetFields()
         {
@@ -107,7 +96,7 @@ namespace BMIS
             txtSex.ResetText();
             txtCivilStatus.ResetText();
             txtContactNo.ResetText();
-
+            cboIncidentType.SelectedIndex = -1;
             txtIncidentPlace.ResetText();
             txtComplainant.ResetText();
             txtSuspect.ResetText();
@@ -362,6 +351,11 @@ namespace BMIS
                 ch != Convert.ToChar(Keys.Back) &&
                     ch != Convert.ToChar(Keys.Delete))
                 e.Handled = true;
+        }
+
+        private void btnPaste_Click(object sender, EventArgs e)
+        {
+            txtResidentID.Text = Clipboard.GetText();
         }
     }
 }

@@ -29,21 +29,19 @@ namespace BMIS
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnRefresh = new Guna.UI2.WinForms.Guna2Button();
             this.label5 = new System.Windows.Forms.Label();
             this.cboClearanceType = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.labelRecordFound = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.labelNoRecord = new System.Windows.Forms.Label();
             this.dgvClearanceLogs = new Guna.UI2.WinForms.Guna2DataGridView();
             this.orNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clr_fname = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,6 +53,7 @@ namespace BMIS
             this.btnIssue = new Guna.UI2.WinForms.Guna2Button();
             this.btnCheckRecord = new Guna.UI2.WinForms.Guna2Button();
             this.txtResidentID = new Guna.UI2.WinForms.Guna2TextBox();
+            this.lblRecordStatus = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClearanceLogs)).BeginInit();
             this.panel2.SuspendLayout();
@@ -138,18 +137,6 @@ namespace BMIS
             this.label2.TabIndex = 10;
             this.label2.Text = "CHECK RESIDENT RECORD";
             // 
-            // labelRecordFound
-            // 
-            this.labelRecordFound.AutoSize = true;
-            this.labelRecordFound.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelRecordFound.ForeColor = System.Drawing.Color.Red;
-            this.labelRecordFound.Location = new System.Drawing.Point(12, 186);
-            this.labelRecordFound.Name = "labelRecordFound";
-            this.labelRecordFound.Size = new System.Drawing.Size(477, 17);
-            this.labelRecordFound.TabIndex = 42;
-            this.labelRecordFound.Text = "THIS RESIDENT HAS UNSETTLED ISSUE FOUND IN DATABASE!";
-            this.labelRecordFound.Visible = false;
-            // 
             // label18
             // 
             this.label18.AutoSize = true;
@@ -161,26 +148,14 @@ namespace BMIS
             this.label18.TabIndex = 46;
             this.label18.Text = "(Search by ID)";
             // 
-            // labelNoRecord
-            // 
-            this.labelNoRecord.AutoSize = true;
-            this.labelNoRecord.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNoRecord.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.labelNoRecord.Location = new System.Drawing.Point(12, 186);
-            this.labelNoRecord.Name = "labelNoRecord";
-            this.labelNoRecord.Size = new System.Drawing.Size(404, 17);
-            this.labelNoRecord.TabIndex = 47;
-            this.labelNoRecord.Text = "THIS RESIDENT HAS NO RECORD IN OUR DATABASE";
-            this.labelNoRecord.Visible = false;
-            // 
             // dgvClearanceLogs
             // 
             this.dgvClearanceLogs.AllowUserToAddRows = false;
             this.dgvClearanceLogs.AllowUserToDeleteRows = false;
             this.dgvClearanceLogs.AllowUserToResizeColumns = false;
             this.dgvClearanceLogs.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dgvClearanceLogs.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle29.BackColor = System.Drawing.Color.White;
+            this.dgvClearanceLogs.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle29;
             this.dgvClearanceLogs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -190,14 +165,14 @@ namespace BMIS
             this.dgvClearanceLogs.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvClearanceLogs.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvClearanceLogs.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(54)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvClearanceLogs.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle30.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(54)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle30.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle30.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvClearanceLogs.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle30;
             this.dgvClearanceLogs.ColumnHeadersHeight = 29;
             this.dgvClearanceLogs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvClearanceLogs.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -206,14 +181,14 @@ namespace BMIS
             this.clearance_type,
             this.clearance_purpose,
             this.clr_date});
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvClearanceLogs.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle35.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle35.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle35.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle35.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle35.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvClearanceLogs.DefaultCellStyle = dataGridViewCellStyle35;
             this.dgvClearanceLogs.EnableHeadersVisualStyles = false;
             this.dgvClearanceLogs.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvClearanceLogs.Location = new System.Drawing.Point(0, 248);
@@ -251,8 +226,8 @@ namespace BMIS
             // orNumber
             // 
             this.orNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.orNumber.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle31.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.orNumber.DefaultCellStyle = dataGridViewCellStyle31;
             this.orNumber.HeaderText = "OR NO";
             this.orNumber.MinimumWidth = 6;
             this.orNumber.Name = "orNumber";
@@ -261,8 +236,8 @@ namespace BMIS
             // clr_fname
             // 
             this.clr_fname.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clr_fname.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle32.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clr_fname.DefaultCellStyle = dataGridViewCellStyle32;
             this.clr_fname.HeaderText = "NAME OF RESIDENT";
             this.clr_fname.MinimumWidth = 6;
             this.clr_fname.Name = "clr_fname";
@@ -272,8 +247,8 @@ namespace BMIS
             // clearance_type
             // 
             this.clearance_type.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clearance_type.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle33.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clearance_type.DefaultCellStyle = dataGridViewCellStyle33;
             this.clearance_type.HeaderText = "TYPE";
             this.clearance_type.MinimumWidth = 6;
             this.clearance_type.Name = "clearance_type";
@@ -283,8 +258,8 @@ namespace BMIS
             // clearance_purpose
             // 
             this.clearance_purpose.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clearance_purpose.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle34.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clearance_purpose.DefaultCellStyle = dataGridViewCellStyle34;
             this.clearance_purpose.HeaderText = "PURPOSE";
             this.clearance_purpose.MinimumWidth = 6;
             this.clearance_purpose.Name = "clearance_purpose";
@@ -390,12 +365,25 @@ namespace BMIS
             this.txtResidentID.TabIndex = 9;
             this.txtResidentID.TextChanged += new System.EventHandler(this.txtResidentName_TextChanged);
             // 
+            // lblRecordStatus
+            // 
+            this.lblRecordStatus.AutoSize = true;
+            this.lblRecordStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRecordStatus.ForeColor = System.Drawing.Color.Black;
+            this.lblRecordStatus.Location = new System.Drawing.Point(12, 186);
+            this.lblRecordStatus.Name = "lblRecordStatus";
+            this.lblRecordStatus.Size = new System.Drawing.Size(79, 17);
+            this.lblRecordStatus.TabIndex = 55;
+            this.lblRecordStatus.Text = "[STATUS]";
+            this.lblRecordStatus.Visible = false;
+            // 
             // frmCertifications
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1174, 753);
             this.ControlBox = false;
+            this.Controls.Add(this.lblRecordStatus);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.dgvClearanceLogs);
             this.Controls.Add(this.btnIssue);
@@ -404,8 +392,6 @@ namespace BMIS
             this.Controls.Add(this.txtResidentID);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.labelNoRecord);
-            this.Controls.Add(this.labelRecordFound);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmCertifications";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -424,9 +410,7 @@ namespace BMIS
         private System.Windows.Forms.Label label5;
         private Guna.UI2.WinForms.Guna2TextBox txtResidentID;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label labelRecordFound;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label labelNoRecord;
         private Guna.UI2.WinForms.Guna2Button btnCheckRecord;
         private Guna.UI2.WinForms.Guna2Button btnIssue;
         private Guna.UI2.WinForms.Guna2ComboBox cboClearanceType;
@@ -439,5 +423,6 @@ namespace BMIS
         private System.Windows.Forms.DataGridViewTextBoxColumn clearance_type;
         private System.Windows.Forms.DataGridViewTextBoxColumn clearance_purpose;
         private System.Windows.Forms.DataGridViewTextBoxColumn clr_date;
+        private System.Windows.Forms.Label lblRecordStatus;
     }
 }
