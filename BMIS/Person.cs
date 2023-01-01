@@ -2,9 +2,13 @@
 {
     public class Person
     {
-        private string _username, _password;
-        public string Username { get => _username; set => _username = value; }
-        public string Password { get => _password; set => _password = value; }
+       
+        public string Username { get; set; }
+        public string Password { get; set; }
+        public int Role { get; set; }
+
+
+
 
         // For Resident Informations
         private string _residentID, _fullName, _fatherName, _motherName, _suffix, _age, _sex, _birthDate, _civilStatus, _nationality, _contactNo, _religion, _occupation,

@@ -7,7 +7,7 @@ namespace BMIS
 {
     public partial class frmAuth : Form
     {
-
+        private string connectionString = "server=localhost; port=3306; user=root; password=admin123; database=bmis_db";
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn
        (
@@ -66,14 +66,18 @@ namespace BMIS
                 }
             }
         }
+        bool obj;
+       
+      
         private void btnAccess_Click(object sender, EventArgs e)
         {
             Authenticate();
-
-        }
+        }     
         private void btnClose_Click(object sender, EventArgs e)
         {
             Dispose();
         }
+
+       
     }
 }

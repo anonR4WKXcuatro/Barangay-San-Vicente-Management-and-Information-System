@@ -32,7 +32,7 @@ namespace BMIS
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMainWindow));
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblPosition = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -63,16 +63,16 @@ namespace BMIS
             this.panel3.Size = new System.Drawing.Size(1205, 778);
             this.panel3.TabIndex = 2;
             // 
-            // label6
+            // lblPosition
             // 
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(0, 201);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(329, 44);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "Brgy. Secretary";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPosition.ForeColor = System.Drawing.Color.White;
+            this.lblPosition.Location = new System.Drawing.Point(0, 201);
+            this.lblPosition.Name = "lblPosition";
+            this.lblPosition.Size = new System.Drawing.Size(329, 44);
+            this.lblPosition.TabIndex = 10;
+            this.lblPosition.Text = "[position]";
+            this.lblPosition.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel2
             // 
@@ -157,7 +157,7 @@ namespace BMIS
             this.panel1.Controls.Add(this.btnSettings);
             this.panel1.Controls.Add(this.guna2CirclePictureBox1);
             this.panel1.Controls.Add(this.btnRecords);
-            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.lblPosition);
             this.panel1.Controls.Add(this.btnCertifications);
             this.panel1.Controls.Add(this.btnCases);
             this.panel1.Controls.Add(this.btnDashboard);
@@ -366,7 +366,6 @@ namespace BMIS
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnRecords;
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
         private System.Windows.Forms.Button btnCertifications;
@@ -375,6 +374,7 @@ namespace BMIS
         private System.Windows.Forms.Button btnResidents;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnSettings;
+        public System.Windows.Forms.Label lblPosition;
         private System.Windows.Forms.Label lblBrgySecretary;
     }
 }

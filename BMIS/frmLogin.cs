@@ -10,60 +10,41 @@ namespace BMIS
             InitializeComponent();
             txtPassword.UseSystemPasswordChar = true;
         }
+       
         private void Authenticate()
-        {
-            var i = new Person
+        {       
+            frmMainWindow mainWindow = new frmMainWindow();
+            var user = new User()
             {
                 Username = txtUsername.Text,
                 Password = txtPassword.Text
             };
-            using (var connection = new MySqlConnection("server=localhost; port=3306; user=root; password=admin123; database=bmis_db"))
+            bool verify = user.Login_Verification();
+            if (verify)
             {
-                Console.WriteLine("Connection Pool Open!");
-                connection.Open();
-                using (var command = new MySqlCommand("SELECT * FROM credentials WHERE BINARY username=@username AND BINARY password=@password", connection))
+                int role = user.Role;
+
+                if (role == 1)
                 {
-                    MySqlDataReader Reader;
-                    try
-                    {
-                        command.Parameters.AddWithValue("@username", i.Username);
-                        command.Parameters.AddWithValue("@password", i.Password);
-                        Reader = command.ExecuteReader();
-                        if (Reader.Read())
-                        {
-                            Hide();
-                            frmLoadingScreen splashscreen = new frmLoadingScreen();
-                            splashscreen.ShowDialog();
-                        }
-                        else if (string.IsNullOrEmpty(i.Username) && string.IsNullOrEmpty(i.Password))
-                        {
-                            label6.Show(); label7.Show();
-                        }
-                        else if (string.IsNullOrEmpty(i.Username))
-                        {
-                            label6.Show(); label7.Hide();
-                        }
-                        else if (string.IsNullOrEmpty(i.Password))
-                        {
-                            label7.Show(); label6.Hide();
-                        }
-                        else
-                        {
-                            label6.Hide(); label7.Hide();
-                            MessageBox.Show("Invalid Credentials, Please try again!", "Authentication Error", MessageBoxButtons.OK,
-                            MessageBoxIcon.Error);
-                        }
-                    }
-                    catch (MySqlException ex)
-                    {
-                        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    };
-                    { }
-                    connection.Close();
-                    Console.WriteLine("Connection Pool Closed!");
+                    Hide();
+                    mainWindow.lblPosition.Text = "Brgy. Secretary";
+                    mainWindow.Show();
+                }
+                else if (role == 2)
+                {
+                    Hide();
+                    mainWindow.lblPosition.Text = "Brgy. Captain";
+                    mainWindow.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Invalid Credentials, Please try again!", "Authentication Error", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
                 }
             }
         }
+
+
         private void txtPassword_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -88,10 +69,9 @@ namespace BMIS
                 txtPassword.UseSystemPasswordChar = true;
             }
         }
-
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            Authenticate();
+           Authenticate();
         }
         private void btnClose_Click(object sender, EventArgs e)
         {

@@ -1,7 +1,7 @@
 ﻿
 namespace BMIS
 {
-    partial class frmAuth
+    partial class frmAuthDelete
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace BMIS
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAuth));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAuthDelete));
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblResidentProfile = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
@@ -39,7 +39,8 @@ namespace BMIS
             this.label4 = new System.Windows.Forms.Label();
             this.txtUsername = new Guna.UI2.WinForms.Guna2TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.btnAccess = new Guna.UI2.WinForms.Guna2Button();
+            this.btnConfirm = new Guna.UI2.WinForms.Guna2Button();
+            this.txtResidentID = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -53,7 +54,7 @@ namespace BMIS
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(437, 53);
-            this.panel1.TabIndex = 2;
+            this.panel1.TabIndex = 40;
             // 
             // lblResidentProfile
             // 
@@ -85,10 +86,10 @@ namespace BMIS
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label6.Location = new System.Drawing.Point(29, 70);
+            this.label6.Location = new System.Drawing.Point(29, 76);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(160, 17);
-            this.label6.TabIndex = 29;
+            this.label6.TabIndex = 41;
             this.label6.Text = "ENTER ADMIN ACCESS";
             // 
             // panel2
@@ -98,10 +99,10 @@ namespace BMIS
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.txtUsername);
             this.panel2.Controls.Add(this.label5);
-            this.panel2.Location = new System.Drawing.Point(16, 78);
+            this.panel2.Location = new System.Drawing.Point(16, 84);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(405, 202);
-            this.panel2.TabIndex = 30;
+            this.panel2.TabIndex = 42;
             // 
             // txtPassword
             // 
@@ -173,40 +174,50 @@ namespace BMIS
             this.label5.TabIndex = 24;
             this.label5.Text = "USERNAME";
             // 
-            // btnAccess
+            // btnConfirm
             // 
-            this.btnAccess.Animated = true;
-            this.btnAccess.BorderRadius = 19;
-            this.btnAccess.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnAccess.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnAccess.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnAccess.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnAccess.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(59)))), ((int)(((byte)(72)))));
-            this.btnAccess.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAccess.ForeColor = System.Drawing.Color.White;
-            this.btnAccess.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnAccess.Location = new System.Drawing.Point(234, 298);
-            this.btnAccess.Name = "btnAccess";
-            this.btnAccess.Size = new System.Drawing.Size(187, 41);
-            this.btnAccess.TabIndex = 38;
-            this.btnAccess.Text = "ACCESS";
-            this.btnAccess.Click += new System.EventHandler(this.btnAccess_Click);
+            this.btnConfirm.Animated = true;
+            this.btnConfirm.BorderRadius = 19;
+            this.btnConfirm.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnConfirm.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnConfirm.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnConfirm.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnConfirm.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(59)))), ((int)(((byte)(72)))));
+            this.btnConfirm.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfirm.ForeColor = System.Drawing.Color.White;
+            this.btnConfirm.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnConfirm.Location = new System.Drawing.Point(234, 298);
+            this.btnConfirm.Name = "btnConfirm";
+            this.btnConfirm.Size = new System.Drawing.Size(187, 41);
+            this.btnConfirm.TabIndex = 44;
+            this.btnConfirm.Text = "CONFIRM";
+            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
-            // frmAuth
+            // txtResidentID
+            // 
+            this.txtResidentID.Location = new System.Drawing.Point(357, 59);
+            this.txtResidentID.Name = "txtResidentID";
+            this.txtResidentID.ReadOnly = true;
+            this.txtResidentID.Size = new System.Drawing.Size(64, 22);
+            this.txtResidentID.TabIndex = 45;
+            this.txtResidentID.Visible = false;
+            // 
+            // frmAuthDelete
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(437, 351);
             this.ControlBox = false;
-            this.Controls.Add(this.btnAccess);
+            this.Controls.Add(this.txtResidentID);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.btnConfirm);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmAuth";
-            this.ShowIcon = false;
+            this.Name = "frmAuthDelete";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "frmAuth";
+            this.Text = "frmAuthDelete";
+            this.Load += new System.EventHandler(this.frmAuthDelete_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -227,6 +238,7 @@ namespace BMIS
         private System.Windows.Forms.Label label4;
         private Guna.UI2.WinForms.Guna2TextBox txtUsername;
         private System.Windows.Forms.Label label5;
-        public Guna.UI2.WinForms.Guna2Button btnAccess;
+        public Guna.UI2.WinForms.Guna2Button btnConfirm;
+        public System.Windows.Forms.TextBox txtResidentID;
     }
 }

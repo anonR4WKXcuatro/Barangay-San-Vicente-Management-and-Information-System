@@ -27,6 +27,8 @@ namespace BMIS
             this.FormBorderStyle = FormBorderStyle.None;
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
         }
+
+
         public PictureBox userPicture
         {
             get
@@ -276,7 +278,6 @@ namespace BMIS
                 lblDead.Visible = false;
                 btnMarkDead.Visible = true;
             }
-
         }
         private void btnUpdate_Click(object sender, EventArgs e)
         {
@@ -386,10 +387,7 @@ namespace BMIS
             }
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            Dispose();
-        }
+       
 
         private void dtpBirthDate_ValueChanged(object sender, EventArgs e)
         {
@@ -432,13 +430,10 @@ namespace BMIS
         {
             e.KeyChar = char.ToUpper(e.KeyChar);
         }
-
-
-
-
-
-
-
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Dispose();
+        }
     }
 }
 

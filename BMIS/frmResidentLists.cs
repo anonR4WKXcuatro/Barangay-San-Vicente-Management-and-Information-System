@@ -15,6 +15,7 @@ namespace BMIS
             InitializeComponent();
         }
 
+
         private void refreshTable()
         {
             using (var connection = new MySqlConnection(connectionString))
@@ -57,6 +58,8 @@ namespace BMIS
         }
         private void frmResidentLists_Load(object sender, EventArgs e)
         {
+            frmResidentProfile rp = new frmResidentProfile();
+
             using (var connection = new MySqlConnection(connectionString))
             using (var selectQuery = new MySqlCommand("SELECT * FROM tbl_resident", connection))
             {
@@ -79,7 +82,6 @@ namespace BMIS
                     dgvResidentTable.Columns[9].DataPropertyName = "image";
                     dgvResidentTable.Columns[10].DataPropertyName = "nationality";
                     dgvResidentTable.Columns[11].DataPropertyName = "religion";
-                    //dgvResidentTable.Columns[10].DataPropertyName = "suffix";
                     dgvResidentTable.Columns[12].DataPropertyName = "birthdate";
                     dgvResidentTable.Columns[13].DataPropertyName = "contact_no";
                     dgvResidentTable.Columns[14].DataPropertyName = "category";
@@ -95,26 +97,26 @@ namespace BMIS
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             refreshTable();
+
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+            GC.Collect();
         }
         private void txtSearchBar_KeyPress(object sender, KeyPressEventArgs e)
         {
             string valueToSearch = txtSearchBar.Text.ToString();
             searchData(valueToSearch);
         }
-
-
-
-
-
-
         private void dgvResidentTable_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             frmResidentProfile frm2 = new frmResidentProfile();
-            DataGridViewRow row = dgvResidentTable.Rows[e.RowIndex];
+
             if (dgvResidentTable.Columns[e.ColumnIndex].Name == "PROFILE")
             {
-                if (e.RowIndex >= 0)
+
+                if (e.RowIndex == -1) return;
                 {
+                    DataGridViewRow row = dgvResidentTable.Rows[e.RowIndex];
                     frm2.ResidentID = row.Cells[0].Value.ToString();
                     frm2.FullName = row.Cells[1].Value.ToString();
                     frm2.FatherName = row.Cells[2].Value.ToString();
@@ -145,55 +147,24 @@ namespace BMIS
                     {
                         frm2.lblDead.Visible = false;
                     }
-
                 }
-
                 frm2.ShowDialog();
             }
+
             else if (dgvResidentTable.Columns[e.ColumnIndex].Name == "DELETE")
             {
-                DialogResult dr = MessageBox.Show("Do you want to delete this data?", "Confirmation", MessageBoxButtons.YesNo,
-                                  MessageBoxIcon.Question);
-                try
+                frmAuthDelete auth = new frmAuthDelete();
+
+                if (e.RowIndex == -1) return;
                 {
-                    if (dr == DialogResult.Yes)
-                    {
-                        using (var connection = new MySqlConnection(connectionString))
-                        using (var deleteQuery = new MySqlCommand("DELETE FROM tbl_resident WHERE residentID = @residentID", connection))
-                        {
-                            connection.Open();
-                            DataGridViewRow residentID = dgvResidentTable.Rows[e.RowIndex];
-                            deleteQuery.Parameters.AddWithValue("@residentID", residentID.Cells[0].Value);
-                            deleteQuery.ExecuteNonQuery();
-                            using (var connection2 = new MySqlConnection(connectionString))
-                            using (var selectQuery = new MySqlCommand("SELECT * FROM tbl_resident", connection2))
-                            {
-                                connection2.Open();
-                                using (var sqlDA = new MySqlDataAdapter(selectQuery))
-                                {
-                                    DataSet ds = new DataSet();
-                                    sqlDA.Fill(ds, "tbl_resident");
-                                    dgvResidentTable.DataSource = ds.Tables[0];
-                                    MessageBox.Show("Data Successfully Deleted!", "Notice", MessageBoxButtons.OK,
-                                    MessageBoxIcon.Information);
-                                }
-                                connection2.Close();
-                            }
-                            connection.Close();
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine("Do Nothing");
-                    }
+                    DataGridViewRow row = dgvResidentTable.Rows[e.RowIndex];
+                    auth.txtResidentID.Text = row.Cells[0].Value.ToString();
                 }
-                catch (MySqlException)
-                {
-                    Console.WriteLine(" ----- You must delete the parent row first -----");
-                }
+                auth.ShowDialog();
             }
         }
     }
 }
+
 
 

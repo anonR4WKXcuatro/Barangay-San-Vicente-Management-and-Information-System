@@ -12,6 +12,19 @@ namespace BMIS
         {
             InitializeComponent();
         }
+
+        public string LabelText
+        {
+            get
+            {
+                return lblPosition.Text;
+            }
+            set
+            {
+                lblPosition.Text = value;
+            }
+        }
+
         public void loadForm(object Form)
         {
             timer.Start();
@@ -27,7 +40,6 @@ namespace BMIS
 
 
         }
-
         //HIGHLIGHTS THE BUTTONS WHEN CLICKED !!!
         public void btnDashboardEffect()
         {
@@ -134,28 +146,53 @@ namespace BMIS
             btnCertifications.Enabled = true;
         }
         //
-        public void ReadSecretaryLabel()
+        public void ReadPositionLabel()
         {
-            int id = 1;
             MySqlDataReader dataReader;
-            using (var connection = new MySqlConnection(connectionString))
-            using (var selectQuery = new MySqlCommand("SELECT * FROM officials WHERE offic_id =" + id + "", connection))
-            {
-                connection.Open();
-                try
+
+            if (lblPosition.Text.Equals("Brgy. Secretary")){
+                int id = 1;
+                using (var connection = new MySqlConnection(connectionString))
+                using (var selectQuery = new MySqlCommand("SELECT * FROM officials WHERE offic_id =" + id + "", connection))
                 {
-                    dataReader = selectQuery.ExecuteReader();
-                    while (dataReader.Read())
+                    connection.Open();
+                    try
                     {
-                        lblBrgySecretary.Text = dataReader[1].ToString();
+                        dataReader = selectQuery.ExecuteReader();
+                        while (dataReader.Read())
+                        {
+                            lblBrgySecretary.Text = dataReader[1].ToString();
+                        }
                     }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex);
+                    }
+                    connection.Close();
                 }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex);
-                }
-                connection.Close();
             }
+            else if(lblPosition.Text.Equals("Brgy. Captain"))
+            {
+                int id = 2;
+                using (var connection = new MySqlConnection(connectionString))
+                using (var selectQuery = new MySqlCommand("SELECT * FROM officials WHERE offic_id =" + id + "", connection))
+                {
+                    connection.Open();
+                    try
+                    {
+                        dataReader = selectQuery.ExecuteReader();
+                        while (dataReader.Read())
+                        {
+                            lblBrgySecretary.Text = dataReader[1].ToString();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex);
+                    }
+                    connection.Close();
+                }
+            }    
         }
 
         //BUTTON LISTNER
@@ -188,7 +225,19 @@ namespace BMIS
         private void btnSettings_Click(object sender, EventArgs e)
         {
             frmAuth auth = new frmAuth();
+            auth.btnAccess.Visible = true;
             auth.ShowDialog();
+        }
+       
+        //DIGITAL CLOCK
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            label3.Text = DateTime.Now.ToString("HH:mm");
+            label4.Text = DateTime.Now.ToString("ss");
+        }
+        private void frmMainWindow_Load(object sender, EventArgs e)
+        {
+            ReadPositionLabel();
         }
         private void btnExit_Click(object sender, EventArgs e)
         {
@@ -201,19 +250,6 @@ namespace BMIS
             {
                 Console.WriteLine("Do NOthing");
             }
-        }
-
-
-        //DIGITAL CLOCK
-        private void timer_Tick(object sender, EventArgs e)
-        {
-            label3.Text = DateTime.Now.ToString("HH:mm");
-            label4.Text = DateTime.Now.ToString("ss");
-        }
-
-        private void frmMainWindow_Load(object sender, EventArgs e)
-        {
-            ReadSecretaryLabel();
         }
     }
 }

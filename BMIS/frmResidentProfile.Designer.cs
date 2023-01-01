@@ -39,7 +39,6 @@ namespace BMIS
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.cboPurok = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.txtUserImagePath = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.cboVoterStatus = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -77,6 +76,7 @@ namespace BMIS
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.picUserImage = new System.Windows.Forms.PictureBox();
+            this.txtUserImagePath = new System.Windows.Forms.TextBox();
             this.btnUpdate = new Guna.UI2.WinForms.Guna2Button();
             this.txtStatus = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
@@ -175,7 +175,7 @@ namespace BMIS
             // 
             this.btnMarkDead.AutoRoundedCorners = true;
             this.btnMarkDead.BackColor = System.Drawing.Color.Transparent;
-            this.btnMarkDead.BorderRadius = 25;
+            this.btnMarkDead.BorderRadius = 16;
             this.btnMarkDead.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnMarkDead.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnMarkDead.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -184,9 +184,9 @@ namespace BMIS
             this.btnMarkDead.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMarkDead.ForeColor = System.Drawing.Color.White;
             this.btnMarkDead.Image = global::BMIS.Properties.Resources.icons8_headstone_30;
-            this.btnMarkDead.Location = new System.Drawing.Point(208, 5);
+            this.btnMarkDead.Location = new System.Drawing.Point(249, 3);
             this.btnMarkDead.Name = "btnMarkDead";
-            this.btnMarkDead.Size = new System.Drawing.Size(54, 53);
+            this.btnMarkDead.Size = new System.Drawing.Size(34, 36);
             this.btnMarkDead.TabIndex = 43;
             this.btnMarkDead.TabStop = false;
             this.btnMarkDead.Visible = false;
@@ -255,18 +255,6 @@ namespace BMIS
             this.cboPurok.Name = "cboPurok";
             this.cboPurok.Size = new System.Drawing.Size(201, 36);
             this.cboPurok.TabIndex = 13;
-            // 
-            // txtUserImagePath
-            // 
-            this.txtUserImagePath.BackColor = System.Drawing.SystemColors.Control;
-            this.txtUserImagePath.Enabled = false;
-            this.txtUserImagePath.Location = new System.Drawing.Point(32, 522);
-            this.txtUserImagePath.Name = "txtUserImagePath";
-            this.txtUserImagePath.ReadOnly = true;
-            this.txtUserImagePath.Size = new System.Drawing.Size(24, 22);
-            this.txtUserImagePath.TabIndex = 43;
-            this.txtUserImagePath.TabStop = false;
-            this.txtUserImagePath.Visible = false;
             // 
             // label17
             // 
@@ -889,6 +877,18 @@ namespace BMIS
             this.picUserImage.TabIndex = 1;
             this.picUserImage.TabStop = false;
             // 
+            // txtUserImagePath
+            // 
+            this.txtUserImagePath.BackColor = System.Drawing.SystemColors.Control;
+            this.txtUserImagePath.Enabled = false;
+            this.txtUserImagePath.Location = new System.Drawing.Point(32, 522);
+            this.txtUserImagePath.Name = "txtUserImagePath";
+            this.txtUserImagePath.ReadOnly = true;
+            this.txtUserImagePath.Size = new System.Drawing.Size(24, 22);
+            this.txtUserImagePath.TabIndex = 43;
+            this.txtUserImagePath.TabStop = false;
+            this.txtUserImagePath.Visible = false;
+            // 
             // btnUpdate
             // 
             this.btnUpdate.AutoRoundedCorners = true;
@@ -968,7 +968,6 @@ namespace BMIS
         private Guna.UI2.WinForms.Guna2TextBox txtFullName;
         private Guna.UI2.WinForms.Guna2ComboBox cboSex;
         private Guna.UI2.WinForms.Guna2TextBox txtAge;
-        private Guna.UI2.WinForms.Guna2TextBox txtResidentID;
         private System.Windows.Forms.Button btnClearPic;
         public System.Windows.Forms.TextBox txtUserImagePath;
         private System.Windows.Forms.Label label20;
@@ -999,5 +998,6 @@ namespace BMIS
         public System.Windows.Forms.Label lblDead;
         private Guna.UI2.WinForms.Guna2Button btnMarkDead;
         protected System.Windows.Forms.TextBox txtStatus;
+        public Guna.UI2.WinForms.Guna2TextBox txtResidentID;
     }
 }

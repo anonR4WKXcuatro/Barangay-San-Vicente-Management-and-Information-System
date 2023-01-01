@@ -35,7 +35,8 @@ namespace BMIS
             || string.IsNullOrWhiteSpace(txtOccupation.Text) || string.IsNullOrWhiteSpace(txtReligion.Text)
             || string.IsNullOrWhiteSpace(txtNationality.Text) || string.IsNullOrWhiteSpace(txtAddress.Text)
             || string.IsNullOrWhiteSpace(cboCivilStatus.Text) || string.IsNullOrWhiteSpace(cboVoterStatus.Text)
-            || string.IsNullOrWhiteSpace(cboPurok.Text) || string.IsNullOrWhiteSpace(cboSex.Text))
+            || string.IsNullOrWhiteSpace(cboPurok.Text) || string.IsNullOrWhiteSpace(cboSex.Text)
+                || string.IsNullOrWhiteSpace(txtMotherName.Text) || string.IsNullOrWhiteSpace(txtFatherName.Text))
             {
                 isValid = false;
             }
@@ -159,7 +160,7 @@ namespace BMIS
             {
                 txtUserImagePath.Text = opf.FileName;
                 length = new FileInfo(opf.FileName).Length;
-                maxImageSize = 50000; // 50 KB || 50000 Byte
+                maxImageSize = 50000; // 50 KB || 50000 Bytes       1MB = 1000000 Bytes
 
                 if (maxImageSize >= length) // EXECUTE WHEN IMAGE EXCEEDS MORE THAN 50 KB || 50000 Byte
                 {
@@ -168,7 +169,7 @@ namespace BMIS
                 }
                 else
                 {
-                    MessageBox.Show("Image size must not exceed 1 Megabyte(MB)", "Warning", MessageBoxButtons.OK,
+                    MessageBox.Show("Image size must not exceed 50 KiloByte(KB)", "Warning", MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
                 }
             }
