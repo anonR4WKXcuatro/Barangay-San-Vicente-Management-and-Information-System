@@ -222,12 +222,6 @@
     <Compile Include="frmCaptureImage.Designer.cs">
       <DependentUpon>frmCaptureImage.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmLoadingScreen.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmLoadingScreen.Designer.cs">
-      <DependentUpon>frmLoadingScreen.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmManageBusinessClearance.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -349,9 +343,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCaptureImage.resx">
       <DependentUpon>frmCaptureImage.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmLoadingScreen.resx">
-      <DependentUpon>frmLoadingScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmManageBusinessClearance.resx">
       <DependentUpon>frmManageBusinessClearance.cs</DependentUpon>

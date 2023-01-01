@@ -8,7 +8,7 @@ namespace BMIS
 {
     public partial class frmSettings : Form
     {
-
+        private string connectionString = "server=localhost; port=3306; user=root; password=admin123; database=bmis_db";
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn
         (
@@ -27,17 +27,12 @@ namespace BMIS
 
         }
 
-
-
-
-
-
         private void UpdateCaptainName()
         {
             int id = 2;
             string name = txtCaptainName.Text;
 
-            using (var connection = new MySqlConnection("server=localhost; port=3306; user=root; password=admin123; database=bmis_db"))
+            using (var connection = new MySqlConnection(connectionString))
             {
                 Console.WriteLine("Connection Pool Open!");
                 connection.Open();
@@ -65,16 +60,13 @@ namespace BMIS
                     Console.WriteLine("Connection Pool Closed!");
                 }
             }
-
-
-
         }
         private void UpdateSecretaryName()
         {
             int id = 1;
             string name = txtSecretaryName.Text;
 
-            using (var connection = new MySqlConnection("server=localhost; port=3306; user=root; password=admin123; database=bmis_db"))
+            using (var connection = new MySqlConnection(connectionString))
             {
                 Console.WriteLine("Connection Pool Open!");
                 connection.Open();
@@ -108,11 +100,11 @@ namespace BMIS
             int captainID = 2;
             string password = txtCaptainPassword.Text;
 
-            using (var connection = new MySqlConnection("server=localhost; port=3306; user=root; password=admin123; database=bmis_db"))
+            using (var connection = new MySqlConnection(connectionString))
             {
                 Console.WriteLine("Connection Pool Open!");
                 connection.Open();
-                using (var command = new MySqlCommand("UPDATE admin SET password = @captainPassword WHERE id = @captainID", connection))
+                using (var command = new MySqlCommand("UPDATE credentials SET password = @captainPassword WHERE id = @captainID", connection))
                 {
                     command.Parameters.AddWithValue("@captainID", captainID);
                     command.Parameters.AddWithValue("@captainPassword", password);
@@ -145,11 +137,11 @@ namespace BMIS
             int secretaryID = 1;
             string password = txtSecretaryPassword.Text;
 
-            using (var connection = new MySqlConnection("server=localhost; port=3306; user=root; password=admin123; database=bmis_db"))
+            using (var connection = new MySqlConnection(connectionString))
             {
                 Console.WriteLine("Connection Pool Open!");
                 connection.Open();
-                using (var command = new MySqlCommand("UPDATE admin SET password = @secretaryPassword WHERE id = @secretaryID", connection))
+                using (var command = new MySqlCommand("UPDATE credentials SET password = @secretaryPassword WHERE id = @secretaryID", connection))
                 {
                     command.Parameters.AddWithValue("@secretaryID", secretaryID);
                     command.Parameters.AddWithValue("@secretaryPassword", password);

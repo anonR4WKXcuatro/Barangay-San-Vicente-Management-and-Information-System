@@ -10,9 +10,9 @@ namespace BMIS
             InitializeComponent();
             txtPassword.UseSystemPasswordChar = true;
         }
-       
+
         private void Authenticate()
-        {       
+        {
             frmMainWindow mainWindow = new frmMainWindow();
             var user = new User()
             {
@@ -23,8 +23,19 @@ namespace BMIS
             if (verify)
             {
                 int role = user.Role;
-
-                if (role == 1)
+                if (string.IsNullOrEmpty(txtUsername.Text) && string.IsNullOrEmpty(txtPassword.Text))
+                {
+                    label6.Show(); label7.Show();
+                }
+                else if (string.IsNullOrEmpty(txtUsername.Text))
+                {
+                    label6.Show(); label7.Hide();
+                }
+                else if (string.IsNullOrEmpty(txtPassword.Text))
+                {
+                    label7.Show(); label6.Hide();
+                }
+                else if (role == 1)
                 {
                     Hide();
                     mainWindow.lblPosition.Text = "Brgy. Secretary";
@@ -38,13 +49,12 @@ namespace BMIS
                 }
                 else
                 {
+                    label6.Hide(); label7.Hide();
                     MessageBox.Show("Invalid Credentials, Please try again!", "Authentication Error", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
                 }
             }
         }
-
-
         private void txtPassword_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -71,14 +81,12 @@ namespace BMIS
         }
         private void btnLogin_Click(object sender, EventArgs e)
         {
-           Authenticate();
+            Authenticate();
         }
         private void btnClose_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
-
     }
 
 }
