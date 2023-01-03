@@ -8,11 +8,21 @@ namespace BMIS
 {
     public partial class frmRecords : Form
     {
+        
         private string connectionString = "server=localhost; port=3306; user=root; password=admin123; database=bmis_db";
         private string date = DateTime.Now.ToString("yyyy-MM-dd h:mm:ss tt");
         public frmRecords()
         {
             InitializeComponent();
+        }
+        private void frmRecords_Load(object sender, EventArgs e)
+        {
+            ResidentTable();
+            BlotterTable();
+            ClearanceTable();
+            SettlementTable();
+            BusinessClearanceTable();
+            DeceasedResidentTable();
         }
         private void ReleaseObject(object obj) //Release the excel objects
         {
@@ -45,22 +55,23 @@ namespace BMIS
                     DataSet dSet = new DataSet();
                     sqlDA.Fill(dSet);
                     dgvResidentTable.AutoGenerateColumns = false;
-                    dgvResidentTable.ColumnCount = 15;
+                    dgvResidentTable.ColumnCount = 16;
                     dgvResidentTable.Columns[0].DataPropertyName = "residentID";
                     dgvResidentTable.Columns[1].DataPropertyName = "fullname";
-                    dgvResidentTable.Columns[2].DataPropertyName = "sex";
-                    dgvResidentTable.Columns[3].DataPropertyName = "age";
-                    dgvResidentTable.Columns[4].DataPropertyName = "civil_status";
-                    dgvResidentTable.Columns[5].DataPropertyName = "occupation";
-                    dgvResidentTable.Columns[6].DataPropertyName = "address";
-                    dgvResidentTable.Columns[7].DataPropertyName = "nationality";
-                    dgvResidentTable.Columns[8].DataPropertyName = "religion";
-                    dgvResidentTable.Columns[9].DataPropertyName = "birthdate";
-                    dgvResidentTable.Columns[10].DataPropertyName = "contact_no";
-                    dgvResidentTable.Columns[11].DataPropertyName = "category";
-                    dgvResidentTable.Columns[12].DataPropertyName = "purok";
+                    dgvResidentTable.Columns[2].DataPropertyName = "fathername";
+                    dgvResidentTable.Columns[3].DataPropertyName = "mothername";
+                    dgvResidentTable.Columns[4].DataPropertyName = "sex";
+                    dgvResidentTable.Columns[5].DataPropertyName = "age";
+                    dgvResidentTable.Columns[6].DataPropertyName = "birthdate";
+                    dgvResidentTable.Columns[7].DataPropertyName = "civil_status";
+                    dgvResidentTable.Columns[8].DataPropertyName = "nationality";
+                    dgvResidentTable.Columns[9].DataPropertyName = "contact_no";
+                    dgvResidentTable.Columns[10].DataPropertyName = "religion";
+                    dgvResidentTable.Columns[11].DataPropertyName = "occupation";
+                    dgvResidentTable.Columns[12].DataPropertyName = "category";
                     dgvResidentTable.Columns[13].DataPropertyName = "voter_status";
-                    dgvResidentTable.Columns[14].DataPropertyName = "vaccination_status";
+                    dgvResidentTable.Columns[14].DataPropertyName = "purok";
+                    dgvResidentTable.Columns[15].DataPropertyName = "address";
                     dgvResidentTable.DataSource = dSet.Tables[0];
                 }
                 connection.Close();
@@ -211,20 +222,23 @@ namespace BMIS
             }
         }
 
+        /* SEARCH BARS */
         private void searchResident(string valueToSearch1)
         {
             using (var connection = new MySqlConnection(connectionString))
-            using (var searchQuery = new MySqlCommand("SELECT * FROM tbl_resident WHERE CONCAT(residentID,fullname,address,purok)like'%" + valueToSearch1 + "%'", connection))
             {
-                connection.Open();
-                using (var sqlDA = new MySqlDataAdapter(searchQuery))
+                using (var searchQuery = new MySqlCommand("SELECT * FROM tbl_resident WHERE CONCAT(residentID,fullname,address,purok)like'%" + valueToSearch1 + "%'", connection))
                 {
-                    DataTable table = new DataTable();
-                    sqlDA.Fill(table);
-                    dgvResidentTable.DataSource = table;
+                    connection.Open();
+                    using (var sqlDA = new MySqlDataAdapter(searchQuery))
+                    {
+                        DataTable table = new DataTable();
+                        sqlDA.Fill(table);
+                        dgvResidentTable.DataSource = table;
+                    }
+                    connection.Close();
                 }
-                connection.Close();
-            }
+            }        
         }
         private void searchBlotters(string valueToSearch2)
         {
@@ -286,26 +300,83 @@ namespace BMIS
                 connection.Close();
             }
         }
-
-        private void frmRecords_Load(object sender, EventArgs e)
+        private void searchDeceasedResidents(string valueToSearch6)
         {
-            ResidentTable();
-            BlotterTable();
-            ClearanceTable();
-            SettlementTable();
-            BusinessClearanceTable();
-            DeceasedResidentTable();
+            using (var connection = new MySqlConnection(connectionString))
+            {
+                using (var searchQuery = new MySqlCommand("SELECT * FROM tbl_resident WHERE CONCAT(residentID,fullname,address,purok)like'%" + valueToSearch6 + "%'", connection))
+                {
+                    connection.Open();
+                    using (var sqlDA = new MySqlDataAdapter(searchQuery))
+                    {
+                        DataTable table = new DataTable();
+                        sqlDA.Fill(table);
+                        dgvDeceasedResidentTable.DataSource = table;
+                    }
+                    connection.Close();
+                }
+            }
         }
-
-
+       
 
         private void dgvClearanceLogs_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
             this.dgvClearanceLogs.Rows[e.RowIndex].Cells["rn3"].Value = (e.RowIndex + 1).ToString();
         }
+       
 
+        /* IMPORT CSV */
+        private void TSMIImportExistingResidents_Click(object sender, EventArgs e)
+        {
+            ofDialog.FileName = "";
+            ofDialog.Filter = "CSV Text File(.csv)|*.csv";
+            try
+            {
+                if (ofDialog.ShowDialog() == DialogResult.OK)
+                {
+                    var lineNumber = 0;
+                    using (MySqlConnection connection = new MySqlConnection(connectionString))
+                    {
+                        connection.Open();
+                        string path = ofDialog.FileName;
+                        using (StreamReader reader = new StreamReader(path))
+                        {
+                            while (!reader.EndOfStream)
+                            {
+                                var line = reader.ReadLine();
+                                if (lineNumber != 0)
+                                {
+                                    var values = line.Split(',');
+
+                                    var insertQuery = "INSERT INTO tbl_resident(residentID,fullname,fathername,mothername,sex,age,birthdate,civil_status,nationality,contact_no,religion,occupation,category,voter_status,purok,address) VALUES ('" + values[0] + "','" + values[1] + "','" + values[2] + "','" + values[3] + "','" + values[4] + "','" + values[5] + "','" + values[6] + "','" + values[7] + "','" + values[8] + "','" + values[9] + "','" + values[10] + "','" + values[11] + "','" + values[12] + "','" + values[13] + "','" + values[14] + "','" + values[15] + "')";
+
+                                    var command = new MySqlCommand();
+                                    command.CommandText = insertQuery;
+                                    command.CommandType = System.Data.CommandType.Text;
+                                    command.Connection = connection;
+                                    command.ExecuteNonQuery();
+                                }
+                                lineNumber++;
+                            }
+                        }
+                        connection.Close();
+                    }
+                    MessageBox.Show("Data Imported Successfully!", "Notice", MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Invalid file format!", "Error", MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+            }
+        }
+        /* -------------- */
+
+        /* BACKUP DATABASE AND RESTORE */
         private void toolStripBackup_Click(object sender, EventArgs e)
         {
+           
             sfDialog.Filter = "SQL Text File(.sql)|*.sql";
             sfDialog.FileName = "My Text File";
             sfDialog.Title = "";
@@ -364,6 +435,10 @@ namespace BMIS
                 MessageBoxIcon.Error);
             }
         }
+        /* -------------- */
+
+
+        /* EXPORT AS EXCEL */
         private void TSMIResidentsTable_Click(object sender, EventArgs e)
         {
             if (dgvResidentTable.Rows.Count < 1)
@@ -576,6 +651,217 @@ namespace BMIS
                 }
             }
         }
+        private void TSMICertificatesTable_Click(object sender, EventArgs e)
+        {
+            if (dgvClearanceLogs.Rows.Count < 1)
+            {
+                MessageBox.Show("No records to export!", "Error", MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+            }
+            else if (dgvClearanceLogs.Rows.Count > 0)
+            {
+                sfDialog.FileName = "";
+                sfDialog.Filter = "Excel (.xlsx)| *.xlsx";
+                bool fileError = false;
+                if (sfDialog.ShowDialog() == DialogResult.OK)
+                {
+                    if (File.Exists(sfDialog.FileName))
+                    {
+                        try
+                        {
+                            File.Delete(sfDialog.FileName);
+                        }
+                        catch (IOException ex)
+                        {
+                            fileError = true;
+                            MessageBox.Show("It wasn't possible to write the data to the disk. " + ex.Message, "Warning", MessageBoxButtons.OK,
+                            MessageBoxIcon.Warning);
+                        }
+                    }
+                }
+                if (!fileError) // if file name has not existed, this block will run.
+                {
+                    try
+                    {
+                        Microsoft.Office.Interop.Excel.Application excelApp = new Microsoft.Office.Interop.Excel.Application();
+                        Microsoft.Office.Interop.Excel.Workbook workBook = excelApp.Application.Workbooks.Add(Type.Missing);
+                        Microsoft.Office.Interop.Excel.Worksheet workSheet = null;
+
+                        workSheet = workBook.Sheets["Sheet1"];
+                        workSheet = workBook.ActiveSheet;
+                        workSheet.Name = "SETTLEMENTS RECORDS";
+                        workSheet.Application.ActiveWindow.SplitRow = 1;
+                        workSheet.Application.ActiveWindow.FreezePanes = true;
+
+                        for (int i = 1; i < dgvClearanceLogs.Columns.Count + 1; i++)
+                        {
+                            workSheet.Cells[1, i] = dgvClearanceLogs.Columns[i - 1].HeaderText;
+                        }
+                        for (int i = 0; i < dgvClearanceLogs.Rows.Count; i++)
+                        {
+                            for (int j = 0; j < dgvClearanceLogs.Columns.Count; j++)
+                            {
+                                workSheet.Cells[i + 2, j + 1] = dgvClearanceLogs.Rows[i].Cells[j].Value?.ToString();
+                            }
+                        }
+                        workSheet.Columns.AutoFit();
+                        workSheet.PageSetup.RightFooter = "GENERATED AT " + date;
+                        workBook.SaveAs(sfDialog.FileName);
+                        excelApp.Quit();
+                        ReleaseObject(workSheet);
+                        ReleaseObject(workBook);
+                        ReleaseObject(excelApp);
+                        MessageBox.Show("Records exported successfully!", "Information", MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex);
+                    }
+                }
+            }
+        }
+        private void TSMIBusinessCertificatesTable_Click(object sender, EventArgs e)
+        {
+            if (dgvBusinessClearance.Rows.Count < 1)
+            {
+                MessageBox.Show("No records to export!", "Error", MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+            }
+            else if (dgvBusinessClearance.Rows.Count > 0)
+            {
+                sfDialog.FileName = "";
+                sfDialog.Filter = "Excel (.xlsx)| *.xlsx";
+                bool fileError = false;
+                if (sfDialog.ShowDialog() == DialogResult.OK)
+                {
+                    if (File.Exists(sfDialog.FileName))
+                    {
+                        try
+                        {
+                            File.Delete(sfDialog.FileName);
+                        }
+                        catch (IOException ex)
+                        {
+                            fileError = true;
+                            MessageBox.Show("It wasn't possible to write the data to the disk. " + ex.Message, "Warning", MessageBoxButtons.OK,
+                            MessageBoxIcon.Warning);
+                        }
+                    }
+                }
+                if (!fileError) // if file name has not existed, this block will run.
+                {
+                    try
+                    {
+                        Microsoft.Office.Interop.Excel.Application excelApp = new Microsoft.Office.Interop.Excel.Application();
+                        Microsoft.Office.Interop.Excel.Workbook workBook = excelApp.Application.Workbooks.Add(Type.Missing);
+                        Microsoft.Office.Interop.Excel.Worksheet workSheet = null;
+
+                        workSheet = workBook.Sheets["Sheet1"];
+                        workSheet = workBook.ActiveSheet;
+                        workSheet.Name = "SETTLEMENTS RECORDS";
+                        workSheet.Application.ActiveWindow.SplitRow = 1;
+                        workSheet.Application.ActiveWindow.FreezePanes = true;
+
+                        for (int i = 1; i < dgvBusinessClearance.Columns.Count + 1; i++)
+                        {
+                            workSheet.Cells[1, i] = dgvBusinessClearance.Columns[i - 1].HeaderText;
+                        }
+                        for (int i = 0; i < dgvBusinessClearance.Rows.Count; i++)
+                        {
+                            for (int j = 0; j < dgvBusinessClearance.Columns.Count; j++)
+                            {
+                                workSheet.Cells[i + 2, j + 1] = dgvBusinessClearance.Rows[i].Cells[j].Value?.ToString();
+                            }
+                        }
+                        workSheet.Columns.AutoFit();
+                        workSheet.PageSetup.RightFooter = "GENERATED AT " + date;
+                        workBook.SaveAs(sfDialog.FileName);
+                        excelApp.Quit();
+                        ReleaseObject(workSheet);
+                        ReleaseObject(workBook);
+                        ReleaseObject(excelApp);
+                        MessageBox.Show("Records exported successfully!", "Information", MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex);
+                    }
+                }
+            }
+        }
+        private void TSMIDeceasedResidentsTable_Click(object sender, EventArgs e)
+        {
+            if (dgvDeceasedResidentTable.Rows.Count < 1)
+            {
+                MessageBox.Show("No records to export!", "Error", MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+            }
+            else if (dgvDeceasedResidentTable.Rows.Count > 0)
+            {
+                sfDialog.FileName = "";
+                sfDialog.Filter = "Excel (.xlsx)| *.xlsx";
+                bool fileError = false;
+                if (sfDialog.ShowDialog() == DialogResult.OK)
+                {
+                    if (File.Exists(sfDialog.FileName))
+                    {
+                        try
+                        {
+                            File.Delete(sfDialog.FileName);
+                        }
+                        catch (IOException ex)
+                        {
+                            fileError = true;
+                            MessageBox.Show("It wasn't possible to write the data to the disk. " + ex.Message, "Warning", MessageBoxButtons.OK,
+                            MessageBoxIcon.Warning);
+                        }
+                    }
+                }
+                if (!fileError) // if file name has not existed, this block will run.
+                {
+                    try
+                    {
+                        Microsoft.Office.Interop.Excel.Application excelApp = new Microsoft.Office.Interop.Excel.Application();
+                        Microsoft.Office.Interop.Excel.Workbook workBook = excelApp.Application.Workbooks.Add(Type.Missing);
+                        Microsoft.Office.Interop.Excel.Worksheet workSheet = null;
+
+                        workSheet = workBook.Sheets["Sheet1"];
+                        workSheet = workBook.ActiveSheet;
+                        workSheet.Name = "SETTLEMENTS RECORDS";
+                        workSheet.Application.ActiveWindow.SplitRow = 1;
+                        workSheet.Application.ActiveWindow.FreezePanes = true;
+
+                        for (int i = 1; i < dgvDeceasedResidentTable.Columns.Count + 1; i++)
+                        {
+                            workSheet.Cells[1, i] = dgvDeceasedResidentTable.Columns[i - 1].HeaderText;
+                        }
+                        for (int i = 0; i < dgvDeceasedResidentTable.Rows.Count; i++)
+                        {
+                            for (int j = 0; j < dgvDeceasedResidentTable.Columns.Count; j++)
+                            {
+                                workSheet.Cells[i + 2, j + 1] = dgvDeceasedResidentTable.Rows[i].Cells[j].Value?.ToString();
+                            }
+                        }
+                        workSheet.Columns.AutoFit();
+                        workSheet.PageSetup.RightFooter = "GENERATED AT " + date;
+                        workBook.SaveAs(sfDialog.FileName);
+                        excelApp.Quit();
+                        ReleaseObject(workSheet);
+                        ReleaseObject(workBook);
+                        ReleaseObject(excelApp);
+                        MessageBox.Show("Records exported successfully!", "Information", MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex);
+                    }
+                }
+            }
+        }
+        /* -------------- */
 
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
@@ -632,6 +918,7 @@ namespace BMIS
                 // INSERT CODE HERE
             }
         }
+
         private void txtSearchBar_KeyPress(object sender, KeyPressEventArgs e)
         {
             string valueToSearch = txtSearchBar.Text.ToString();
@@ -692,10 +979,23 @@ namespace BMIS
                 Console.WriteLine("Do Nothing");
             }
         }
-
-
+        private void txtSearchBarDeceasedResidents_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            string valueToSearch = txtSearchBarDeceasedResidents.Text.ToString();
+            if (tabControl1.SelectedTab.Text == "DECEASED RESIDENTS")
+            {
+                searchDeceasedResidents(valueToSearch);
+            }
+            else
+            {
+                Console.WriteLine("Do Nothing");
+            }
+        }
     }
 }
+
+
+
 
 
 

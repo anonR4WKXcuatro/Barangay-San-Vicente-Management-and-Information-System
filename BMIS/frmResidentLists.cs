@@ -109,46 +109,56 @@ namespace BMIS
         }
         private void dgvResidentTable_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            frmResidentProfile frm2 = new frmResidentProfile();
+            frmResidentProfile rp = new frmResidentProfile();
 
             if (dgvResidentTable.Columns[e.ColumnIndex].Name == "PROFILE")
             {
-
                 if (e.RowIndex == -1) return;
                 {
                     DataGridViewRow row = dgvResidentTable.Rows[e.RowIndex];
-                    frm2.ResidentID = row.Cells[0].Value.ToString();
-                    frm2.FullName = row.Cells[1].Value.ToString();
-                    frm2.FatherName = row.Cells[2].Value.ToString();
-                    frm2.MotherName = row.Cells[3].Value.ToString();
-                    frm2.Sex = row.Cells[4].Value.ToString();
-                    frm2.Age = row.Cells[5].Value.ToString();
-                    frm2.CivilStatus = row.Cells[6].Value.ToString();
-                    frm2.Occupation = row.Cells[7].Value.ToString();
-                    frm2.Address = row.Cells[8].Value.ToString();
-                    frm2.txtUserImagePath.Text = dgvResidentTable.CurrentRow.Cells[9].Value.ToString();
-                    byte[] imgData = (byte[])dgvResidentTable.CurrentRow.Cells[9].Value;
-                    MemoryStream ms = new MemoryStream(imgData);
-                    frm2.userPicture.Image = Image.FromStream(ms);
-                    frm2.Nationality = row.Cells[10].Value.ToString();
-                    frm2.Religion = row.Cells[11].Value.ToString();
-                    frm2.Birthdate = row.Cells[12].Value.ToString();
-                    frm2.ContactNo = row.Cells[13].Value.ToString();
-                    frm2.Category = row.Cells[14].Value.ToString();
-                    frm2.Purok = row.Cells[15].Value.ToString();
-                    frm2.VoterStatus = row.Cells[16].Value.ToString();
-                    string isAlive = row.Cells[17].Value.ToString();
-                    frm2.Status = isAlive;
-                    if (isAlive.Equals(0))
+                    rp.ResidentID = row.Cells[0].Value.ToString();
+                    rp.FullName = row.Cells[1].Value.ToString();
+                    rp.FatherName = row.Cells[2].Value.ToString();
+                    rp.MotherName = row.Cells[3].Value.ToString();
+                    rp.Sex = row.Cells[4].Value.ToString();
+                    rp.Age = row.Cells[5].Value.ToString();
+                    rp.CivilStatus = row.Cells[6].Value.ToString();
+                    rp.Occupation = row.Cells[7].Value.ToString();
+                    rp.Address = row.Cells[8].Value.ToString();
+
+                    if (string.IsNullOrEmpty(rp.txtUserImagePath.Text))
                     {
-                        frm2.lblDead.Visible = true;
+                        rp.userPicture.Image = Properties.Resources.emptyprofile;
                     }
                     else
                     {
-                        frm2.lblDead.Visible = false;
+                        rp.txtUserImagePath.Text = dgvResidentTable.CurrentRow.Cells[9].Value.ToString();
+                        byte[] imgData = (byte[])dgvResidentTable.CurrentRow.Cells[9].Value;
+                        MemoryStream ms = new MemoryStream(imgData);
+                        rp.userPicture.Image = Image.FromStream(ms);
+                    }
+
+                    rp.Nationality = row.Cells[10].Value.ToString();
+                    rp.Religion = row.Cells[11].Value.ToString();
+                    rp.Birthdate = row.Cells[12].Value.ToString();
+                    rp.ContactNo = row.Cells[13].Value.ToString();
+                    rp.Category = row.Cells[14].Value.ToString();
+                    rp.Purok = row.Cells[15].Value.ToString();
+                    rp.VoterStatus = row.Cells[16].Value.ToString();
+
+                    string isAlive = row.Cells[17].Value.ToString();
+                    rp.Status = isAlive;
+
+                    if (isAlive.Equals(0))
+                    {
+                        rp.lblDead.Visible = true;
+                    }
+                    else
+                    {
+                        rp.lblDead.Visible = false;
                     }
                 }
-                frm2.ShowDialog();
+                rp.ShowDialog();
             }
 
             else if (dgvResidentTable.Columns[e.ColumnIndex].Name == "DELETE")

@@ -35,7 +35,6 @@ namespace BMIS
             this.lblPosition = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -80,13 +79,12 @@ namespace BMIS
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Location = new System.Drawing.Point(329, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1216, 85);
+            this.panel2.Size = new System.Drawing.Size(1205, 85);
             this.panel2.TabIndex = 3;
             // 
             // label1
@@ -99,29 +97,17 @@ namespace BMIS
             this.label1.TabIndex = 5;
             this.label1.Text = "Barangay San Vicente, Sto Tomas, Batangas";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Digital-7", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
-            this.label4.Location = new System.Drawing.Point(1138, 36);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(36, 25);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "00";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Digital-7", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Digital-7", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
-            this.label3.Location = new System.Drawing.Point(1042, 22);
+            this.label3.Location = new System.Drawing.Point(1050, 24);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(100, 40);
+            this.label3.Size = new System.Drawing.Size(153, 40);
             this.label3.TabIndex = 7;
-            this.label3.Text = "00:00";
+            this.label3.Text = "00:00:00";
             // 
             // label2
             // 
@@ -364,7 +350,6 @@ namespace BMIS
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Timer timer;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnRecords;
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;

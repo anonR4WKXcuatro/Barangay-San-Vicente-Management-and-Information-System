@@ -147,25 +147,25 @@ namespace BMIS
         }
         private void btnCamera_Click(object sender, EventArgs e)
         {
-            frmCaptureImage frmCapture = new frmCaptureImage();
-            frmCapture.ShowDialog();
+            frmCaptureImage captureImage = new frmCaptureImage();
+            captureImage.ShowDialog();
         }
         private void btnBrowsePic_Click(object sender, EventArgs e)
         {
-            OpenFileDialog opf = new OpenFileDialog();
+            OpenFileDialog fileDialog = new OpenFileDialog();
             long maxImageSize, length;
-            opf.Filter = "JPG Files(*.jpg)|*.jpg|PNG Files(*.png)|*.png|All Files(*.*)|*.*";
+            fileDialog.Filter = "JPG Files(*.jpg)|*.jpg|PNG Files(*.png)|*.png|All Files(*.*)|*.*";
 
-            if (opf.ShowDialog() == DialogResult.OK)
+            if (fileDialog.ShowDialog() == DialogResult.OK)
             {
-                txtUserImagePath.Text = opf.FileName;
-                length = new FileInfo(opf.FileName).Length;
+                txtUserImagePath.Text = fileDialog.FileName;
+                length = new FileInfo(fileDialog.FileName).Length;
                 maxImageSize = 50000; // 50 KB || 50000 Bytes       1MB = 1000000 Bytes
 
                 if (maxImageSize >= length) // EXECUTE WHEN IMAGE EXCEEDS MORE THAN 50 KB || 50000 Byte
                 {
-                    picUserImage.Image = new Bitmap(opf.FileName);
-                    picUserImage.ImageLocation = opf.FileName;
+                    picUserImage.Image = new Bitmap(fileDialog.FileName);
+                    picUserImage.ImageLocation = fileDialog.FileName;
                 }
                 else
                 {
@@ -253,10 +253,6 @@ namespace BMIS
             resetFields();
             Close();
         }
-
-
-
-
     }
 }
 

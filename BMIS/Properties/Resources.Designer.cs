@@ -253,6 +253,16 @@ namespace BMIS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_headstone_100 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_headstone_100", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_headstone_30 {
             get {
                 object obj = ResourceManager.GetObject("icons8_headstone_30", resourceCulture);
@@ -266,6 +276,16 @@ namespace BMIS.Properties {
         internal static System.Drawing.Bitmap icons8_id_not_verified_100 {
             get {
                 object obj = ResourceManager.GetObject("icons8_id_not_verified_100", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_lgbt_100 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_lgbt_100", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -456,6 +476,16 @@ namespace BMIS.Properties {
         internal static System.Drawing.Bitmap icons8_sign_out_24 {
             get {
                 object obj = ResourceManager.GetObject("icons8_sign_out_24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_single_father_100 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_single_father_100", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

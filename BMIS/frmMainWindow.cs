@@ -232,8 +232,8 @@ namespace BMIS
         //DIGITAL CLOCK
         private void timer_Tick(object sender, EventArgs e)
         {
-            label3.Text = DateTime.Now.ToString("HH:mm");
-            label4.Text = DateTime.Now.ToString("ss");
+            label3.Text = DateTime.Now.ToString("HH:mm:ss");
+           
         }
         private void frmMainWindow_Load(object sender, EventArgs e)
         {

@@ -14,48 +14,81 @@ namespace BMIS
         private void dashboardStatistics()
         {
             string currentDate = DateTime.Now.ToString("yyyy-MM-dd");
-            string uv = "NOT REGISTERED";
-            string snr = "SENIOR";
-            string pwd = "PWD";
-            byte alive = 1;
+            string unregisteredVoters, senior, pwd, lgbt, soloParent;
+            byte isAlive, isDead;
+            isAlive = 1;
+            isDead = 0;
+
+            unregisteredVoters = "NOT REGISTERED";
+            senior = "SENIOR";
+            pwd = "PWD";
+            lgbt = "LGBT";
+            soloParent = "SOLO PARENT";
+
             using (var connection = new MySqlConnection(connectionString))
-            using (var blotterCounts = new MySqlCommand("SELECT COUNT(blotterID) AS NumberOfBlotters FROM tbl_blotter", connection))
-            using (var unregisteredVoter = new MySqlCommand("SELECT COUNT(*) AS NumberOfUnregisteredVoters FROM tbl_resident WHERE voter_status LIKE @noUV", connection))
-            using (var issuedClearances = new MySqlCommand("SELECT COUNT(*) AS NumberOfIssuedClearances FROM tbl_clearance WHERE date LIKE @date", connection))
-            using (var totalSeniors = new MySqlCommand("SELECT COUNT(*) AS NumberOfSeniors FROM tbl_resident WHERE category LIKE @senior", connection))
-            using (var totalPWD = new MySqlCommand("SELECT COUNT(*) AS NumberOfPWD FROM tbl_resident WHERE category LIKE @pwd", connection))
-            using (var totalResidents = new MySqlCommand("SELECT COUNT(isDead) AS NumberOfResidents FROM tbl_resident WHERE isDead LIKE @isDead", connection))
             {
-                unregisteredVoter.Parameters.AddWithValue("@noUV", uv);
-                issuedClearances.Parameters.AddWithValue("@date", currentDate);
-                totalSeniors.Parameters.AddWithValue("@senior", snr);
-                totalPWD.Parameters.AddWithValue("@pwd", pwd);
-                totalResidents.Parameters.AddWithValue("@isDead", alive);
                 connection.Open();
-                int count2 = Convert.ToInt32(totalPWD.ExecuteScalar());
-                int count3 = Convert.ToInt32(blotterCounts.ExecuteScalar());
-                int count4 = Convert.ToInt32(issuedClearances.ExecuteScalar());
-                int count5 = Convert.ToInt32(unregisteredVoter.ExecuteScalar());
-                int count7 = Convert.ToInt32(totalSeniors.ExecuteScalar());
-                int count9 = Convert.ToInt32(totalResidents.ExecuteScalar());
-                label2.Text = count2.ToString();
-                label3.Text = count3.ToString();
-                label4.Text = count4.ToString();
-                label5.Text = count5.ToString();
-                label7.Text = count7.ToString();
-                label9.Text = count9.ToString();
+                using (var totalBlotters = new MySqlCommand("SELECT COUNT(blotterID) AS NumberOfBlotters FROM tbl_blotter", connection))
+                {
+                    using (var totalClearances = new MySqlCommand("SELECT COUNT(*) AS NumberOfIssuedClearances FROM tbl_clearance WHERE date LIKE @date", connection))
+                    {
+                        using (var totalResidents = new MySqlCommand("SELECT COUNT(isDead) AS NumberOfResidents FROM tbl_resident WHERE isDead LIKE @isAlive", connection))
+                        {
+                            using (var totalPWD = new MySqlCommand("SELECT COUNT(IF(isDead = '1',1,null)) AS NumberofPWDs FROM tbl_resident WHERE category LIKE @pwd", connection))
+                            {
+                                using (var totalSeniors = new MySqlCommand("SELECT COUNT(IF(isDead = '1',1,null)) AS NumberofSeniors FROM tbl_resident WHERE category LIKE @senior", connection))
+                                {
+                                    using (var totalUnregisteredVoters = new MySqlCommand("SELECT COUNT(IF(isDead = '1',1,null)) AS Dead FROM tbl_resident WHERE voter_status LIKE @noUV", connection))
+                                    {
+                                        using (var totalLGBT = new MySqlCommand("SELECT COUNT(IF(isDead = '1',1,null)) AS NumberofLGBTs FROM tbl_resident WHERE category LIKE @lgbt", connection))
+                                        {
+                                            using (var totalSoloParents = new MySqlCommand("SELECT COUNT(IF(isDead = '1',1,null)) AS NumberofSoloParents FROM tbl_resident WHERE category LIKE @soloParent", connection))
+                                            {
+                                                using (var totalDeceasedResidents = new MySqlCommand("SELECT COUNT(isDead) AS NumberOfDeceasedResidents FROM tbl_resident WHERE isDead LIKE @isDead", connection))
+                                                {
+                                                    totalClearances.Parameters.AddWithValue("@date", currentDate);
+                                                    totalResidents.Parameters.AddWithValue("@isAlive", isAlive);
+                                                    totalPWD.Parameters.AddWithValue("@pwd", pwd);
+                                                    totalSeniors.Parameters.AddWithValue("@senior", senior);
+                                                    totalUnregisteredVoters.Parameters.AddWithValue("@noUV", unregisteredVoters);
+                                                    totalLGBT.Parameters.AddWithValue("@lgbt", lgbt);
+                                                    totalSoloParents.Parameters.AddWithValue("@soloParent", soloParent);
+                                                    totalDeceasedResidents.Parameters.AddWithValue("@isDead", isDead);
+
+                                                    int blottersCounts = Convert.ToInt32(totalBlotters.ExecuteScalar());
+                                                    int issuedClearanceCounts = Convert.ToInt32(totalClearances.ExecuteScalar());
+                                                    int residentCounts = Convert.ToInt32(totalResidents.ExecuteScalar());
+                                                    int pwdCounts = Convert.ToInt32(totalPWD.ExecuteScalar());
+                                                    int seniorCounts = Convert.ToInt32(totalSeniors.ExecuteScalar());
+                                                    int unregisteredVoterCounts = Convert.ToInt32(totalUnregisteredVoters.ExecuteScalar());
+                                                    int lgbtCounts = Convert.ToInt32(totalLGBT.ExecuteScalar());
+                                                    int soloParentCounts = Convert.ToInt32(totalSoloParents.ExecuteScalar());
+                                                    int deceasedResidentsCounts = Convert.ToInt32(totalDeceasedResidents.ExecuteScalar());
+
+                                                    label3.Text = blottersCounts.ToString();
+                                                    label4.Text = issuedClearanceCounts.ToString();
+                                                    label9.Text = residentCounts.ToString();
+                                                    label2.Text = pwdCounts.ToString();
+                                                    label7.Text = seniorCounts.ToString();
+                                                    label5.Text = unregisteredVoterCounts.ToString();
+                                                    label13.Text = lgbtCounts.ToString();
+                                                    label16.Text = soloParentCounts.ToString();
+                                                    label18.Text = deceasedResidentsCounts.ToString();
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
         private void frmDashboard_Load(object sender, EventArgs e)
         {
             dashboardStatistics();
-
-
             label11.Text = DateTime.Now.ToString("hh:mm tt");
-
-        }
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
         }
 
 

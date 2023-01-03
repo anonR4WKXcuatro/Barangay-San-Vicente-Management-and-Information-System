@@ -38,14 +38,17 @@ namespace BMIS
                 else if (role == 1)
                 {
                     Hide();
-                    mainWindow.lblPosition.Text = "Brgy. Secretary";
+                    mainWindow.lblPosition.Text = "Brgy. Secretary";                  
                     mainWindow.Show();
+                    mainWindow.btnDashboardEffect();
+
                 }
                 else if (role == 2)
                 {
                     Hide();
-                    mainWindow.lblPosition.Text = "Brgy. Captain";
+                    mainWindow.lblPosition.Text = "Brgy. Captain";        
                     mainWindow.Show();
+                    mainWindow.btnDashboardEffect();
                 }
                 else
                 {
