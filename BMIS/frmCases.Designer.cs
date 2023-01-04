@@ -29,20 +29,22 @@ namespace BMIS
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle52 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle49 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle50 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle51 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnRefresh = new Guna.UI2.WinForms.Guna2Button();
+            this.btnAddBlotter = new Guna.UI2.WinForms.Guna2Button();
             this.label5 = new System.Windows.Forms.Label();
             this.txtFullName = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtAge = new Guna.UI2.WinForms.Guna2TextBox();
@@ -95,11 +97,9 @@ namespace BMIS
             this.panel2 = new System.Windows.Forms.Panel();
             this.label17 = new System.Windows.Forms.Label();
             this.dtpIncidentTime = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.cboIncidentType = new Guna.UI2.WinForms.Guna2ComboBox();
             this.btnPaste = new System.Windows.Forms.Button();
             this.btnSaveInfo = new Guna.UI2.WinForms.Guna2Button();
-            this.btnRefresh = new Guna.UI2.WinForms.Guna2Button();
-            this.btnAddBlotter = new Guna.UI2.WinForms.Guna2Button();
+            this.txtIncidentType = new Guna.UI2.WinForms.Guna2TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBlotter)).BeginInit();
             this.panel2.SuspendLayout();
@@ -116,6 +116,44 @@ namespace BMIS
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1198, 79);
             this.panel1.TabIndex = 1;
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnRefresh.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnRefresh.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnRefresh.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnRefresh.FillColor = System.Drawing.Color.Transparent;
+            this.btnRefresh.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefresh.ForeColor = System.Drawing.Color.White;
+            this.btnRefresh.Image = global::BMIS.Properties.Resources.icons8_sync_30;
+            this.btnRefresh.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnRefresh.Location = new System.Drawing.Point(579, 3);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(158, 74);
+            this.btnRefresh.TabIndex = 57;
+            this.btnRefresh.Text = "   REFRESH";
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
+            // btnAddBlotter
+            // 
+            this.btnAddBlotter.Animated = true;
+            this.btnAddBlotter.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnAddBlotter.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnAddBlotter.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnAddBlotter.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnAddBlotter.FillColor = System.Drawing.Color.Transparent;
+            this.btnAddBlotter.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddBlotter.ForeColor = System.Drawing.Color.White;
+            this.btnAddBlotter.Image = global::BMIS.Properties.Resources.icons8_plus___30;
+            this.btnAddBlotter.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnAddBlotter.Location = new System.Drawing.Point(415, 3);
+            this.btnAddBlotter.Name = "btnAddBlotter";
+            this.btnAddBlotter.Size = new System.Drawing.Size(158, 76);
+            this.btnAddBlotter.TabIndex = 46;
+            this.btnAddBlotter.Text = "FILE CASE";
+            this.btnAddBlotter.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnAddBlotter.Click += new System.EventHandler(this.btnAddBlotter_Click);
             // 
             // label5
             // 
@@ -624,21 +662,21 @@ namespace BMIS
             this.dgvBlotter.AllowUserToDeleteRows = false;
             this.dgvBlotter.AllowUserToResizeColumns = false;
             this.dgvBlotter.AllowUserToResizeRows = false;
-            dataGridViewCellStyle40.BackColor = System.Drawing.Color.White;
-            this.dgvBlotter.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle40;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.White;
+            this.dgvBlotter.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle14;
             this.dgvBlotter.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvBlotter.BackgroundColor = System.Drawing.Color.White;
             this.dgvBlotter.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvBlotter.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvBlotter.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle41.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle41.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(54)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle41.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle41.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle41.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle41.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle41.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvBlotter.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle41;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(54)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBlotter.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.dgvBlotter.ColumnHeadersHeight = 29;
             this.dgvBlotter.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvBlotter.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -659,14 +697,14 @@ namespace BMIS
             this.incident_narrative,
             this.SETTLE,
             this.MANAGE});
-            dataGridViewCellStyle52.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle52.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle52.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle52.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle52.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle52.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle52.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvBlotter.DefaultCellStyle = dataGridViewCellStyle52;
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle26.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle26.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvBlotter.DefaultCellStyle = dataGridViewCellStyle26;
             this.dgvBlotter.EnableHeadersVisualStyles = false;
             this.dgvBlotter.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvBlotter.Location = new System.Drawing.Point(0, 561);
@@ -704,8 +742,8 @@ namespace BMIS
             // blotterID
             // 
             this.blotterID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle42.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.blotterID.DefaultCellStyle = dataGridViewCellStyle42;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.blotterID.DefaultCellStyle = dataGridViewCellStyle16;
             this.blotterID.HeaderText = "BLOTTER NO";
             this.blotterID.MinimumWidth = 6;
             this.blotterID.Name = "blotterID";
@@ -715,8 +753,8 @@ namespace BMIS
             // fullname
             // 
             this.fullname.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle43.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fullname.DefaultCellStyle = dataGridViewCellStyle43;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fullname.DefaultCellStyle = dataGridViewCellStyle17;
             this.fullname.HeaderText = "REPORTED RESIDENT";
             this.fullname.MinimumWidth = 6;
             this.fullname.Name = "fullname";
@@ -765,8 +803,8 @@ namespace BMIS
             // 
             // incident_type
             // 
-            dataGridViewCellStyle44.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.incident_type.DefaultCellStyle = dataGridViewCellStyle44;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.incident_type.DefaultCellStyle = dataGridViewCellStyle18;
             this.incident_type.HeaderText = "TYPE";
             this.incident_type.MinimumWidth = 6;
             this.incident_type.Name = "incident_type";
@@ -775,8 +813,8 @@ namespace BMIS
             // incident_date
             // 
             this.incident_date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle45.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.incident_date.DefaultCellStyle = dataGridViewCellStyle45;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.incident_date.DefaultCellStyle = dataGridViewCellStyle19;
             this.incident_date.HeaderText = "DATE";
             this.incident_date.MinimumWidth = 6;
             this.incident_date.Name = "incident_date";
@@ -786,8 +824,8 @@ namespace BMIS
             // incident_time
             // 
             this.incident_time.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle46.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.incident_time.DefaultCellStyle = dataGridViewCellStyle46;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.incident_time.DefaultCellStyle = dataGridViewCellStyle20;
             this.incident_time.HeaderText = "TIME";
             this.incident_time.MinimumWidth = 6;
             this.incident_time.Name = "incident_time";
@@ -797,8 +835,8 @@ namespace BMIS
             // date_filed
             // 
             this.date_filed.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle47.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.date_filed.DefaultCellStyle = dataGridViewCellStyle47;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.date_filed.DefaultCellStyle = dataGridViewCellStyle21;
             this.date_filed.HeaderText = "DATE FILED";
             this.date_filed.MinimumWidth = 6;
             this.date_filed.Name = "date_filed";
@@ -816,8 +854,8 @@ namespace BMIS
             // complainant_name
             // 
             this.complainant_name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle48.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.complainant_name.DefaultCellStyle = dataGridViewCellStyle48;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.complainant_name.DefaultCellStyle = dataGridViewCellStyle22;
             this.complainant_name.HeaderText = "COMPLAINANT";
             this.complainant_name.MinimumWidth = 6;
             this.complainant_name.Name = "complainant_name";
@@ -826,8 +864,8 @@ namespace BMIS
             // 
             // suspect_identity
             // 
-            dataGridViewCellStyle49.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.suspect_identity.DefaultCellStyle = dataGridViewCellStyle49;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.suspect_identity.DefaultCellStyle = dataGridViewCellStyle23;
             this.suspect_identity.HeaderText = "SUSPECT";
             this.suspect_identity.MinimumWidth = 6;
             this.suspect_identity.Name = "suspect_identity";
@@ -846,9 +884,9 @@ namespace BMIS
             // 
             this.SETTLE.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.SETTLE.DataPropertyName = "SETTLE";
-            dataGridViewCellStyle50.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle50.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SETTLE.DefaultCellStyle = dataGridViewCellStyle50;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SETTLE.DefaultCellStyle = dataGridViewCellStyle24;
             this.SETTLE.HeaderText = "";
             this.SETTLE.MinimumWidth = 6;
             this.SETTLE.Name = "SETTLE";
@@ -861,9 +899,9 @@ namespace BMIS
             // 
             this.MANAGE.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.MANAGE.DataPropertyName = "MANAGE";
-            dataGridViewCellStyle51.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle51.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MANAGE.DefaultCellStyle = dataGridViewCellStyle51;
+            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle25.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MANAGE.DefaultCellStyle = dataGridViewCellStyle25;
             this.MANAGE.HeaderText = "";
             this.MANAGE.MinimumWidth = 6;
             this.MANAGE.Name = "MANAGE";
@@ -910,31 +948,7 @@ namespace BMIS
             this.dtpIncidentTime.ShowUpDown = true;
             this.dtpIncidentTime.Size = new System.Drawing.Size(160, 43);
             this.dtpIncidentTime.TabIndex = 56;
-            this.dtpIncidentTime.Value = new System.DateTime(2022, 1, 5, 0, 0, 0, 0);
-            // 
-            // cboIncidentType
-            // 
-            this.cboIncidentType.BackColor = System.Drawing.Color.Transparent;
-            this.cboIncidentType.BorderRadius = 15;
-            this.cboIncidentType.DisabledState.FillColor = System.Drawing.Color.LightGray;
-            this.cboIncidentType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cboIncidentType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboIncidentType.Enabled = false;
-            this.cboIncidentType.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cboIncidentType.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cboIncidentType.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboIncidentType.ForeColor = System.Drawing.Color.Black;
-            this.cboIncidentType.ItemHeight = 30;
-            this.cboIncidentType.Items.AddRange(new object[] {
-            "",
-            "CRIMINAL FRAUD",
-            "ANTI-VIOLENCE AGAINST WOMEN AND CHILDREN",
-            "CONCUBINAGE",
-            "ADULTERY"});
-            this.cboIncidentType.Location = new System.Drawing.Point(387, 207);
-            this.cboIncidentType.Name = "cboIncidentType";
-            this.cboIncidentType.Size = new System.Drawing.Size(365, 36);
-            this.cboIncidentType.TabIndex = 57;
+            this.dtpIncidentTime.Value = new System.DateTime(2023, 1, 4, 12, 0, 0, 0);
             // 
             // btnPaste
             // 
@@ -974,43 +988,29 @@ namespace BMIS
             this.btnSaveInfo.Text = "SAVE";
             this.btnSaveInfo.Click += new System.EventHandler(this.btnSaveInfo_Click);
             // 
-            // btnRefresh
+            // txtIncidentType
             // 
-            this.btnRefresh.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnRefresh.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnRefresh.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnRefresh.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnRefresh.FillColor = System.Drawing.Color.Transparent;
-            this.btnRefresh.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRefresh.ForeColor = System.Drawing.Color.White;
-            this.btnRefresh.Image = global::BMIS.Properties.Resources.icons8_sync_30;
-            this.btnRefresh.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnRefresh.Location = new System.Drawing.Point(579, 3);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(158, 74);
-            this.btnRefresh.TabIndex = 57;
-            this.btnRefresh.Text = "   REFRESH";
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
-            // 
-            // btnAddBlotter
-            // 
-            this.btnAddBlotter.Animated = true;
-            this.btnAddBlotter.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnAddBlotter.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnAddBlotter.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnAddBlotter.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnAddBlotter.FillColor = System.Drawing.Color.Transparent;
-            this.btnAddBlotter.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddBlotter.ForeColor = System.Drawing.Color.White;
-            this.btnAddBlotter.Image = global::BMIS.Properties.Resources.icons8_plus___30;
-            this.btnAddBlotter.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnAddBlotter.Location = new System.Drawing.Point(415, 3);
-            this.btnAddBlotter.Name = "btnAddBlotter";
-            this.btnAddBlotter.Size = new System.Drawing.Size(158, 76);
-            this.btnAddBlotter.TabIndex = 46;
-            this.btnAddBlotter.Text = "FILE CASE";
-            this.btnAddBlotter.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnAddBlotter.Click += new System.EventHandler(this.btnAddBlotter_Click);
+            this.txtIncidentType.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
+            this.txtIncidentType.BorderRadius = 15;
+            this.txtIncidentType.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtIncidentType.DefaultText = "";
+            this.txtIncidentType.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtIncidentType.DisabledState.FillColor = System.Drawing.Color.LightGray;
+            this.txtIncidentType.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtIncidentType.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtIncidentType.Enabled = false;
+            this.txtIncidentType.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtIncidentType.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtIncidentType.ForeColor = System.Drawing.Color.Black;
+            this.txtIncidentType.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtIncidentType.Location = new System.Drawing.Point(387, 207);
+            this.txtIncidentType.Name = "txtIncidentType";
+            this.txtIncidentType.PasswordChar = '\0';
+            this.txtIncidentType.PlaceholderText = "";
+            this.txtIncidentType.SelectedText = "";
+            this.txtIncidentType.Size = new System.Drawing.Size(365, 45);
+            this.txtIncidentType.TabIndex = 65;
+            this.txtIncidentType.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIncidentType_KeyPress);
             // 
             // frmCases
             // 
@@ -1018,8 +1018,8 @@ namespace BMIS
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1198, 812);
             this.ControlBox = false;
+            this.Controls.Add(this.txtIncidentType);
             this.Controls.Add(this.btnPaste);
-            this.Controls.Add(this.cboIncidentType);
             this.Controls.Add(this.dtpIncidentTime);
             this.Controls.Add(this.dgvBlotter);
             this.Controls.Add(this.label18);
@@ -1108,7 +1108,6 @@ namespace BMIS
         private System.Windows.Forms.Label label17;
         private Guna.UI2.WinForms.Guna2DateTimePicker dtpIncidentTime;
         private Guna.UI2.WinForms.Guna2Button btnRefresh;
-        private Guna.UI2.WinForms.Guna2ComboBox cboIncidentType;
         private System.Windows.Forms.DataGridViewTextBoxColumn blotterID;
         private System.Windows.Forms.DataGridViewTextBoxColumn fullname;
         private System.Windows.Forms.DataGridViewTextBoxColumn purok;
@@ -1127,5 +1126,6 @@ namespace BMIS
         private System.Windows.Forms.DataGridViewButtonColumn SETTLE;
         private System.Windows.Forms.DataGridViewButtonColumn MANAGE;
         private System.Windows.Forms.Button btnPaste;
+        private Guna.UI2.WinForms.Guna2TextBox txtIncidentType;
     }
 }

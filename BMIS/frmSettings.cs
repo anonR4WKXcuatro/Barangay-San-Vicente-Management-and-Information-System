@@ -24,7 +24,8 @@ namespace BMIS
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.None;
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
-
+            txtCaptainPassword.UseSystemPasswordChar = true;
+            txtSecretaryPassword.UseSystemPasswordChar = true;
         }
 
         private void UpdateCaptainName()
@@ -185,18 +186,56 @@ namespace BMIS
                     UpdateCaptainPassword();
                     MessageBox.Show("Success!, Please restart the application to apply changes.", "Notice", MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
+                    Dispose();
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-            Dispose();
         }
 
+
+        private void txtCaptainPassword_TextChanged(object sender, EventArgs e)
+        {
+            btnShowHidePassword1.Visible = !string.IsNullOrWhiteSpace(txtCaptainPassword.Text);
+        }
+
+        private void txtSecretaryPassword_TextChanged(object sender, EventArgs e)
+        {
+            btnShowHidePassword2.Visible = !string.IsNullOrWhiteSpace(txtSecretaryPassword.Text);
+        }
+
+        private void btnShowHidePassword1_CheckedChanged(object sender, EventArgs e)
+        {
+            // Show or hide your password field
+            if (btnShowHidePassword1.Checked)
+            {
+                txtCaptainPassword.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                txtCaptainPassword.UseSystemPasswordChar = true;
+            }
+        }
+
+        private void btnShowHidePassword2_CheckedChanged(object sender, EventArgs e)
+        {
+            // Show or hide your password field
+            if (btnShowHidePassword2.Checked)
+            {
+                txtSecretaryPassword.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                txtSecretaryPassword.UseSystemPasswordChar = true;
+            }
+        }
         private void btnClose_Click(object sender, EventArgs e)
         {
             Dispose();
         }
+
+        
     }
 }

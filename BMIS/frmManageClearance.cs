@@ -194,7 +194,8 @@ namespace BMIS
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            string currentDate = DateTime.Now.ToString("yyyy-MM-dd");
+            DateTime dateAndTime = DateTime.Now;
+            string getCurrentDate = dateAndTime.ToString("MM/dd/yyyy");
             DialogResult result = MessageBox.Show("Do you want to proceed?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
@@ -207,7 +208,7 @@ namespace BMIS
                         insertQuery.Parameters.AddWithValue("@FullName", txtFullName.Text);
                         insertQuery.Parameters.AddWithValue("@clearanceType", txtCertificateType.Text);
                         insertQuery.Parameters.AddWithValue("@clearancePurpose", txtPurpose.Text);
-                        insertQuery.Parameters.AddWithValue("@date", currentDate);
+                        insertQuery.Parameters.AddWithValue("@date", getCurrentDate);
                         connection.Open();
                         if (string.IsNullOrEmpty(txtOfficialReceiptNo.Text) || string.IsNullOrEmpty(txtFullName.Text) ||
                             string.IsNullOrEmpty(txtCertificateType.Text) || string.IsNullOrEmpty(txtPurpose.Text))

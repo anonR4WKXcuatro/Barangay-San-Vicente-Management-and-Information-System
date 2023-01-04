@@ -33,7 +33,6 @@ namespace BMIS
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblAddNewResident = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
-            this.btnStart = new Guna.UI2.WinForms.Guna2Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -81,25 +80,6 @@ namespace BMIS
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // btnStart
-            // 
-            this.btnStart.AutoRoundedCorners = true;
-            this.btnStart.BorderRadius = 19;
-            this.btnStart.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnStart.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnStart.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnStart.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnStart.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(59)))), ((int)(((byte)(72)))));
-            this.btnStart.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnStart.ForeColor = System.Drawing.Color.White;
-            this.btnStart.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnStart.Location = new System.Drawing.Point(313, 63);
-            this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(104, 41);
-            this.btnStart.TabIndex = 54;
-            this.btnStart.Text = "START";
-            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
-            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
@@ -146,7 +126,7 @@ namespace BMIS
             this.btnCapture.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnCapture.ForeColor = System.Drawing.Color.White;
             this.btnCapture.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnCapture.Location = new System.Drawing.Point(423, 63);
+            this.btnCapture.Location = new System.Drawing.Point(313, 63);
             this.btnCapture.Name = "btnCapture";
             this.btnCapture.Size = new System.Drawing.Size(104, 41);
             this.btnCapture.TabIndex = 59;
@@ -197,7 +177,6 @@ namespace BMIS
             this.Controls.Add(this.btnSaveImage);
             this.Controls.Add(this.btnCapture);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Controls.Add(this.btnStart);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmCaptureImage";
@@ -219,7 +198,6 @@ namespace BMIS
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblAddNewResident;
         private System.Windows.Forms.Button btnClose;
-        private Guna.UI2.WinForms.Guna2Button btnStart;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;

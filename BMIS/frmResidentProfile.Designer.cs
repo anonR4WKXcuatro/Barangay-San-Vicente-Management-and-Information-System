@@ -175,7 +175,7 @@ namespace BMIS
             // 
             this.btnMarkDead.AutoRoundedCorners = true;
             this.btnMarkDead.BackColor = System.Drawing.Color.Transparent;
-            this.btnMarkDead.BorderRadius = 16;
+            this.btnMarkDead.BorderRadius = 17;
             this.btnMarkDead.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnMarkDead.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnMarkDead.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -184,9 +184,9 @@ namespace BMIS
             this.btnMarkDead.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMarkDead.ForeColor = System.Drawing.Color.White;
             this.btnMarkDead.Image = global::BMIS.Properties.Resources.icons8_headstone_30;
-            this.btnMarkDead.Location = new System.Drawing.Point(249, 3);
+            this.btnMarkDead.Location = new System.Drawing.Point(890, 3);
             this.btnMarkDead.Name = "btnMarkDead";
-            this.btnMarkDead.Size = new System.Drawing.Size(34, 36);
+            this.btnMarkDead.Size = new System.Drawing.Size(69, 36);
             this.btnMarkDead.TabIndex = 43;
             this.btnMarkDead.TabStop = false;
             this.btnMarkDead.Visible = false;
@@ -194,11 +194,12 @@ namespace BMIS
             // 
             // lblDead
             // 
+            this.lblDead.AutoSize = true;
             this.lblDead.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDead.ForeColor = System.Drawing.Color.Red;
-            this.lblDead.Location = new System.Drawing.Point(775, 5);
+            this.lblDead.Location = new System.Drawing.Point(797, 425);
             this.lblDead.Name = "lblDead";
-            this.lblDead.Size = new System.Drawing.Size(186, 22);
+            this.lblDead.Size = new System.Drawing.Size(159, 19);
             this.lblDead.TabIndex = 57;
             this.lblDead.Text = "*This resident is dead";
             this.lblDead.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -422,7 +423,6 @@ namespace BMIS
             // btnCamera
             // 
             this.btnCamera.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCamera.Enabled = false;
             this.btnCamera.FlatAppearance.BorderSize = 0;
             this.btnCamera.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCamera.Image = global::BMIS.Properties.Resources.icons8_compact_camera_25;
@@ -432,7 +432,6 @@ namespace BMIS
             this.btnCamera.TabIndex = 18;
             this.btnCamera.TabStop = false;
             this.btnCamera.UseVisualStyleBackColor = true;
-            this.btnCamera.Visible = false;
             this.btnCamera.Click += new System.EventHandler(this.btnCamera_Click);
             // 
             // label12
@@ -609,7 +608,7 @@ namespace BMIS
             this.dtpBirthDate.BackColor = System.Drawing.SystemColors.Control;
             this.dtpBirthDate.BorderRadius = 15;
             this.dtpBirthDate.Checked = true;
-            this.dtpBirthDate.CustomFormat = "yyy-MM-dd";
+            this.dtpBirthDate.CustomFormat = "yyyy-MM-dd";
             this.dtpBirthDate.FillColor = System.Drawing.Color.White;
             this.dtpBirthDate.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.dtpBirthDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
@@ -617,6 +616,7 @@ namespace BMIS
             this.dtpBirthDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dtpBirthDate.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             this.dtpBirthDate.Name = "dtpBirthDate";
+            this.dtpBirthDate.ShowUpDown = true;
             this.dtpBirthDate.Size = new System.Drawing.Size(278, 43);
             this.dtpBirthDate.TabIndex = 8;
             this.dtpBirthDate.TabStop = false;
@@ -727,7 +727,6 @@ namespace BMIS
             // btnClearPic
             // 
             this.btnClearPic.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnClearPic.Enabled = false;
             this.btnClearPic.FlatAppearance.BorderSize = 0;
             this.btnClearPic.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnClearPic.Image = global::BMIS.Properties.Resources.icons8_remove_image_25;
@@ -737,7 +736,6 @@ namespace BMIS
             this.btnClearPic.TabIndex = 20;
             this.btnClearPic.TabStop = false;
             this.btnClearPic.UseVisualStyleBackColor = true;
-            this.btnClearPic.Visible = false;
             this.btnClearPic.Click += new System.EventHandler(this.btnClearPic_Click);
             // 
             // label20
@@ -754,7 +752,6 @@ namespace BMIS
             // btnBrowsePic
             // 
             this.btnBrowsePic.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBrowsePic.Enabled = false;
             this.btnBrowsePic.FlatAppearance.BorderSize = 0;
             this.btnBrowsePic.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnBrowsePic.Image = global::BMIS.Properties.Resources.icons8_add_image_25;
@@ -764,7 +761,6 @@ namespace BMIS
             this.btnBrowsePic.TabIndex = 19;
             this.btnBrowsePic.TabStop = false;
             this.btnBrowsePic.UseVisualStyleBackColor = true;
-            this.btnBrowsePic.Visible = false;
             this.btnBrowsePic.Click += new System.EventHandler(this.btnBrowsePic_Click);
             // 
             // label18

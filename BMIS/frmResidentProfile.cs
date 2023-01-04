@@ -393,9 +393,18 @@ namespace BMIS
         {
             var today = DateTime.Today;
             var age = today.Subtract(dtpBirthDate.Value).TotalDays;
-            var years = (age / 365);
-            txtAge.Text = Math.Round(years).ToString();
-            cboCategory.SelectedItem = years >= 60 ? cboCategory.Items[1] : cboCategory.Items[0]; // IF AGE 60 AND UP THEN IT WILL SET TO SENIOR
+            var totalAge = (age / 363.242199D);
+
+            txtAge.Text = Math.Floor(totalAge).ToString();
+
+
+            int ageValidation = Convert.ToInt32(txtAge.Text.ToString());
+            if (ageValidation <= 0)
+            {
+                txtAge.ResetText();
+            }
+
+            cboCategory.SelectedItem = totalAge >= 60 ? cboCategory.Items[1] : cboCategory.Items[0]; // IF AGE 60 AND UP THEN IT WILL SET TO SENIOROR
 
         }
         private void txtAge_KeyPress(object sender, KeyPressEventArgs e)

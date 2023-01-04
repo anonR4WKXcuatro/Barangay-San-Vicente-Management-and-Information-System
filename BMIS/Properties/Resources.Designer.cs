@@ -313,6 +313,16 @@ namespace BMIS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_male_user_100 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_male_user_100", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_organization_chart_people_24 {
             get {
                 object obj = ResourceManager.GetObject("icons8_organization_chart_people_24", resourceCulture);
@@ -516,16 +526,6 @@ namespace BMIS.Properties {
         internal static System.Drawing.Bitmap icons8_system_64 {
             get {
                 object obj = ResourceManager.GetObject("icons8_system_64", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap icons8_test_account_100__1_ {
-            get {
-                object obj = ResourceManager.GetObject("icons8_test_account_100__1_", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -475,6 +475,7 @@
     <None Include="Resources\icons8-lgbt-100.png" />
     <None Include="Resources\icons8-single-father-100.png" />
     <None Include="Resources\icons8-headstone-100.png" />
+    <None Include="Resources\icons8-male-user-100.png" />
     <Content Include="SVLogo.ico" />
     <None Include="Resources\New sto tomas logo-modified.png" />
     <None Include="Resources\icons8-headstone-30.png" />

@@ -127,6 +127,7 @@ namespace BMIS
             this.txtPassword.SelectedText = "";
             this.txtPassword.Size = new System.Drawing.Size(374, 45);
             this.txtPassword.TabIndex = 27;
+            this.txtPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPassword_KeyDown);
             // 
             // label4
             // 

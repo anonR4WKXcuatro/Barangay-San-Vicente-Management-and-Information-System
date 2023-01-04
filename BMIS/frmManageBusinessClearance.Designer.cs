@@ -160,6 +160,7 @@ namespace BMIS
             this.txtPurpose.SelectedText = "";
             this.txtPurpose.Size = new System.Drawing.Size(417, 43);
             this.txtPurpose.TabIndex = 69;
+            this.txtPurpose.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPurpose_KeyPress);
             // 
             // label11
             // 
@@ -226,6 +227,7 @@ namespace BMIS
             this.txtAmount.SelectedText = "";
             this.txtAmount.Size = new System.Drawing.Size(417, 43);
             this.txtAmount.TabIndex = 67;
+            this.txtAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAmount_KeyPress);
             // 
             // label3
             // 
@@ -252,12 +254,14 @@ namespace BMIS
             this.txtPermitNo.ForeColor = System.Drawing.Color.Black;
             this.txtPermitNo.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtPermitNo.Location = new System.Drawing.Point(480, 58);
+            this.txtPermitNo.MaxLength = 50;
             this.txtPermitNo.Name = "txtPermitNo";
             this.txtPermitNo.PasswordChar = '\0';
             this.txtPermitNo.PlaceholderText = "";
             this.txtPermitNo.SelectedText = "";
             this.txtPermitNo.Size = new System.Drawing.Size(417, 43);
             this.txtPermitNo.TabIndex = 65;
+            this.txtPermitNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPermitNo_KeyPress);
             // 
             // label10
             // 
@@ -290,6 +294,7 @@ namespace BMIS
             this.txtBusinessAddress.SelectedText = "";
             this.txtBusinessAddress.Size = new System.Drawing.Size(417, 43);
             this.txtBusinessAddress.TabIndex = 63;
+            this.txtBusinessAddress.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBusinessAddress_KeyPress);
             // 
             // label9
             // 
@@ -322,6 +327,7 @@ namespace BMIS
             this.txtBusinessName.SelectedText = "";
             this.txtBusinessName.Size = new System.Drawing.Size(417, 43);
             this.txtBusinessName.TabIndex = 61;
+            this.txtBusinessName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBusinessName_KeyPress);
             // 
             // label8
             // 
@@ -354,6 +360,7 @@ namespace BMIS
             this.txtNatureBusiness.SelectedText = "";
             this.txtNatureBusiness.Size = new System.Drawing.Size(417, 43);
             this.txtNatureBusiness.TabIndex = 59;
+            this.txtNatureBusiness.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNatureBusiness_KeyPress);
             // 
             // label7
             // 
@@ -489,6 +496,7 @@ namespace BMIS
             this.txtOfficialReceiptNo.SelectedText = "";
             this.txtOfficialReceiptNo.Size = new System.Drawing.Size(413, 43);
             this.txtOfficialReceiptNo.TabIndex = 47;
+            this.txtOfficialReceiptNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtOfficialReceiptNo_KeyPress);
             // 
             // labels2
             // 

@@ -123,13 +123,13 @@ namespace BMIS
                     sqlDA.Fill(dSet);
                     dgvClearanceLogs.DataSource = null;
                     dgvClearanceLogs.AutoGenerateColumns = false;
-                    dgvClearanceLogs.ColumnCount = 8;
-                    dgvClearanceLogs.Columns[0].DataPropertyName = "";
-                    dgvClearanceLogs.Columns[1].DataPropertyName = "orNumber";
-                    dgvClearanceLogs.Columns[2].DataPropertyName = "fullname";
-                    dgvClearanceLogs.Columns[3].DataPropertyName = "clearance_type";
-                    dgvClearanceLogs.Columns[4].DataPropertyName = "clearance_purpose";
-                    dgvClearanceLogs.Columns[5].DataPropertyName = "date";
+                    dgvClearanceLogs.ColumnCount = 5;
+                   
+                    dgvClearanceLogs.Columns[0].DataPropertyName = "orNumber";
+                    dgvClearanceLogs.Columns[1].DataPropertyName = "fullname";
+                    dgvClearanceLogs.Columns[2].DataPropertyName = "clearance_type";
+                    dgvClearanceLogs.Columns[3].DataPropertyName = "clearance_purpose";
+                    dgvClearanceLogs.Columns[4].DataPropertyName = "date";
                     dgvClearanceLogs.DataSource = dSet;
                     dgvClearanceLogs.Refresh();
                 }
@@ -227,7 +227,7 @@ namespace BMIS
         {
             using (var connection = new MySqlConnection(connectionString))
             {
-                using (var searchQuery = new MySqlCommand("SELECT * FROM tbl_resident WHERE CONCAT(residentID,fullname,address,purok)like'%" + valueToSearch1 + "%'", connection))
+                using (var searchQuery = new MySqlCommand("SELECT * FROM tbl_resident WHERE CONCAT(residentID,fullname,address,purok)like'%" + valueToSearch1 + "%'" + "AND isDead = 1", connection))
                 {
                     connection.Open();
                     using (var sqlDA = new MySqlDataAdapter(searchQuery))
@@ -304,7 +304,7 @@ namespace BMIS
         {
             using (var connection = new MySqlConnection(connectionString))
             {
-                using (var searchQuery = new MySqlCommand("SELECT * FROM tbl_resident WHERE CONCAT(residentID,fullname,address,purok)like'%" + valueToSearch6 + "%'", connection))
+                using (var searchQuery = new MySqlCommand("SELECT * FROM tbl_resident WHERE CONCAT(residentID,fullname,address,purok) LIKE '%" + valueToSearch6 + "%'" +"AND isDead = 0", connection))
                 {
                     connection.Open();
                     using (var sqlDA = new MySqlDataAdapter(searchQuery))
@@ -319,10 +319,7 @@ namespace BMIS
         }
        
 
-        private void dgvClearanceLogs_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
-        {
-            this.dgvClearanceLogs.Rows[e.RowIndex].Cells["rn3"].Value = (e.RowIndex + 1).ToString();
-        }
+       
        
 
         /* IMPORT CSV */
@@ -689,7 +686,7 @@ namespace BMIS
 
                         workSheet = workBook.Sheets["Sheet1"];
                         workSheet = workBook.ActiveSheet;
-                        workSheet.Name = "SETTLEMENTS RECORDS";
+                        workSheet.Name = "ISSUED CERTIFICATES";
                         workSheet.Application.ActiveWindow.SplitRow = 1;
                         workSheet.Application.ActiveWindow.FreezePanes = true;
 
@@ -759,7 +756,7 @@ namespace BMIS
 
                         workSheet = workBook.Sheets["Sheet1"];
                         workSheet = workBook.ActiveSheet;
-                        workSheet.Name = "SETTLEMENTS RECORDS";
+                        workSheet.Name = "ISSUED BUSINESS CERTIFICATES";
                         workSheet.Application.ActiveWindow.SplitRow = 1;
                         workSheet.Application.ActiveWindow.FreezePanes = true;
 
@@ -829,7 +826,7 @@ namespace BMIS
 
                         workSheet = workBook.Sheets["Sheet1"];
                         workSheet = workBook.ActiveSheet;
-                        workSheet.Name = "SETTLEMENTS RECORDS";
+                        workSheet.Name = "DECEASED RESIDENTS";
                         workSheet.Application.ActiveWindow.SplitRow = 1;
                         workSheet.Application.ActiveWindow.FreezePanes = true;
 
@@ -917,6 +914,16 @@ namespace BMIS
                 txtSearchBarBusinessClearance.Visible = false;
                 // INSERT CODE HERE
             }
+            else
+            {
+                Console.WriteLine("Do nothing");
+            }
+            txtSearchBar.ResetText();
+            txtSearchBarBlotters.ResetText();
+            txtSearchBarBusinessClearance.ResetText();
+            txtSearchBarCertificate.ResetText();
+            txtSearchBarDeceasedResidents.ResetText();
+            txtSearchBarSettlement.ResetText();
         }
 
         private void txtSearchBar_KeyPress(object sender, KeyPressEventArgs e)
@@ -991,6 +998,10 @@ namespace BMIS
                 Console.WriteLine("Do Nothing");
             }
         }
+
+      
+
+       
     }
 }
 

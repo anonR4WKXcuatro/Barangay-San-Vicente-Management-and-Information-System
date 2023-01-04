@@ -573,6 +573,7 @@ namespace BMIS
             this.dtpBirthDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dtpBirthDate.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             this.dtpBirthDate.Name = "dtpBirthDate";
+            this.dtpBirthDate.ShowUpDown = true;
             this.dtpBirthDate.Size = new System.Drawing.Size(278, 43);
             this.dtpBirthDate.TabIndex = 14;
             this.dtpBirthDate.TabStop = false;

@@ -46,10 +46,7 @@ namespace BMIS
             pictureBox1.Image = (Bitmap)eventArgs.Frame.Clone();
         }
 
-        private void btnStart_Click(object sender, EventArgs e)
-        {
-
-        }
+       
 
 
         private void btnCapture_Click(object sender, EventArgs e)

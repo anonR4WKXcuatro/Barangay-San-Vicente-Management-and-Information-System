@@ -198,7 +198,7 @@ namespace BMIS
                 string d = DateTime.Now.Day.ToString();
                 string m = DateTime.Now.ToString("MMMM");
                 string y = DateTime.Now.Year.ToString();
-                string monthYear = "Issued this " + d + " day of " + m + ", " + y + " at San Vicente, Sto. Tomas, Batangas.";
+                string monthYear = "Issued this " + d + " day of " + m + ", " + y + " at San Vicente, Sto. Tomas City, Batangas.";
 
                 blotterNo = (TextObject)cyrprt1.ReportDefinition.Sections["Section1"].ReportObjects["bbenNo"];
                 complainant = (TextObject)cyrprt1.ReportDefinition.Sections["Section1"].ReportObjects["complainantName"];

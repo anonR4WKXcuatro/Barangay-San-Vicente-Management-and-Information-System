@@ -99,13 +99,10 @@ namespace BMIS
             businessNature.Text = txtNatureBusiness.Text;
             amount.Text = txtAmount.Text;
 
-
             frm1.crystalReportViewer1.ReportSource = businessClearanceRPT;
             frm1.ShowDialog();
             Hide();
         }
-
-
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
@@ -130,10 +127,9 @@ namespace BMIS
 
                         connection.Open();
                         if (string.IsNullOrEmpty(txtOfficialReceiptNo.Text) || string.IsNullOrEmpty(txtPermitNo.Text)
-                                || string.IsNullOrEmpty(txtResidentID.Text) || string.IsNullOrEmpty(txtFullName.Text)
-                                || string.IsNullOrEmpty(txtOwnersAddress.Text) || string.IsNullOrEmpty(txtBusinessName.Text)
-                                || string.IsNullOrEmpty(txtBusinessAddress.Text) || string.IsNullOrEmpty(txtNatureBusiness.Text)
-                                || string.IsNullOrEmpty(txtCertificateType.Text) || string.IsNullOrEmpty(txtPurpose.Text))
+                        || string.IsNullOrEmpty(txtOwnersAddress.Text) || string.IsNullOrEmpty(txtBusinessName.Text)
+                        || string.IsNullOrEmpty(txtBusinessAddress.Text) || string.IsNullOrEmpty(txtNatureBusiness.Text)
+                        || string.IsNullOrEmpty(txtCertificateType.Text) || string.IsNullOrEmpty(txtPurpose.Text))
                         {
                             MessageBox.Show("Please fill up the remaining fields!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
@@ -161,10 +157,63 @@ namespace BMIS
                 Console.Write("Do Nothing");
             }
         }
+
+        private void txtOfficialReceiptNo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+            if (!char.IsDigit(ch) &&
+                ch != Convert.ToChar(Keys.Back) &&
+                    ch != Convert.ToChar(Keys.Delete))
+                e.Handled = true;
+        }
+        private void txtPermitNo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+            if (!char.IsDigit(ch) &&
+                ch != Convert.ToChar(Keys.Back) &&
+                    ch != Convert.ToChar(Keys.Delete))
+                e.Handled = true;
+        }
+        private void txtAmount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+            decimal x;
+            if (ch == (char)Keys.Back)
+            {
+                e.Handled = false;
+            }
+            else if (!char.IsDigit(ch) && ch != '.' || !Decimal.TryParse(txtAmount.Text + ch, out x))
+            {
+                e.Handled = true;
+            }
+        }
+        private void txtNatureBusiness_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.KeyChar = char.ToUpper(e.KeyChar);
+        }
+
+        private void txtPurpose_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.KeyChar = char.ToUpper(e.KeyChar);
+        }
+
+        private void txtBusinessName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.KeyChar = char.ToUpper(e.KeyChar);
+        }
+        private void txtBusinessAddress_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.KeyChar = char.ToUpper(e.KeyChar);
+        }
+
+
+
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Hide();
         }
+
+
     }
 }
 

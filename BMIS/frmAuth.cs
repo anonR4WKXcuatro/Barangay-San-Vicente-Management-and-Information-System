@@ -54,6 +54,7 @@ namespace BMIS
                         {
                             MessageBox.Show("Invalid Credentials, Please try again!", "Authentication Error", MessageBoxButtons.OK,
                             MessageBoxIcon.Error);
+                            Dispose();
                         }
                     }
                     catch (MySqlException ex)
@@ -66,9 +67,14 @@ namespace BMIS
                 }
             }
         }
-        bool obj;
        
-      
+        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                Authenticate();
+            }
+        }
         private void btnAccess_Click(object sender, EventArgs e)
         {
             Authenticate();
@@ -77,7 +83,5 @@ namespace BMIS
         {
             Dispose();
         }
-
-       
     }
 }

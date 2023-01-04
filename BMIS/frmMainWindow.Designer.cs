@@ -37,7 +37,6 @@ namespace BMIS
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblBrgySecretary = new System.Windows.Forms.Label();
@@ -49,6 +48,7 @@ namespace BMIS
             this.btnCases = new System.Windows.Forms.Button();
             this.btnDashboard = new System.Windows.Forms.Button();
             this.btnResidents = new System.Windows.Forms.Button();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
@@ -118,17 +118,6 @@ namespace BMIS
             this.label2.Size = new System.Drawing.Size(776, 35);
             this.label2.TabIndex = 6;
             this.label2.Text = "BARANGAY MANAGEMENT AND INFORMATION SYSTEM";
-            // 
-            // panel4
-            // 
-            this.panel4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panel4.BackColor = System.Drawing.Color.White;
-            this.panel4.BackgroundImage = global::BMIS.Properties.Resources.San_Vicente_Logo;
-            this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel4.Location = new System.Drawing.Point(3, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(98, 85);
-            this.panel4.TabIndex = 4;
             // 
             // timer
             // 
@@ -209,12 +198,12 @@ namespace BMIS
             // guna2CirclePictureBox1
             // 
             this.guna2CirclePictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2CirclePictureBox1.Image = global::BMIS.Properties.Resources.icons8_test_account_100__1_;
+            this.guna2CirclePictureBox1.Image = global::BMIS.Properties.Resources.icons8_male_user_100;
             this.guna2CirclePictureBox1.ImageRotate = 0F;
-            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(0, 36);
+            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(0, 24);
             this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
             this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(329, 118);
+            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(329, 130);
             this.guna2CirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.guna2CirclePictureBox1.TabIndex = 6;
             this.guna2CirclePictureBox1.TabStop = false;
@@ -319,6 +308,17 @@ namespace BMIS
             this.btnResidents.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnResidents.UseVisualStyleBackColor = true;
             this.btnResidents.Click += new System.EventHandler(this.btnResidents_Click);
+            // 
+            // panel4
+            // 
+            this.panel4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel4.BackColor = System.Drawing.Color.White;
+            this.panel4.BackgroundImage = global::BMIS.Properties.Resources.San_Vicente_Logo;
+            this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel4.Location = new System.Drawing.Point(3, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(98, 85);
+            this.panel4.TabIndex = 4;
             // 
             // frmMainWindow
             // 

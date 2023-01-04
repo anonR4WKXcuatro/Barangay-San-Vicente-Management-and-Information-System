@@ -38,7 +38,7 @@ namespace BMIS
             txtBlotterNo.Enabled = t;
             txtBlotterNo.ReadOnly = t;
 
-            cboIncidentType.Enabled = t;
+            txtIncidentType.Enabled = t;
             txtIncidentPlace.Enabled = t;
             txtComplainant.Enabled = t;
             txtSuspect.Enabled = t;
@@ -54,7 +54,7 @@ namespace BMIS
         private void controlsOff()
         {
             bool f = false;
-        
+
             //TEXTBOX
             txtResidentID.Enabled = f;
             txtResidentID.ReadOnly = f;
@@ -72,8 +72,8 @@ namespace BMIS
             txtBlotterNo.Enabled = f;
             txtBlotterNo.ReadOnly = f;
 
-            cboIncidentType.Enabled = f;
-           
+            txtIncidentType.Enabled = f;
+
 
             txtIncidentPlace.Enabled = f;
             txtComplainant.Enabled = f;
@@ -96,7 +96,7 @@ namespace BMIS
             txtSex.ResetText();
             txtCivilStatus.ResetText();
             txtContactNo.ResetText();
-            cboIncidentType.SelectedIndex = -1;
+            txtIncidentType.ResetText();
             txtIncidentPlace.ResetText();
             txtComplainant.ResetText();
             txtSuspect.ResetText();
@@ -155,7 +155,7 @@ namespace BMIS
                                 insertQuery.Parameters.AddWithValue("@sex", txtSex.Text);
                                 insertQuery.Parameters.AddWithValue("@civilStatus", txtCivilStatus.Text);
                                 insertQuery.Parameters.AddWithValue("@contactNo", txtContactNo.Text);
-                                insertQuery.Parameters.AddWithValue("@incidentType", cboIncidentType.Text);
+                                insertQuery.Parameters.AddWithValue("@incidentType", txtIncidentType.Text);
                                 insertQuery.Parameters.AddWithValue("@incidentDate", dtpIncidentDate.Text);
                                 insertQuery.Parameters.AddWithValue("@incidentTime", dtpIncidentTime.Text);
                                 insertQuery.Parameters.AddWithValue("dateFiled", currentDate);
@@ -167,7 +167,7 @@ namespace BMIS
                                 insertQuery2.Parameters.AddWithValue("@status", "UNSETTLED");
                                 //Controls validation
                                 if (string.IsNullOrEmpty(txtResidentID.Text) || string.IsNullOrEmpty(txtFullName.Text) || string.IsNullOrEmpty(txtSex.Text) ||
-                                string.IsNullOrEmpty(cboIncidentType.Text) || string.IsNullOrEmpty(dtpIncidentDate.Text) ||
+                                string.IsNullOrEmpty(txtIncidentType.Text) || string.IsNullOrEmpty(dtpIncidentDate.Text) ||
                                 string.IsNullOrEmpty(txtIncidentPlace.Text) ||
                                 string.IsNullOrEmpty(txtComplainant.Text) || string.IsNullOrEmpty(txtSuspect.Text) ||
                                 string.IsNullOrEmpty(txtIncidentNarration.Text))
@@ -254,32 +254,43 @@ namespace BMIS
             {
                 DataGridViewRow row = this.dgvBlotter.Rows[e.RowIndex];
 
-                using (var connection1 = new MySqlConnection(connectionString))
+                DialogResult dialogResult = MessageBox.Show("Do you want to settle this case?", "Confirmation", MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+                switch (dialogResult)
                 {
-                    connection1.Open();
-                    using (var connection2 = new MySqlConnection(connectionString))
-                    {
-                        connection2.Open();
-                        using (var deleteQuery = new MySqlCommand("DELETE FROM tbl_blotter WHERE blotterID = @BlotterID", connection1))
+                    case DialogResult.Yes:
+                        using (var connection1 = new MySqlConnection(connectionString))
                         {
-                            using (var updateQuery = new MySqlCommand("UPDATE tbl_settlement SET status = @status WHERE blotterNo = @BlotterID", connection2))
+                            connection1.Open();
+                            using (var connection2 = new MySqlConnection(connectionString))
                             {
-                                updateQuery.Parameters.AddWithValue("@status", "SETTLED");
-                                updateQuery.Parameters.AddWithValue("@BlotterID", row.Cells[0].Value.ToString());
-                                deleteQuery.Parameters.AddWithValue("@BlotterID", row.Cells[0].Value.ToString());
-                                if (deleteQuery.ExecuteNonQuery() > 0 && updateQuery.ExecuteNonQuery() > 0)
+                                connection2.Open();
+                                using (var deleteQuery = new MySqlCommand("DELETE FROM tbl_blotter WHERE blotterID = @BlotterID", connection1))
                                 {
-                                    MessageBox.Show("Case Successfully Settled!", "Notice", MessageBoxButtons.OK,
-                                    MessageBoxIcon.Information);
-                                    resetFields();
-                                    txtBlotterNo.ResetText();
-                                    controlsOff();
+                                    using (var updateQuery = new MySqlCommand("UPDATE tbl_settlement SET status = @status WHERE blotterNo = @BlotterID", connection2))
+                                    {
+                                        updateQuery.Parameters.AddWithValue("@status", "SETTLED");
+                                        updateQuery.Parameters.AddWithValue("@BlotterID", row.Cells[0].Value.ToString());
+                                        deleteQuery.Parameters.AddWithValue("@BlotterID", row.Cells[0].Value.ToString());
+                                        if (deleteQuery.ExecuteNonQuery() > 0 && updateQuery.ExecuteNonQuery() > 0)
+                                        {
+                                            MessageBox.Show("Case Successfully Settled!", "Notice", MessageBoxButtons.OK,
+                                            MessageBoxIcon.Information);
+                                            resetFields();
+                                            txtBlotterNo.ResetText();
+                                            controlsOff();
+                                        }
+                                    }
                                 }
+                                connection2.Close();
                             }
+                            connection1.Close();
                         }
-                        connection2.Close();
-                    }
-                    connection1.Close();
+                        break;
+                    case DialogResult.No:
+                        Console.WriteLine("Do nothing");
+                        break;
                 }
             }
         }
@@ -343,6 +354,10 @@ namespace BMIS
         {
             e.KeyChar = char.ToUpper(e.KeyChar);
         }
+        private void txtIncidentType_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.KeyChar = char.ToUpper(e.KeyChar);
+        }
 
         private void txtContactNo_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -357,6 +372,8 @@ namespace BMIS
         {
             txtResidentID.Text = Clipboard.GetText();
         }
+
+
     }
 }
 

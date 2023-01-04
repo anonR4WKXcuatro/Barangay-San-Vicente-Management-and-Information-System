@@ -91,6 +91,13 @@ namespace BMIS
                 }
             }
         }
+        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                DeleteConfirmation();
+            }
+        }
         private void btnConfirm_Click(object sender, EventArgs e)
         {
             DeleteConfirmation();
@@ -99,6 +106,6 @@ namespace BMIS
         private void btnClose_Click(object sender, EventArgs e)
         {
             Dispose();
-        }
+        }     
     }
 }

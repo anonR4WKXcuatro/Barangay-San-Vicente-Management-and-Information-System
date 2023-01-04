@@ -193,6 +193,9 @@
   <data name="icons8_logout_rounded_left_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-logout-rounded-left-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="icons8_male_user_100" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-male-user-100.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="icons8_organization_chart_people_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-organization-chart-people-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -255,9 +258,6 @@
   </data>
   <data name="icons8_system_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-system-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icons8_test_account_100__1_" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8-test-account-100 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8_user_30" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-user-30.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

@@ -26,7 +26,12 @@ namespace BMIS
             int nWidthEllipse, // height of ellipse
             int nHeightEllipse // width of ellipse
         );
+        public string NewId_FromGuidShorted() => Guid.NewGuid().ToString("N").Substring(0, 15); //GENERATE SHORT GUID (MAX 15 CHARS)
+        private void frmAddResident_Load(object sender, EventArgs e)
+        {
+            txtResidentID.Text = NewId_FromGuidShorted();
 
+        }
         private bool fieldValidation()
         {
             bool isValid = true;
@@ -36,7 +41,7 @@ namespace BMIS
             || string.IsNullOrWhiteSpace(txtNationality.Text) || string.IsNullOrWhiteSpace(txtAddress.Text)
             || string.IsNullOrWhiteSpace(cboCivilStatus.Text) || string.IsNullOrWhiteSpace(cboVoterStatus.Text)
             || string.IsNullOrWhiteSpace(cboPurok.Text) || string.IsNullOrWhiteSpace(cboSex.Text)
-                || string.IsNullOrWhiteSpace(txtMotherName.Text) || string.IsNullOrWhiteSpace(txtFatherName.Text))
+            || string.IsNullOrWhiteSpace(txtMotherName.Text) || string.IsNullOrWhiteSpace(txtFatherName.Text))
             {
                 isValid = false;
             }
@@ -63,11 +68,6 @@ namespace BMIS
             func(Controls);
         }
 
-        public string NewId_FromGuidShorted() => Guid.NewGuid().ToString("N").Substring(0, 15); //GENERATE SHORT GUID (MAX 15 CHARS)
-        private void frmAddResident_Load(object sender, EventArgs e)
-        {
-            txtResidentID.Text = NewId_FromGuidShorted();
-        }
         private void btnSaveInfo_Click(object sender, EventArgs e)
         {
             MemoryStream ms = new MemoryStream();
@@ -92,37 +92,37 @@ namespace BMIS
                 Purok = cboPurok.Text,
                 Address = txtAddress.Text,
                 Image = arrImage,
-                IsDead = 1 // TRUE OR ALIVE
-
+                IsDead = 1 // 1 = alive 0 = dead
             };
-            using (var connection = new MySqlConnection("server=localhost; port=3306; user=root; password=admin123; database=bmis_db"))
+            try
             {
-                connection.Open();
-                Console.WriteLine("Connection Pool Open!");
-                using (var insertQuery = new MySqlCommand("INSERT INTO tbl_resident(residentID,fullname,fathername,mothername,sex,age,birthdate,civil_status,nationality,contact_no,religion,occupation,category,voter_status,purok,address,image,isDead)" +
-                                     "VALUES(@residentID,@FullName,@FatherName,@MotherName,@sex,@age,@birthdate,@civilStatus,@nationality,@contactNo,@religion,@occupation,@category,@voterStatus,@purok,@address,@image,@isDead)", connection))
+                using (var connection = new MySqlConnection("server=localhost; port=3306; user=root; password=admin123; database=bmis_db"))
                 {
-                    //INSERT INFORMATIONS TO DB
-                    insertQuery.Parameters.AddWithValue("@residentID", i.ResidentID);
-                    insertQuery.Parameters.AddWithValue("@FullName", i.FullName);
-                    insertQuery.Parameters.AddWithValue("@FatherName", i.FatherName);
-                    insertQuery.Parameters.AddWithValue("@MotherName", i.MotherName);
-                    insertQuery.Parameters.AddWithValue("@sex", i.Sex);
-                    insertQuery.Parameters.AddWithValue("@age", i.Age);
-                    insertQuery.Parameters.AddWithValue("@birthdate", i.BirthDate);
-                    insertQuery.Parameters.AddWithValue("@civilStatus", i.CivilStatus);
-                    insertQuery.Parameters.AddWithValue("@nationality", i.Nationality);
-                    insertQuery.Parameters.AddWithValue("@contactNo", i.ContactNo);
-                    insertQuery.Parameters.AddWithValue("@religion", i.Religion);
-                    insertQuery.Parameters.AddWithValue("@occupation", i.Occupation);
-                    insertQuery.Parameters.AddWithValue("@category", i.Category);
-                    insertQuery.Parameters.AddWithValue("@voterStatus", i.Voterstatus);
-                    insertQuery.Parameters.AddWithValue("@purok", i.Purok);
-                    insertQuery.Parameters.AddWithValue("@address", i.Address);
-                    insertQuery.Parameters.AddWithValue("@image", i.Image);
-                    insertQuery.Parameters.AddWithValue("@isDead", i.IsDead);
-                    try
+                    connection.Open();
+                    Console.WriteLine("Connection Pool Open!");
+                    using (var insertQuery = new MySqlCommand("INSERT INTO tbl_resident(residentID,fullname,fathername,mothername,sex,age,birthdate,civil_status,nationality,contact_no,religion,occupation,category,voter_status,purok,address,image,isDead)" +
+                    "VALUES(@residentID,@FullName,@FatherName,@MotherName,@sex,@age,@birthdate,@civilStatus,@nationality,@contactNo,@religion,@occupation,@category,@voterStatus,@purok,@address,@image,@isDead)", connection))
                     {
+                        //INSERT INFORMATIONS TO DB
+                        insertQuery.Parameters.AddWithValue("@residentID", i.ResidentID);
+                        insertQuery.Parameters.AddWithValue("@FullName", i.FullName);
+                        insertQuery.Parameters.AddWithValue("@FatherName", i.FatherName);
+                        insertQuery.Parameters.AddWithValue("@MotherName", i.MotherName);
+                        insertQuery.Parameters.AddWithValue("@sex", i.Sex);
+                        insertQuery.Parameters.AddWithValue("@age", i.Age);
+                        insertQuery.Parameters.AddWithValue("@birthdate", i.BirthDate);
+                        insertQuery.Parameters.AddWithValue("@civilStatus", i.CivilStatus);
+                        insertQuery.Parameters.AddWithValue("@nationality", i.Nationality);
+                        insertQuery.Parameters.AddWithValue("@contactNo", i.ContactNo);
+                        insertQuery.Parameters.AddWithValue("@religion", i.Religion);
+                        insertQuery.Parameters.AddWithValue("@occupation", i.Occupation);
+                        insertQuery.Parameters.AddWithValue("@category", i.Category);
+                        insertQuery.Parameters.AddWithValue("@voterStatus", i.Voterstatus);
+                        insertQuery.Parameters.AddWithValue("@purok", i.Purok);
+                        insertQuery.Parameters.AddWithValue("@address", i.Address);
+                        insertQuery.Parameters.AddWithValue("@image", i.Image);
+                        insertQuery.Parameters.AddWithValue("@isDead", i.IsDead);
+
                         if (fieldValidation() == false)
                         {
                             MessageBox.Show("Please fill up important fields!", "Notice", MessageBoxButtons.OK,
@@ -135,14 +135,14 @@ namespace BMIS
                             this.Hide();
                         }
                     }
-                    catch (MySqlException)
-                    {
-                        MessageBox.Show("This Resident ID Already Exist! Please Try Again", "Warning", MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning);
-                    }
+                    Console.WriteLine("Connection Pool Closed!");
+                    connection.Close();
                 }
-                Console.WriteLine("Connection Pool Closed!");
-                connection.Close();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("This Resident ID Already taken! Please Try Another", "Warning", MessageBoxButtons.OK,
+                MessageBoxIcon.Warning);
             }
         }
         private void btnCamera_Click(object sender, EventArgs e)
@@ -181,11 +181,20 @@ namespace BMIS
 
         private void dtpBirthDate_ValueChanged(object sender, EventArgs e)
         {
+
             var today = DateTime.Today;
             var age = today.Subtract(dtpBirthDate.Value).TotalDays;
-            var years = (age / 365);
-            txtAge.Text = Math.Round(years).ToString();
-            cboCategory.SelectedItem = years >= 60 ? cboCategory.Items[1] : cboCategory.Items[0]; // IF AGE 60 AND UP THEN IT WILL SET TO SENIOR
+            var totalAge = (age / 363.242199D);
+
+            txtAge.Text = Math.Floor(totalAge).ToString();
+
+
+            int ageValidation = Convert.ToInt32(txtAge.Text.ToString());
+            if (ageValidation <= 0)
+            {
+                txtAge.ResetText();
+            }
+            cboCategory.SelectedItem = totalAge >= 60 ? cboCategory.Items[1] : cboCategory.Items[0]; // IF AGE 60 AND UP THEN IT WILL SET TO SENIOR
         }
         private void txtContactNo_KeyPress(object sender, KeyPressEventArgs e)
         {

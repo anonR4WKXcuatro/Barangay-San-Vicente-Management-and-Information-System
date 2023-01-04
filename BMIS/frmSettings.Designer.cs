@@ -45,6 +45,8 @@ namespace BMIS
             this.guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.btnSaveInfo = new Guna.UI2.WinForms.Guna2Button();
+            this.btnShowHidePassword1 = new Guna.UI2.WinForms.Guna2ImageCheckBox();
+            this.btnShowHidePassword2 = new Guna.UI2.WinForms.Guna2ImageCheckBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -189,10 +191,13 @@ namespace BMIS
             this.txtCaptainPassword.SelectedText = "";
             this.txtCaptainPassword.Size = new System.Drawing.Size(374, 45);
             this.txtCaptainPassword.TabIndex = 23;
+            this.txtCaptainPassword.TextChanged += new System.EventHandler(this.txtCaptainPassword_TextChanged);
             // 
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.btnShowHidePassword2);
+            this.panel3.Controls.Add(this.btnShowHidePassword1);
             this.panel3.Controls.Add(this.txtSecretaryPassword);
             this.panel3.Controls.Add(this.label7);
             this.panel3.Controls.Add(this.guna2TextBox2);
@@ -230,6 +235,7 @@ namespace BMIS
             this.txtSecretaryPassword.SelectedText = "";
             this.txtSecretaryPassword.Size = new System.Drawing.Size(374, 45);
             this.txtSecretaryPassword.TabIndex = 27;
+            this.txtSecretaryPassword.TextChanged += new System.EventHandler(this.txtSecretaryPassword_TextChanged);
             // 
             // label7
             // 
@@ -298,6 +304,38 @@ namespace BMIS
             this.btnSaveInfo.Text = "SAVE  CHANGES";
             this.btnSaveInfo.Click += new System.EventHandler(this.btnSaveInfo_Click);
             // 
+            // btnShowHidePassword1
+            // 
+            this.btnShowHidePassword1.BackColor = System.Drawing.Color.Transparent;
+            this.btnShowHidePassword1.CheckedState.Image = global::BMIS.Properties.Resources.icons8_eye_24_checked;
+            this.btnShowHidePassword1.Image = global::BMIS.Properties.Resources.icons8_eye_24;
+            this.btnShowHidePassword1.ImageOffset = new System.Drawing.Point(0, 0);
+            this.btnShowHidePassword1.ImageRotate = 0F;
+            this.btnShowHidePassword1.IndicateFocus = true;
+            this.btnShowHidePassword1.Location = new System.Drawing.Point(356, 234);
+            this.btnShowHidePassword1.Name = "btnShowHidePassword1";
+            this.btnShowHidePassword1.Size = new System.Drawing.Size(24, 24);
+            this.btnShowHidePassword1.TabIndex = 59;
+            this.btnShowHidePassword1.UseTransparentBackground = true;
+            this.btnShowHidePassword1.Visible = false;
+            this.btnShowHidePassword1.CheckedChanged += new System.EventHandler(this.btnShowHidePassword1_CheckedChanged);
+            // 
+            // btnShowHidePassword2
+            // 
+            this.btnShowHidePassword2.BackColor = System.Drawing.Color.Transparent;
+            this.btnShowHidePassword2.CheckedState.Image = global::BMIS.Properties.Resources.icons8_eye_24_checked;
+            this.btnShowHidePassword2.Image = global::BMIS.Properties.Resources.icons8_eye_24;
+            this.btnShowHidePassword2.ImageOffset = new System.Drawing.Point(0, 0);
+            this.btnShowHidePassword2.ImageRotate = 0F;
+            this.btnShowHidePassword2.IndicateFocus = true;
+            this.btnShowHidePassword2.Location = new System.Drawing.Point(356, 322);
+            this.btnShowHidePassword2.Name = "btnShowHidePassword2";
+            this.btnShowHidePassword2.Size = new System.Drawing.Size(24, 24);
+            this.btnShowHidePassword2.TabIndex = 60;
+            this.btnShowHidePassword2.UseTransparentBackground = true;
+            this.btnShowHidePassword2.Visible = false;
+            this.btnShowHidePassword2.CheckedChanged += new System.EventHandler(this.btnShowHidePassword2_CheckedChanged);
+            // 
             // frmSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -339,5 +377,7 @@ namespace BMIS
         private System.Windows.Forms.Label label7;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox2;
         private System.Windows.Forms.Label label8;
+        private Guna.UI2.WinForms.Guna2ImageCheckBox btnShowHidePassword2;
+        private Guna.UI2.WinForms.Guna2ImageCheckBox btnShowHidePassword1;
     }
 }
