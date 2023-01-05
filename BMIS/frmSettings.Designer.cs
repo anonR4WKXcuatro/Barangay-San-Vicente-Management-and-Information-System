@@ -40,13 +40,13 @@ namespace BMIS
             this.label3 = new System.Windows.Forms.Label();
             this.txtCaptainPassword = new Guna.UI2.WinForms.Guna2TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnShowHidePassword2 = new Guna.UI2.WinForms.Guna2ImageCheckBox();
+            this.btnShowHidePassword1 = new Guna.UI2.WinForms.Guna2ImageCheckBox();
             this.txtSecretaryPassword = new Guna.UI2.WinForms.Guna2TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.btnSaveInfo = new Guna.UI2.WinForms.Guna2Button();
-            this.btnShowHidePassword1 = new Guna.UI2.WinForms.Guna2ImageCheckBox();
-            this.btnShowHidePassword2 = new Guna.UI2.WinForms.Guna2ImageCheckBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -212,6 +212,38 @@ namespace BMIS
             this.panel3.Size = new System.Drawing.Size(405, 378);
             this.panel3.TabIndex = 29;
             // 
+            // btnShowHidePassword2
+            // 
+            this.btnShowHidePassword2.BackColor = System.Drawing.Color.Transparent;
+            this.btnShowHidePassword2.CheckedState.Image = global::BMIS.Properties.Resources.icons8_eye_24_checked;
+            this.btnShowHidePassword2.Image = global::BMIS.Properties.Resources.icons8_eye_24;
+            this.btnShowHidePassword2.ImageOffset = new System.Drawing.Point(0, 0);
+            this.btnShowHidePassword2.ImageRotate = 0F;
+            this.btnShowHidePassword2.IndicateFocus = true;
+            this.btnShowHidePassword2.Location = new System.Drawing.Point(356, 322);
+            this.btnShowHidePassword2.Name = "btnShowHidePassword2";
+            this.btnShowHidePassword2.Size = new System.Drawing.Size(24, 24);
+            this.btnShowHidePassword2.TabIndex = 60;
+            this.btnShowHidePassword2.UseTransparentBackground = true;
+            this.btnShowHidePassword2.Visible = false;
+            this.btnShowHidePassword2.CheckedChanged += new System.EventHandler(this.btnShowHidePassword2_CheckedChanged);
+            // 
+            // btnShowHidePassword1
+            // 
+            this.btnShowHidePassword1.BackColor = System.Drawing.Color.Transparent;
+            this.btnShowHidePassword1.CheckedState.Image = global::BMIS.Properties.Resources.icons8_eye_24_checked;
+            this.btnShowHidePassword1.Image = global::BMIS.Properties.Resources.icons8_eye_24;
+            this.btnShowHidePassword1.ImageOffset = new System.Drawing.Point(0, 0);
+            this.btnShowHidePassword1.ImageRotate = 0F;
+            this.btnShowHidePassword1.IndicateFocus = true;
+            this.btnShowHidePassword1.Location = new System.Drawing.Point(356, 234);
+            this.btnShowHidePassword1.Name = "btnShowHidePassword1";
+            this.btnShowHidePassword1.Size = new System.Drawing.Size(24, 24);
+            this.btnShowHidePassword1.TabIndex = 59;
+            this.btnShowHidePassword1.UseTransparentBackground = true;
+            this.btnShowHidePassword1.Visible = false;
+            this.btnShowHidePassword1.CheckedChanged += new System.EventHandler(this.btnShowHidePassword1_CheckedChanged);
+            // 
             // txtSecretaryPassword
             // 
             this.txtSecretaryPassword.BorderRadius = 15;
@@ -304,38 +336,6 @@ namespace BMIS
             this.btnSaveInfo.Text = "SAVE  CHANGES";
             this.btnSaveInfo.Click += new System.EventHandler(this.btnSaveInfo_Click);
             // 
-            // btnShowHidePassword1
-            // 
-            this.btnShowHidePassword1.BackColor = System.Drawing.Color.Transparent;
-            this.btnShowHidePassword1.CheckedState.Image = global::BMIS.Properties.Resources.icons8_eye_24_checked;
-            this.btnShowHidePassword1.Image = global::BMIS.Properties.Resources.icons8_eye_24;
-            this.btnShowHidePassword1.ImageOffset = new System.Drawing.Point(0, 0);
-            this.btnShowHidePassword1.ImageRotate = 0F;
-            this.btnShowHidePassword1.IndicateFocus = true;
-            this.btnShowHidePassword1.Location = new System.Drawing.Point(356, 234);
-            this.btnShowHidePassword1.Name = "btnShowHidePassword1";
-            this.btnShowHidePassword1.Size = new System.Drawing.Size(24, 24);
-            this.btnShowHidePassword1.TabIndex = 59;
-            this.btnShowHidePassword1.UseTransparentBackground = true;
-            this.btnShowHidePassword1.Visible = false;
-            this.btnShowHidePassword1.CheckedChanged += new System.EventHandler(this.btnShowHidePassword1_CheckedChanged);
-            // 
-            // btnShowHidePassword2
-            // 
-            this.btnShowHidePassword2.BackColor = System.Drawing.Color.Transparent;
-            this.btnShowHidePassword2.CheckedState.Image = global::BMIS.Properties.Resources.icons8_eye_24_checked;
-            this.btnShowHidePassword2.Image = global::BMIS.Properties.Resources.icons8_eye_24;
-            this.btnShowHidePassword2.ImageOffset = new System.Drawing.Point(0, 0);
-            this.btnShowHidePassword2.ImageRotate = 0F;
-            this.btnShowHidePassword2.IndicateFocus = true;
-            this.btnShowHidePassword2.Location = new System.Drawing.Point(356, 322);
-            this.btnShowHidePassword2.Name = "btnShowHidePassword2";
-            this.btnShowHidePassword2.Size = new System.Drawing.Size(24, 24);
-            this.btnShowHidePassword2.TabIndex = 60;
-            this.btnShowHidePassword2.UseTransparentBackground = true;
-            this.btnShowHidePassword2.Visible = false;
-            this.btnShowHidePassword2.CheckedChanged += new System.EventHandler(this.btnShowHidePassword2_CheckedChanged);
-            // 
             // frmSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -349,6 +349,7 @@ namespace BMIS
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmSettings";
             this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmSettings";
             this.panel1.ResumeLayout(false);

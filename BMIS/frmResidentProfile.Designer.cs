@@ -932,6 +932,7 @@ namespace BMIS
             this.Controls.Add(this.txtUserImagePath);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmResidentProfile";
+            this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.frmResidentProfile_Load);

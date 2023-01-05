@@ -237,7 +237,7 @@ namespace BMIS
                     }
                     catch (Exception)
                     {
-                        MessageBox.Show("Please load another certificate", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Please try another official receipt number!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Hide();
                     }
                     connection.Close();

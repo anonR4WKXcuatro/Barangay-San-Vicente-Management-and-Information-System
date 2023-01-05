@@ -54,7 +54,7 @@ namespace BMIS
                         {
                             MessageBox.Show("Invalid Credentials, Please try again!", "Authentication Error", MessageBoxButtons.OK,
                             MessageBoxIcon.Error);
-                            Dispose();
+                           
                         }
                     }
                     catch (MySqlException ex)

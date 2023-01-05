@@ -216,6 +216,8 @@ namespace BMIS
             this.Controls.Add(this.btnConfirm);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmAuthDelete";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmAuthDelete";
             this.Load += new System.EventHandler(this.frmAuthDelete_Load);

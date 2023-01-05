@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.31911.196
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BMIS", "BMIS\BMIS.csproj", "{D86D6BBD-53B8-4259-80D2-9D6B270F6AC4}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{849B37F5-B53A-4EC5-A159-105730FA26CE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{D86D6BBD-53B8-4259-80D2-9D6B270F6AC4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D86D6BBD-53B8-4259-80D2-9D6B270F6AC4}.Release|x64.ActiveCfg = Release|x64
 		{D86D6BBD-53B8-4259-80D2-9D6B270F6AC4}.Release|x64.Build.0 = Release|x64
+		{849B37F5-B53A-4EC5-A159-105730FA26CE}.Debug|Any CPU.ActiveCfg = Debug
+		{849B37F5-B53A-4EC5-A159-105730FA26CE}.Debug|x64.ActiveCfg = Debug
+		{849B37F5-B53A-4EC5-A159-105730FA26CE}.Release|Any CPU.ActiveCfg = Release
+		{849B37F5-B53A-4EC5-A159-105730FA26CE}.Release|x64.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

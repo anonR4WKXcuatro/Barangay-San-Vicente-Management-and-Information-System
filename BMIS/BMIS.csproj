@@ -50,7 +50,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>SVLogo.ico</ApplicationIcon>
+    <ApplicationIcon>San Vicente LOGO.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>8D05F186A129B00E42FF540246BC64580D5DBC93</ManifestCertificateThumbprint>
@@ -476,6 +476,7 @@
     <None Include="Resources\icons8-single-father-100.png" />
     <None Include="Resources\icons8-headstone-100.png" />
     <None Include="Resources\icons8-male-user-100.png" />
+    <Content Include="San Vicente LOGO.ico" />
     <Content Include="SVLogo.ico" />
     <None Include="Resources\New sto tomas logo-modified.png" />
     <None Include="Resources\icons8-headstone-30.png" />
