@@ -1,7 +1,7 @@
 # Barangay San Vicente Management and Information-System
 
 
-## Requiremnts to run this application
+## Requirements to run this application
 
 
 ## Installation
