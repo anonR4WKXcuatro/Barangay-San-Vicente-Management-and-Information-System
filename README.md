@@ -5,8 +5,8 @@
 
 
 ## Installation
-*Go to release page
-*Download the  .zip file
-*Extract the zip using 7Zip or Winrar
-*Have fun!!!
+- Go to release page
+- Download the  .zip file
+- Extract the zip using 7Zip or Winrar
+- Have fun!!!
 
