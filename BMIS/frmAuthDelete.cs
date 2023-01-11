@@ -39,7 +39,7 @@ namespace BMIS
         public void DeleteConfirmation()
         {
             frmResidentProfile rp = new frmResidentProfile();
-            
+            frmResidentLists rl = new frmResidentLists();
             var user = new User()
             {
                 Username = txtUsername.Text,
@@ -67,12 +67,13 @@ namespace BMIS
                                         string residentID = txtResidentID.Text;
                                         deleteQuery.Parameters.AddWithValue("@residentID", residentID);
                                         deleteQuery.ExecuteNonQuery();
+
                                     }
                                     connection.Close();
                                 }
                                 MessageBox.Show("Data Successfully Deleted!", "Notice", MessageBoxButtons.OK,
                                 MessageBoxIcon.Information);
-                                Dispose();                              
+                                Dispose();
                                 break;
                             default:
                                 Console.WriteLine("Do nothing");
@@ -106,6 +107,6 @@ namespace BMIS
         private void btnClose_Click(object sender, EventArgs e)
         {
             Dispose();
-        }     
+        }
     }
 }

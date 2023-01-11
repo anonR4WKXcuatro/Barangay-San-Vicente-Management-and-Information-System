@@ -69,6 +69,11 @@ namespace BMIS
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle53 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -80,11 +85,6 @@ namespace BMIS
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle54 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle55 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle61 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle56 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle57 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle58 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle59 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle60 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle62 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle63 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle78 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -103,11 +103,11 @@ namespace BMIS
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle76 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle77 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRecords));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle56 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle57 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle58 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle59 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle60 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.txtSearchBar = new Guna.UI2.WinForms.Guna2TextBox();
@@ -154,6 +154,11 @@ namespace BMIS
             this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.dgvSettlement = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.Column22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.dgvClearanceLogs = new Guna.UI2.WinForms.Guna2DataGridView();
             this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -163,14 +168,6 @@ namespace BMIS
             this.Column21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.dgvBusinessClearance = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.dgvDeceasedResidentTable = new Guna.UI2.WinForms.Guna2DataGridView();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -201,11 +198,15 @@ namespace BMIS
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.sfDialog = new System.Windows.Forms.SaveFileDialog();
             this.ofDialog = new System.Windows.Forms.OpenFileDialog();
-            this.Column22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -1022,6 +1023,57 @@ namespace BMIS
             this.dgvSettlement.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvSettlement.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
+            // Column22
+            // 
+            this.Column22.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewCellStyle40.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Column22.DefaultCellStyle = dataGridViewCellStyle40;
+            this.Column22.HeaderText = "SETTLEMENT ID";
+            this.Column22.MinimumWidth = 6;
+            this.Column22.Name = "Column22";
+            this.Column22.ReadOnly = true;
+            this.Column22.Width = 163;
+            // 
+            // Column23
+            // 
+            this.Column23.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewCellStyle41.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Column23.DefaultCellStyle = dataGridViewCellStyle41;
+            this.Column23.HeaderText = "BLOTTER NO";
+            this.Column23.MinimumWidth = 6;
+            this.Column23.Name = "Column23";
+            this.Column23.ReadOnly = true;
+            this.Column23.Width = 139;
+            // 
+            // Column24
+            // 
+            dataGridViewCellStyle42.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Column24.DefaultCellStyle = dataGridViewCellStyle42;
+            this.Column24.HeaderText = "REPORTED RESIDENT";
+            this.Column24.MinimumWidth = 6;
+            this.Column24.Name = "Column24";
+            this.Column24.ReadOnly = true;
+            // 
+            // Column28
+            // 
+            dataGridViewCellStyle43.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Column28.DefaultCellStyle = dataGridViewCellStyle43;
+            this.Column28.HeaderText = "COMPLAINANT";
+            this.Column28.MinimumWidth = 6;
+            this.Column28.Name = "Column28";
+            this.Column28.ReadOnly = true;
+            // 
+            // Column16
+            // 
+            this.Column16.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewCellStyle44.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Column16.DefaultCellStyle = dataGridViewCellStyle44;
+            this.Column16.HeaderText = "STATUS";
+            this.Column16.MinimumWidth = 6;
+            this.Column16.Name = "Column16";
+            this.Column16.ReadOnly = true;
+            this.Column16.Width = 99;
+            // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.dgvClearanceLogs);
@@ -1197,7 +1249,8 @@ namespace BMIS
             this.dataGridViewTextBoxColumn5,
             this.Column25,
             this.Column26,
-            this.Column27});
+            this.Column27,
+            this.Column31});
             dataGridViewCellStyle61.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle61.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle61.Font = new System.Drawing.Font("Segoe UI", 10.5F);
@@ -1239,84 +1292,6 @@ namespace BMIS
             this.dgvBusinessClearance.ThemeStyle.RowsStyle.Height = 24;
             this.dgvBusinessClearance.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvBusinessClearance.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle56.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle56;
-            this.dataGridViewTextBoxColumn1.HeaderText = "OR NO";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 96;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle57.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F);
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle57;
-            this.dataGridViewTextBoxColumn2.HeaderText = "PERMIT NO";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 131;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle58.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F);
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle58;
-            this.dataGridViewTextBoxColumn3.HeaderText = "RES ID";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 92;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle59.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F);
-            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle59;
-            this.dataGridViewTextBoxColumn4.HeaderText = "OWNERS NAME";
-            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 168;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            dataGridViewCellStyle60.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F);
-            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle60;
-            this.dataGridViewTextBoxColumn5.HeaderText = "ADDRESS";
-            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            // 
-            // Column25
-            // 
-            this.Column25.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Column25.HeaderText = "BUSINESS NAME";
-            this.Column25.MinimumWidth = 6;
-            this.Column25.Name = "Column25";
-            this.Column25.ReadOnly = true;
-            this.Column25.Width = 173;
-            // 
-            // Column26
-            // 
-            this.Column26.HeaderText = "ADDRESS";
-            this.Column26.MinimumWidth = 6;
-            this.Column26.Name = "Column26";
-            this.Column26.ReadOnly = true;
-            // 
-            // Column27
-            // 
-            this.Column27.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Column27.HeaderText = "NATURE";
-            this.Column27.MinimumWidth = 6;
-            this.Column27.Name = "Column27";
-            this.Column27.ReadOnly = true;
-            this.Column27.Width = 104;
             // 
             // tabPage6
             // 
@@ -1653,56 +1628,96 @@ namespace BMIS
             // 
             this.ofDialog.FileName = "openFileDialog1";
             // 
-            // Column22
+            // dataGridViewTextBoxColumn1
             // 
-            this.Column22.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle40.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Column22.DefaultCellStyle = dataGridViewCellStyle40;
-            this.Column22.HeaderText = "SETTLEMENT ID";
-            this.Column22.MinimumWidth = 6;
-            this.Column22.Name = "Column22";
-            this.Column22.ReadOnly = true;
-            this.Column22.Width = 163;
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            dataGridViewCellStyle56.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle56;
+            this.dataGridViewTextBoxColumn1.HeaderText = "OR NO";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 96;
             // 
-            // Column23
+            // dataGridViewTextBoxColumn2
             // 
-            this.Column23.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle41.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Column23.DefaultCellStyle = dataGridViewCellStyle41;
-            this.Column23.HeaderText = "BLOTTER NO";
-            this.Column23.MinimumWidth = 6;
-            this.Column23.Name = "Column23";
-            this.Column23.ReadOnly = true;
-            this.Column23.Width = 139;
+            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewCellStyle57.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F);
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle57;
+            this.dataGridViewTextBoxColumn2.HeaderText = "PERMIT NO";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 131;
             // 
-            // Column24
+            // dataGridViewTextBoxColumn3
             // 
-            dataGridViewCellStyle42.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Column24.DefaultCellStyle = dataGridViewCellStyle42;
-            this.Column24.HeaderText = "REPORTED RESIDENT";
-            this.Column24.MinimumWidth = 6;
-            this.Column24.Name = "Column24";
-            this.Column24.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewCellStyle58.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F);
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle58;
+            this.dataGridViewTextBoxColumn3.HeaderText = "RES ID";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 92;
             // 
-            // Column28
+            // dataGridViewTextBoxColumn4
             // 
-            dataGridViewCellStyle43.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Column28.DefaultCellStyle = dataGridViewCellStyle43;
-            this.Column28.HeaderText = "COMPLAINANT";
-            this.Column28.MinimumWidth = 6;
-            this.Column28.Name = "Column28";
-            this.Column28.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewCellStyle59.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F);
+            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle59;
+            this.dataGridViewTextBoxColumn4.HeaderText = "OWNERS NAME";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 168;
             // 
-            // Column16
+            // dataGridViewTextBoxColumn5
             // 
-            this.Column16.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle44.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Column16.DefaultCellStyle = dataGridViewCellStyle44;
-            this.Column16.HeaderText = "STATUS";
-            this.Column16.MinimumWidth = 6;
-            this.Column16.Name = "Column16";
-            this.Column16.ReadOnly = true;
-            this.Column16.Width = 99;
+            this.dataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewCellStyle60.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F);
+            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle60;
+            this.dataGridViewTextBoxColumn5.HeaderText = "ADDRESS";
+            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Width = 117;
+            // 
+            // Column25
+            // 
+            this.Column25.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Column25.HeaderText = "BUSINESS NAME";
+            this.Column25.MinimumWidth = 6;
+            this.Column25.Name = "Column25";
+            this.Column25.ReadOnly = true;
+            this.Column25.Width = 173;
+            // 
+            // Column26
+            // 
+            this.Column26.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Column26.HeaderText = "ADDRESS";
+            this.Column26.MinimumWidth = 6;
+            this.Column26.Name = "Column26";
+            this.Column26.ReadOnly = true;
+            this.Column26.Width = 117;
+            // 
+            // Column27
+            // 
+            this.Column27.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Column27.HeaderText = "NATURE";
+            this.Column27.MinimumWidth = 6;
+            this.Column27.Name = "Column27";
+            this.Column27.ReadOnly = true;
+            this.Column27.Width = 104;
+            // 
+            // Column31
+            // 
+            this.Column31.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Column31.HeaderText = "PURPOSE";
+            this.Column31.MinimumWidth = 6;
+            this.Column31.Name = "Column31";
+            this.Column31.ReadOnly = true;
+            this.Column31.Width = 115;
             // 
             // frmRecords
             // 
@@ -1819,14 +1834,6 @@ namespace BMIS
         private System.Windows.Forms.DataGridViewTextBoxColumn voter_status;
         private System.Windows.Forms.DataGridViewTextBoxColumn purok;
         private System.Windows.Forms.DataGridViewTextBoxColumn address;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column25;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column26;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column27;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column18;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column19;
@@ -1837,5 +1844,14 @@ namespace BMIS
         private System.Windows.Forms.DataGridViewTextBoxColumn Column24;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column28;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column25;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column26;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column27;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column31;
     }
 }

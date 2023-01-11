@@ -123,76 +123,94 @@ namespace BMIS
         {
             using (var connection = new MySqlConnection(connectionString))
             {
-                using (var command = new MySqlCommand("SELECT * FROM tbl_resident WHERE residentID = @ResidentID", connection))
+                using (var cmdGetCaptainName = new MySqlCommand("SELECT * FROM officials WHERE offic_id = 2", connection))
                 {
-                    command.Parameters.AddWithValue("@ResidentID", txtResidentID.Text);
-                    connection.Open();
-                    using (var sqlDA = new MySqlDataAdapter(command))
+                    using (var cmdGetResidentsInformation = new MySqlCommand("SELECT * FROM tbl_resident WHERE residentID = @ResidentID", connection))
                     {
-                        DataTable table = new DataTable();
-                        sqlDA.Fill(table);
-                        try
+                        cmdGetResidentsInformation.Parameters.AddWithValue("@ResidentID", txtResidentID.Text);
+                        connection.Open();
+                        using (var sqlDA2 = new MySqlDataAdapter(cmdGetResidentsInformation))
                         {
-                            string residentID = txtResidentID.Text;
-                            string residentName = table.Rows[0][1].ToString();
-                            string residentAge = table.Rows[0][5].ToString();
-                            string residentCivilStatus = table.Rows[0][7].ToString();
-                            string residentAddress = table.Rows[0][15].ToString();
-                            string residentNationality = table.Rows[0][8].ToString();
-                            string clearanceType = cboClearanceType.Text;
-
-                            switch (cboClearanceType.SelectedIndex)
+                            using (var sqlDACaptain = new MySqlDataAdapter(cmdGetCaptainName))
                             {
-                                case 0:
-                                    MessageBox.Show("Please select type of certificate!", "Error", MessageBoxButtons.OK,
-                                    MessageBoxIcon.Error);
-                                    break;
-                                case 1:
-                                    frm1.ResidentID = residentID;
-                                    frm1.ResidentFullName = residentName;
-                                    frm1.ResidentAge = residentAge;
-                                    frm1.ResidentCivilStatus = residentCivilStatus;
-                                    frm1.ResidentNationality = residentNationality;
-                                    frm1.ResidentAddress = residentAddress;
-                                    frm1.CertificationType = clearanceType;
-                                    frm1.ShowDialog();
-                                    break;
-                                case 2:
-                                    frm1.ResidentID = txtResidentID.Text;
-                                    frm1.ResidentFullName = residentName;
-                                    frm1.ResidentAge = residentAge;
-                                    frm1.ResidentCivilStatus = residentCivilStatus;
-                                    frm1.ResidentNationality = residentNationality;
-                                    frm1.ResidentAddress = residentAddress;
-                                    frm1.CertificationType = clearanceType;
-                                    frm1.ShowDialog();
-                                    break;
-                                case 3:
-                                    frm1.ResidentID = residentID;
-                                    frm1.ResidentFullName = residentName;
-                                    frm1.ResidentAge = residentAge;
-                                    frm1.ResidentCivilStatus = residentCivilStatus;
-                                    frm1.ResidentNationality = residentNationality;
-                                    frm1.ResidentAddress = residentAddress;
-                                    frm1.CertificationType = clearanceType;
-                                    frm1.ShowDialog();
-                                    break;
-                                case 4:
-                                    frm2.ResidentID = residentID;
-                                    frm2.FullName = residentName;
-                                    frm2.OwnersAddress = residentAddress;
-                                    frm2.CertificationType = clearanceType;
-                                    frm2.ShowDialog();
-                                    break;
+                                DataTable table1 = new DataTable();
+                                DataTable table2 = new DataTable();
+                                
+                                sqlDACaptain.Fill(table1);
+                                sqlDA2.Fill(table2);
+                                
+                                try
+                                {
+                                    string residentID = txtResidentID.Text;
+                                    string residentName = table2.Rows[0][1].ToString();
+                                    string residentAge = table2.Rows[0][5].ToString();
+                                    string residentCivilStatus = table2.Rows[0][7].ToString();
+                                    string residentAddress = table2.Rows[0][15].ToString();
+                                    string residentNationality = table2.Rows[0][8].ToString();
+                                    string clearanceType = cboClearanceType.Text;
+                                    string captainName = table1.Rows[0][1].ToString();
+
+                                    switch (cboClearanceType.SelectedIndex)
+                                    {
+                                        case 0:
+                                            MessageBox.Show("Please select type of certificate!", "Error", MessageBoxButtons.OK,
+                                            MessageBoxIcon.Error);
+                                            break;
+                                        case 1:
+                                            frm1.ResidentID = residentID;
+                                            frm1.ResidentFullName = residentName;
+                                            frm1.ResidentAge = residentAge;
+                                            frm1.ResidentCivilStatus = residentCivilStatus;
+                                            frm1.ResidentNationality = residentNationality;
+                                            frm1.ResidentAddress = residentAddress;
+                                            frm1.CertificationType = clearanceType;
+                                            frm1.CaptainName = captainName;
+                                            frm1.ShowDialog();
+                                            break;
+                                        case 2:
+                                            frm1.ResidentID = txtResidentID.Text;
+                                            frm1.ResidentFullName = residentName;
+                                            frm1.ResidentAge = residentAge;
+                                            frm1.ResidentCivilStatus = residentCivilStatus;
+                                            frm1.ResidentNationality = residentNationality;
+                                            frm1.ResidentAddress = residentAddress;
+                                            frm1.CertificationType = clearanceType;
+                                            frm1.CaptainName = captainName;
+                                            frm1.ShowDialog();
+                                            break;
+                                        case 3:
+                                            frm1.ResidentID = residentID;
+                                            frm1.ResidentFullName = residentName;
+                                            frm1.ResidentAge = residentAge;
+                                            frm1.ResidentCivilStatus = residentCivilStatus;
+                                            frm1.ResidentNationality = residentNationality;
+                                            frm1.ResidentAddress = residentAddress;
+                                            frm1.CertificationType = clearanceType;
+                                            frm1.CaptainName = captainName;
+                                            frm1.ShowDialog();
+                                            break;
+                                        case 4:
+                                            frm2.ResidentID = residentID;
+                                            frm2.FullName = residentName;
+                                            frm2.OwnersAddress = residentAddress;
+                                            frm2.CertificationType = clearanceType;
+                                            frm2.CaptainName = captainName;
+                                            frm2.ShowDialog();
+                                            break;
+                                    }
+                                }
+                                catch (Exception ex)
+                                {
+                                    Console.WriteLine(ex.Message);
+                                    lblRecordStatus.Visible = true;
+                                    lblRecordStatus.ForeColor = System.Drawing.Color.Red;
+                                    lblRecordStatus.Text = "RESIDENT NOT FOUND IN OUR DATABASE!";
+                                }
                             }
                         }
-                        catch (Exception ex)
-                        {
-                            Console.WriteLine(ex.Message);
-                        }
+                        connection.Close();
                     }
-                    connection.Close();
-                }
+                }                  
             }
         }
         private void txtResidentName_TextChanged(object sender, EventArgs e)

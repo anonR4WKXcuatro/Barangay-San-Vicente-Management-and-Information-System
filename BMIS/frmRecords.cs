@@ -8,7 +8,7 @@ namespace BMIS
 {
     public partial class frmRecords : Form
     {
-        
+
         private string connectionString = "server=localhost; port=3306; user=root; password=admin123; database=bmis_db";
         private string date = DateTime.Now.ToString("yyyy-MM-dd h:mm:ss tt");
         public frmRecords()
@@ -124,7 +124,6 @@ namespace BMIS
                     dgvClearanceLogs.DataSource = null;
                     dgvClearanceLogs.AutoGenerateColumns = false;
                     dgvClearanceLogs.ColumnCount = 5;
-                   
                     dgvClearanceLogs.Columns[0].DataPropertyName = "orNumber";
                     dgvClearanceLogs.Columns[1].DataPropertyName = "fullname";
                     dgvClearanceLogs.Columns[2].DataPropertyName = "clearance_type";
@@ -149,7 +148,7 @@ namespace BMIS
                     dgvSettlement.ColumnCount = 5;
                     DataTable dSet = new DataTable();
                     sqlDA.Fill(dSet);
-                    dgvSettlement.Columns[0].DataPropertyName = "settleID";
+                    dgvSettlement.Columns[0].DataPropertyName = "settlementID";
                     dgvSettlement.Columns[1].DataPropertyName = "blotterNo";
                     dgvSettlement.Columns[2].DataPropertyName = "fullname";
                     dgvSettlement.Columns[3].DataPropertyName = "complainant_name";
@@ -170,7 +169,7 @@ namespace BMIS
                 {
                     dgvBusinessClearance.DataSource = null;
                     dgvBusinessClearance.AutoGenerateColumns = false;
-                    dgvBusinessClearance.ColumnCount = 8;
+                    dgvBusinessClearance.ColumnCount = 9;
                     DataTable dSet = new DataTable();
                     sqlDA.Fill(dSet);
                     dgvBusinessClearance.Columns[0].DataPropertyName = "orNumber";
@@ -181,6 +180,7 @@ namespace BMIS
                     dgvBusinessClearance.Columns[5].DataPropertyName = "businessName";
                     dgvBusinessClearance.Columns[6].DataPropertyName = "businessAddress";
                     dgvBusinessClearance.Columns[7].DataPropertyName = "businessNature";
+                    dgvBusinessClearance.Columns[8].DataPropertyName = "clearance_purpose";
                     dgvBusinessClearance.DataSource = dSet;
                     dgvBusinessClearance.Refresh();
                 }
@@ -238,7 +238,7 @@ namespace BMIS
                     }
                     connection.Close();
                 }
-            }        
+            }
         }
         private void searchBlotters(string valueToSearch2)
         {
@@ -273,7 +273,7 @@ namespace BMIS
         private void searchSettlement(string valueToSearch4)
         {
             using (var connection = new MySqlConnection(connectionString))
-            using (var searchQuery = new MySqlCommand("SELECT * FROM tbl_settlement WHERE CONCAT(settleID,blotterNo,fullname,complainant_name,status)like'%" + valueToSearch4 + "%'", connection))
+            using (var searchQuery = new MySqlCommand("SELECT * FROM tbl_settlement WHERE CONCAT(settlementID,blotterNo,fullname,complainant_name,status)like'%" + valueToSearch4 + "%'", connection))
             {
                 connection.Open();
                 using (var sqlDA = new MySqlDataAdapter(searchQuery))
@@ -304,7 +304,7 @@ namespace BMIS
         {
             using (var connection = new MySqlConnection(connectionString))
             {
-                using (var searchQuery = new MySqlCommand("SELECT * FROM tbl_resident WHERE CONCAT(residentID,fullname,address,purok) LIKE '%" + valueToSearch6 + "%'" +"AND isDead = 0", connection))
+                using (var searchQuery = new MySqlCommand("SELECT * FROM tbl_resident WHERE CONCAT(residentID,fullname,address,purok) LIKE '%" + valueToSearch6 + "%'" + "AND isDead = 0", connection))
                 {
                     connection.Open();
                     using (var sqlDA = new MySqlDataAdapter(searchQuery))
@@ -317,20 +317,22 @@ namespace BMIS
                 }
             }
         }
-       
 
-       
-       
+
+
+
 
         /* IMPORT CSV */
         private void TSMIImportExistingResidents_Click(object sender, EventArgs e)
         {
+            frmWait loadingForm = new frmWait();
             ofDialog.FileName = "";
             ofDialog.Filter = "CSV Text File(.csv)|*.csv";
             try
             {
+                loadingForm.Show();
                 if (ofDialog.ShowDialog() == DialogResult.OK)
-                {
+                {                 
                     var lineNumber = 0;
                     using (MySqlConnection connection = new MySqlConnection(connectionString))
                     {
@@ -344,36 +346,56 @@ namespace BMIS
                                 if (lineNumber != 0)
                                 {
                                     var values = line.Split(',');
-
-                                    var insertQuery = "INSERT INTO tbl_resident(residentID,fullname,fathername,mothername,sex,age,birthdate,civil_status,nationality,contact_no,religion,occupation,category,voter_status,purok,address) VALUES ('" + values[0] + "','" + values[1] + "','" + values[2] + "','" + values[3] + "','" + values[4] + "','" + values[5] + "','" + values[6] + "','" + values[7] + "','" + values[8] + "','" + values[9] + "','" + values[10] + "','" + values[11] + "','" + values[12] + "','" + values[13] + "','" + values[14] + "','" + values[15] + "')";
-
-                                    var command = new MySqlCommand();
-                                    command.CommandText = insertQuery;
-                                    command.CommandType = System.Data.CommandType.Text;
-                                    command.Connection = connection;
-                                    command.ExecuteNonQuery();
+                                    using (var insertQuery = new MySqlCommand("INSERT INTO tbl_resident(residentID,fullname,fathername,mothername,sex,age,birthdate,civil_status,nationality,contact_no,religion,occupation,category,voter_status,purok,address,isDead) VALUES (@residentID,@FullName,@FatherName,@MotherName,@sex,@age,@birthdate,@civilStatus,@nationality,@contactNo,@religion,@occupation,@category,@voterStatus,@purok,@address,@isDead)", connection))
+                                    {
+                                        insertQuery.Parameters.AddWithValue("@residentID", values[0]);
+                                        insertQuery.Parameters.AddWithValue("@FullName", values[1]);
+                                        insertQuery.Parameters.AddWithValue("@FatherName", values[2]);
+                                        insertQuery.Parameters.AddWithValue("@MotherName", values[3]);
+                                        insertQuery.Parameters.AddWithValue("@sex", values[4]);
+                                        insertQuery.Parameters.AddWithValue("@age", values[5]);
+                                        insertQuery.Parameters.AddWithValue("@birthdate", values[6]);
+                                        insertQuery.Parameters.AddWithValue("@civilStatus", values[7]);
+                                        insertQuery.Parameters.AddWithValue("@nationality", values[8]);
+                                        insertQuery.Parameters.AddWithValue("@contactNo", values[9]);
+                                        insertQuery.Parameters.AddWithValue("@religion", values[10]);
+                                        insertQuery.Parameters.AddWithValue("@occupation", values[11]);
+                                        insertQuery.Parameters.AddWithValue("@category", values[12]);
+                                        insertQuery.Parameters.AddWithValue("@voterStatus", values[13]);
+                                        insertQuery.Parameters.AddWithValue("@purok", values[14]);
+                                        insertQuery.Parameters.AddWithValue("@address", values[15]);
+                                        insertQuery.Parameters.AddWithValue("@isDead", values[17]);
+                                        insertQuery.ExecuteNonQuery();
+                                    }
                                 }
                                 lineNumber++;
                             }
                         }
                         connection.Close();
                     }
-                    MessageBox.Show("Data Imported Successfully!", "Notice", MessageBoxButtons.OK,
+                    loadingForm.Dispose();
+                    MessageBox.Show("Residents Data Imported Successfully!", "Notice", MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
                 }
+                else
+                {
+                    loadingForm.Dispose();
+                }
             }
-            catch
+            catch (MySqlException)
             {
+                loadingForm.Dispose();
                 MessageBox.Show("Invalid file format!", "Error", MessageBoxButtons.OK,
                 MessageBoxIcon.Error);
             }
         }
+
         /* -------------- */
 
         /* BACKUP DATABASE AND RESTORE */
         private void toolStripBackup_Click(object sender, EventArgs e)
         {
-           
+
             sfDialog.Filter = "SQL Text File(.sql)|*.sql";
             sfDialog.FileName = "My Text File";
             sfDialog.Title = "";
@@ -999,9 +1021,9 @@ namespace BMIS
             }
         }
 
-      
 
-       
+
+
     }
 }
 

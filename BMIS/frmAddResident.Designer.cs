@@ -292,7 +292,7 @@ namespace BMIS
             this.btnCamera.FlatAppearance.BorderSize = 0;
             this.btnCamera.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCamera.Image = global::BMIS.Properties.Resources.icons8_compact_camera_25;
-            this.btnCamera.Location = new System.Drawing.Point(218, 14);
+            this.btnCamera.Location = new System.Drawing.Point(218, 5);
             this.btnCamera.Name = "btnCamera";
             this.btnCamera.Size = new System.Drawing.Size(35, 38);
             this.btnCamera.TabIndex = 63;

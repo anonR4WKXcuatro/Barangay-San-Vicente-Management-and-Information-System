@@ -160,16 +160,16 @@ namespace BMIS
             {
                 txtUserImagePath.Text = fileDialog.FileName;
                 length = new FileInfo(fileDialog.FileName).Length;
-                maxImageSize = 50000; // 50 KB || 50000 Bytes       1MB = 1000000 Bytes
+                maxImageSize = 65000; // 65 KB || 1MB = 1,000,000 Bytes
 
-                if (maxImageSize >= length) // EXECUTE WHEN IMAGE EXCEEDS MORE THAN 50 KB || 50000 Byte
+                if (maxImageSize >= length) // EXECUTE WHEN IMAGE EXCEEDS MORE THAN 65 Kilobytes (KB)
                 {
                     picUserImage.Image = new Bitmap(fileDialog.FileName);
                     picUserImage.ImageLocation = fileDialog.FileName;
                 }
                 else
                 {
-                    MessageBox.Show("Image size must not exceed 50 KiloByte(KB)", "Warning", MessageBoxButtons.OK,
+                    MessageBox.Show("Image size must not exceed 65 KiloByte(KB)", "Warning", MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
                 }
             }

@@ -30,7 +30,9 @@ namespace BMIS
             txtAge.Enabled = t;
 
             txtAge.ReadOnly = t;
+            txtSex.ReadOnly = t;
             txtSex.Enabled = t;
+            txtCivilStatus.ReadOnly = t;
 
             txtCivilStatus.Enabled = t;
             txtContactNo.Enabled = t;
@@ -133,16 +135,16 @@ namespace BMIS
 
             using (var connection1 = new MySqlConnection(connectionString))
             {
+                connection1.Open();
                 using (var connection2 = new MySqlConnection(connectionString))
                 {
+                    connection2.Open();
                     using (var insertQuery = new MySqlCommand("INSERT INTO tbl_blotter(blotterID,residentID,fullname,purok,age,sex,civil_status,contact_no,incident_type,incident_date,incident_time,date_filed,incident_place,complainant_name,suspect_identity,incident_narrative)VALUES(@blotterID,@residentID,@FullName,@purok,@age,@sex,@civilStatus,@contactNo,@incidentType,@incidentDate,@incidentTime,@dateFiled,@incidentPlace,@complainantName,@suspectIdentity,@incidentNarrative)", connection1))
                     {
-                        using (var insertQuery2 = new MySqlCommand("INSERT INTO tbl_settlement(settleID,blotterNo,fullname,complainant_name,status)VALUES(@settleID,@blotterID,@FullName,@complainantName,@status)", connection2))
+                        using (var insertQuery2 = new MySqlCommand("INSERT INTO tbl_settlement(settlementID,blotterNo,fullname,complainant_name,status)VALUES(@settleID,@blotterID,@FullName,@complainantName,@status)", connection2))
                         {
                             try
                             {
-                                connection1.Open();
-                                connection2.Open();
                                 //Command for inserting data blotters in tbl_blotter
                                 insertQuery.Parameters.AddWithValue("@blotterID", txtBlotterNo.Text);
                                 insertQuery2.Parameters.AddWithValue("@settleID", settleID);
@@ -182,17 +184,16 @@ namespace BMIS
                                     txtBlotterNo.ResetText();
                                     controlsOff();
                                 }
-
                             }
                             catch (Exception ex)
                             {
                                 MessageBox.Show(ex.Message);
-                            }
-                            connection1.Close();
-                            connection2.Close();
+                            }                           
                         }
                     }
+                    connection2.Close();
                 }
+                connection1.Close();
             }
         }
         private void btnAddBlotter_Click(object sender, EventArgs e)
@@ -215,11 +216,13 @@ namespace BMIS
             MySqlConnection connection = new MySqlConnection(connectionString);
             connection.Open();
             MySqlCommand selectQuery = connection.CreateCommand();
+
             selectQuery.CommandText = "SELECT * FROM tbl_blotter";
-            MySqlDataAdapter sqlDA = new MySqlDataAdapter(selectQuery);
+
+            MySqlDataAdapter sqlDA1 = new MySqlDataAdapter(selectQuery);
             {
                 DataSet dSet = new DataSet();
-                sqlDA.Fill(dSet);
+                sqlDA1.Fill(dSet);
                 dgvBlotter.AutoGenerateColumns = false;
                 dgvBlotter.ColumnCount = 17;
                 dgvBlotter.Columns[0].DataPropertyName = "blotterID";
@@ -244,11 +247,31 @@ namespace BMIS
         {
             if (dgvBlotter.Columns[e.ColumnIndex].Name == "MANAGE")
             {
-                DataGridViewRow row = this.dgvBlotter.Rows[e.RowIndex];
-                frm1.BlotterNo = row.Cells[0].Value.ToString();
-                frm1.FullName = row.Cells[1].Value.ToString();
-                frm1.ComplainantName = row.Cells[12].Value.ToString();
-                frm1.ShowDialog();
+                using (var connection = new MySqlConnection(connectionString))
+                {
+                    using (var cmdGetCaptainName = new MySqlCommand("SELECT * FROM officials WHERE offic_id = 2", connection))
+                    {
+                        MySqlDataAdapter SQLAdapter = new MySqlDataAdapter(cmdGetCaptainName);
+                        {
+                            try
+                            {
+                                DataGridViewRow row = this.dgvBlotter.Rows[e.RowIndex];
+                                DataTable table = new DataTable();
+                                SQLAdapter.Fill(table);
+                                string captainName = table.Rows[0][1].ToString();
+                                frm1.BlotterNo = row.Cells[0].Value.ToString();
+                                frm1.FullName = row.Cells[1].Value.ToString();
+                                frm1.ComplainantName = row.Cells[12].Value.ToString();
+                                frm1.CaptainName = captainName;
+                                frm1.ShowDialog();
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show(ex.Message, "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
+                        }
+                    }
+                }
             }
             else if (dgvBlotter.Columns[e.ColumnIndex].Name == "SETTLE")
             {
@@ -266,22 +289,38 @@ namespace BMIS
                             using (var connection2 = new MySqlConnection(connectionString))
                             {
                                 connection2.Open();
-                                using (var deleteQuery = new MySqlCommand("DELETE FROM tbl_blotter WHERE blotterID = @BlotterID", connection1))
+                                using (var connection3 = new MySqlConnection(connectionString))
                                 {
-                                    using (var updateQuery = new MySqlCommand("UPDATE tbl_settlement SET status = @status WHERE blotterNo = @BlotterID", connection2))
+                                    connection3.Open();
+                                    using (var deleteQuery = new MySqlCommand("DELETE FROM tbl_blotter WHERE blotterID = @BlotterID", connection1))
                                     {
-                                        updateQuery.Parameters.AddWithValue("@status", "SETTLED");
-                                        updateQuery.Parameters.AddWithValue("@BlotterID", row.Cells[0].Value.ToString());
-                                        deleteQuery.Parameters.AddWithValue("@BlotterID", row.Cells[0].Value.ToString());
-                                        if (deleteQuery.ExecuteNonQuery() > 0 && updateQuery.ExecuteNonQuery() > 0)
+                                        using (var deleteSettlementSched = new MySqlCommand("DELETE FROM tbl_settlementsched WHERE blotterNo = @BlotterNO", connection2))
                                         {
-                                            MessageBox.Show("Case Successfully Settled!", "Notice", MessageBoxButtons.OK,
-                                            MessageBoxIcon.Information);
-                                            resetFields();
-                                            txtBlotterNo.ResetText();
-                                            controlsOff();
+                                            using (var updateQuery = new MySqlCommand("UPDATE tbl_settlement SET status = @status WHERE blotterNo = @BlotterID", connection3))
+                                            {
+                                                updateQuery.Parameters.AddWithValue("@status", "SETTLED");
+                                                updateQuery.Parameters.AddWithValue("@BlotterID", row.Cells[0].Value.ToString());
+                                                deleteSettlementSched.Parameters.AddWithValue("@BlotterNO", row.Cells[0].Value.ToString()); // DELETE FROM SETTLEMENT SCHED TABLE
+                                                deleteQuery.Parameters.AddWithValue("@BlotterID", row.Cells[0].Value.ToString()); // DELETE FROM SETTLEMENT TABLE
+                                                try
+                                                {
+                                                    if (updateQuery.ExecuteNonQuery() > 0 && deleteQuery.ExecuteNonQuery() > 0 && deleteSettlementSched.ExecuteNonQuery() > 0)
+                                                    {
+                                                        MessageBox.Show("Case Successfully Settled!", "Notice", MessageBoxButtons.OK,
+                                                        MessageBoxIcon.Information);
+                                                        resetFields();
+                                                        txtBlotterNo.ResetText();
+                                                        controlsOff();
+                                                    }
+                                                }
+                                                catch (Exception ex)
+                                                {
+                                                    MessageBox.Show(ex.Message);
+                                                }
+                                            }
                                         }
                                     }
+                                    connection3.Close();
                                 }
                                 connection2.Close();
                             }

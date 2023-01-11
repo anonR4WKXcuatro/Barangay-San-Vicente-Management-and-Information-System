@@ -32,14 +32,13 @@ namespace BMIS
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmManageSchedule));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblAddNewResident = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
@@ -47,7 +46,6 @@ namespace BMIS
             this.panel2 = new System.Windows.Forms.Panel();
             this.dtpSettlementTime = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.txtComplainantName = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txtSettlementID = new System.Windows.Forms.TextBox();
             this.dtpSettlementDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.labels2 = new System.Windows.Forms.Label();
             this.btnUpdate = new Guna.UI2.WinForms.Guna2Button();
@@ -58,9 +56,9 @@ namespace BMIS
             this.label2 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.txtBlotterNo = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtBrgyCaptain = new Guna.UI2.WinForms.Guna2TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.dgvSched = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.settlementID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.blotterNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fullname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.complainant_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -125,7 +123,6 @@ namespace BMIS
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.dtpSettlementTime);
             this.panel2.Controls.Add(this.txtComplainantName);
-            this.panel2.Controls.Add(this.txtSettlementID);
             this.panel2.Controls.Add(this.dtpSettlementDate);
             this.panel2.Controls.Add(this.labels2);
             this.panel2.Controls.Add(this.btnUpdate);
@@ -136,6 +133,7 @@ namespace BMIS
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label9);
             this.panel2.Controls.Add(this.txtBlotterNo);
+            this.panel2.Controls.Add(this.txtBrgyCaptain);
             this.panel2.Location = new System.Drawing.Point(12, 81);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(920, 185);
@@ -183,21 +181,12 @@ namespace BMIS
             this.txtComplainantName.Size = new System.Drawing.Size(310, 43);
             this.txtComplainantName.TabIndex = 45;
             // 
-            // txtSettlementID
-            // 
-            this.txtSettlementID.Location = new System.Drawing.Point(892, 3);
-            this.txtSettlementID.Name = "txtSettlementID";
-            this.txtSettlementID.ReadOnly = true;
-            this.txtSettlementID.Size = new System.Drawing.Size(23, 22);
-            this.txtSettlementID.TabIndex = 44;
-            this.txtSettlementID.Visible = false;
-            // 
             // dtpSettlementDate
             // 
             this.dtpSettlementDate.BackColor = System.Drawing.SystemColors.Control;
             this.dtpSettlementDate.BorderRadius = 15;
             this.dtpSettlementDate.Checked = true;
-            this.dtpSettlementDate.CustomFormat = "dd/MMM/yyyy";
+            this.dtpSettlementDate.CustomFormat = "MMMM dd yyyy";
             this.dtpSettlementDate.FillColor = System.Drawing.Color.White;
             this.dtpSettlementDate.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.dtpSettlementDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
@@ -355,6 +344,31 @@ namespace BMIS
             this.txtBlotterNo.Size = new System.Drawing.Size(320, 43);
             this.txtBlotterNo.TabIndex = 16;
             // 
+            // txtBrgyCaptain
+            // 
+            this.txtBrgyCaptain.BorderRadius = 15;
+            this.txtBrgyCaptain.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtBrgyCaptain.DefaultText = "";
+            this.txtBrgyCaptain.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtBrgyCaptain.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtBrgyCaptain.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtBrgyCaptain.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtBrgyCaptain.FillColor = System.Drawing.Color.LightYellow;
+            this.txtBrgyCaptain.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtBrgyCaptain.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtBrgyCaptain.ForeColor = System.Drawing.Color.Black;
+            this.txtBrgyCaptain.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtBrgyCaptain.Location = new System.Drawing.Point(276, 125);
+            this.txtBrgyCaptain.MaxLength = 17;
+            this.txtBrgyCaptain.Name = "txtBrgyCaptain";
+            this.txtBrgyCaptain.PasswordChar = '\0';
+            this.txtBrgyCaptain.PlaceholderText = "";
+            this.txtBrgyCaptain.ReadOnly = true;
+            this.txtBrgyCaptain.SelectedText = "";
+            this.txtBrgyCaptain.Size = new System.Drawing.Size(46, 25);
+            this.txtBrgyCaptain.TabIndex = 47;
+            this.txtBrgyCaptain.Visible = false;
+            // 
             // label3
             // 
             this.label3.BackColor = System.Drawing.Color.Transparent;
@@ -392,21 +406,20 @@ namespace BMIS
             this.dgvSched.ColumnHeadersHeight = 29;
             this.dgvSched.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvSched.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.settlementID,
             this.blotterNo,
             this.fullname,
             this.complainant_name,
             this.settlement_date,
             this.settlement_time,
             this.SUMMON});
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvSched.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvSched.DefaultCellStyle = dataGridViewCellStyle9;
             this.dgvSched.EnableHeadersVisualStyles = false;
             this.dgvSched.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvSched.Location = new System.Drawing.Point(12, 306);
@@ -441,21 +454,11 @@ namespace BMIS
             this.dgvSched.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dgvSched.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSched_CellContentClick);
             // 
-            // settlementID
-            // 
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.settlementID.DefaultCellStyle = dataGridViewCellStyle3;
-            this.settlementID.HeaderText = "ID";
-            this.settlementID.MinimumWidth = 6;
-            this.settlementID.Name = "settlementID";
-            this.settlementID.ReadOnly = true;
-            this.settlementID.Visible = false;
-            // 
             // blotterNo
             // 
             this.blotterNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.blotterNo.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.blotterNo.DefaultCellStyle = dataGridViewCellStyle3;
             this.blotterNo.HeaderText = "BLOTTER NO";
             this.blotterNo.MinimumWidth = 6;
             this.blotterNo.Name = "blotterNo";
@@ -465,8 +468,8 @@ namespace BMIS
             // fullname
             // 
             this.fullname.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fullname.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fullname.DefaultCellStyle = dataGridViewCellStyle4;
             this.fullname.HeaderText = "FULL NAME";
             this.fullname.MinimumWidth = 6;
             this.fullname.Name = "fullname";
@@ -476,8 +479,8 @@ namespace BMIS
             // complainant_name
             // 
             this.complainant_name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.complainant_name.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.complainant_name.DefaultCellStyle = dataGridViewCellStyle5;
             this.complainant_name.HeaderText = "COMPLAINANT";
             this.complainant_name.MinimumWidth = 6;
             this.complainant_name.Name = "complainant_name";
@@ -487,8 +490,8 @@ namespace BMIS
             // settlement_date
             // 
             this.settlement_date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.settlement_date.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.settlement_date.DefaultCellStyle = dataGridViewCellStyle6;
             this.settlement_date.HeaderText = "DATE";
             this.settlement_date.MinimumWidth = 6;
             this.settlement_date.Name = "settlement_date";
@@ -498,8 +501,8 @@ namespace BMIS
             // settlement_time
             // 
             this.settlement_time.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.settlement_time.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.settlement_time.DefaultCellStyle = dataGridViewCellStyle7;
             this.settlement_time.HeaderText = "TIME";
             this.settlement_time.MinimumWidth = 6;
             this.settlement_time.Name = "settlement_time";
@@ -509,9 +512,9 @@ namespace BMIS
             // SUMMON
             // 
             this.SUMMON.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SUMMON.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SUMMON.DefaultCellStyle = dataGridViewCellStyle8;
             this.SUMMON.HeaderText = "";
             this.SUMMON.MinimumWidth = 6;
             this.SUMMON.Name = "SUMMON";
@@ -578,16 +581,15 @@ namespace BMIS
         private Guna.UI2.WinForms.Guna2TextBox txtFullName;
         private Guna.UI2.WinForms.Guna2DateTimePicker dtpSettlementDate;
         private Guna.UI2.WinForms.Guna2DataGridView dgvSched;
-        private System.Windows.Forms.TextBox txtSettlementID;
         private Guna.UI2.WinForms.Guna2TextBox txtComplainantName;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.DataGridViewTextBoxColumn settlementID;
+        private Guna.UI2.WinForms.Guna2DateTimePicker dtpSettlementTime;
+        private Guna.UI2.WinForms.Guna2TextBox txtBrgyCaptain;
         private System.Windows.Forms.DataGridViewTextBoxColumn blotterNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn fullname;
         private System.Windows.Forms.DataGridViewTextBoxColumn complainant_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn settlement_date;
         private System.Windows.Forms.DataGridViewTextBoxColumn settlement_time;
         private System.Windows.Forms.DataGridViewButtonColumn SUMMON;
-        private Guna.UI2.WinForms.Guna2DateTimePicker dtpSettlementTime;
     }
 }

@@ -63,6 +63,19 @@ namespace BMIS
                 this.txtComplainantName.Text = value;
             }
         }
+
+        public string CaptainName
+        {
+            get
+            {
+                return this.txtBrgyCaptain.Text;
+            }
+            set
+            {
+                this.txtBrgyCaptain.Text = value;
+            }
+        }
+
         private void controlsOn()
         {
             btnUpdate.FillColor = Color.FromArgb(53, 59, 72);
@@ -109,15 +122,15 @@ namespace BMIS
             {
                 connection.Open();
                 //Command for inserting data blotters in tbl_settlementsched
-                insertQuery.Parameters.AddWithValue("@settlementID", txtSettlementID.Text);
+                
                 insertQuery.Parameters.AddWithValue("@blotterNo", txtBlotterNo.Text);
                 insertQuery.Parameters.AddWithValue("@fullName", txtFullName.Text);
                 insertQuery.Parameters.AddWithValue("@complainantName", txtComplainantName.Text);
                 insertQuery.Parameters.AddWithValue("@schedule", dtpSettlementDate.Text);
                 insertQuery.Parameters.AddWithValue("@time", dtpSettlementTime.Text);
 
-                insertQuery.CommandText = "INSERT INTO tbl_settlementsched(settlementID,blotterNo,fullname,complainant_name,settlement_date,settlement_time)" +
-                                          "VALUES(@settlementID,@blotterNo,@fullName,@complainantName,@schedule,@time)";
+                insertQuery.CommandText = "INSERT INTO tbl_settlementsched(blotterNo,fullname,complainant_name,settlement_date,settlement_time)" +
+                "VALUES(@blotterNo,@fullName,@complainantName,@schedule,@time)";
                 //Validations
                 if (string.IsNullOrEmpty(txtFullName.Text) || string.IsNullOrEmpty(txtComplainantName.Text))
                 {
@@ -142,9 +155,9 @@ namespace BMIS
         }
         private void frmManageSchedule_Load(object sender, EventArgs e)
         {
-            Random rnd = new Random();
-            int num = rnd.Next(0000000, 9999999);
-            txtSettlementID.Text = num.ToString();
+            //Random rnd = new Random();
+            //int num = rnd.Next(0000000, 9999999);
+            //txtSettlementID.Text = num.ToString();
             dtpSettlementDate.Text = DateTime.Now.ToString("dd/MMMM/yyyy");
 
             btnSave.Enabled = true;
@@ -157,15 +170,15 @@ namespace BMIS
             {
                 dgvSched.DataSource = null;
                 dgvSched.AutoGenerateColumns = false;
-                dgvSched.ColumnCount = 7;
+                dgvSched.ColumnCount = 6;
                 DataTable dt = new DataTable();
                 sqlDA.Fill(dt);
-                dgvSched.Columns[0].DataPropertyName = "settlementID";
-                dgvSched.Columns[1].DataPropertyName = "blotterNo";
-                dgvSched.Columns[2].DataPropertyName = "fullname";
-                dgvSched.Columns[3].DataPropertyName = "complainant_name";
-                dgvSched.Columns[4].DataPropertyName = "settlement_date";
-                dgvSched.Columns[5].DataPropertyName = "settlement_time";
+                //dgvSched.Columns[0].DataPropertyName = "settlementID";
+                dgvSched.Columns[0].DataPropertyName = "blotterNo";
+                dgvSched.Columns[1].DataPropertyName = "fullname";
+                dgvSched.Columns[2].DataPropertyName = "complainant_name";
+                dgvSched.Columns[3].DataPropertyName = "settlement_date";
+                dgvSched.Columns[4].DataPropertyName = "settlement_time";
 
                 dgvSched.DataSource = dt;
                 dgvSched.Refresh();
@@ -182,19 +195,19 @@ namespace BMIS
                 //DGV VALUES TO TEXTBOX
                 DataGridViewRow row = this.dgvSched.Rows[e.RowIndex];
                 string id = row.Cells[0].Value.ToString();
-                txtSettlementID.Text = id.ToString();
-                txtBlotterNo.Text = row.Cells[1].Value.ToString();
-                txtFullName.Text = row.Cells[2].Value.ToString();
-                txtComplainantName.Text = row.Cells[3].Value.ToString();
-                dtpSettlementDate.Value = Convert.ToDateTime(row.Cells[4].Value);
-                dtpSettlementTime.Value = Convert.ToDateTime(row.Cells[5].Value);
+                txtBlotterNo.Text = id.ToString();
+                txtBlotterNo.Text = row.Cells[0].Value.ToString();
+                txtFullName.Text = row.Cells[1].Value.ToString();
+                txtComplainantName.Text = row.Cells[2].Value.ToString();
+                dtpSettlementDate.Value = Convert.ToDateTime(row.Cells[3].Value);
+                dtpSettlementTime.Value = Convert.ToDateTime(row.Cells[4].Value);
 
-                if (id == txtSettlementID.Text)
+                if (id == txtBlotterNo.Text)
                 {
                     btnSave.Enabled = false;
                 }
                 /*---------------------CRYSTAL REPORT-----------------------------------*/
-                TextObject blotterNo, complainant, defendant, Todefendant2, date, time, my;
+                TextObject blotterNo, complainant, defendant, Todefendant2, date, time, my, captainName;
                 string d = DateTime.Now.Day.ToString();
                 string m = DateTime.Now.ToString("MMMM");
                 string y = DateTime.Now.Year.ToString();
@@ -207,14 +220,18 @@ namespace BMIS
                 date = (TextObject)cyrprt1.ReportDefinition.Sections["Section3"].ReportObjects["date"];
                 time = (TextObject)cyrprt1.ReportDefinition.Sections["Section3"].ReportObjects["time"];
                 my = (TextObject)cyrprt1.ReportDefinition.Sections["Section3"].ReportObjects["my"];
-                blotterNo.Text = row.Cells[1].Value.ToString();
-                complainant.Text = row.Cells[3].Value.ToString();
-                defendant.Text = row.Cells[2].Value.ToString();
-                Todefendant2.Text = row.Cells[2].Value.ToString();
-                date.Text = row.Cells[4].Value.ToString();
-                time.Text = row.Cells[5].Value.ToString();
+                captainName = (TextObject)cyrprt1.ReportDefinition.Sections["Section3"].ReportObjects["captainName"];
+
+                blotterNo.Text = txtBlotterNo.Text;
+                complainant.Text = txtComplainantName.Text;
+                defendant.Text = txtFullName.Text;
+                Todefendant2.Text = txtFullName.Text;
+                date.Text = row.Cells[3].Value.ToString();
+                time.Text = row.Cells[4].Value.ToString();
                 my.Text = monthYear;
+                captainName.Text = txtBrgyCaptain.Text;
                 /*-----------------------------------------------------------------------*/
+
             }
             if (dgvSched.Columns[e.ColumnIndex].Name == "SUMMON")
             {
@@ -234,14 +251,14 @@ namespace BMIS
             {
                 connection.Open();
                 //Command for inserting data blotters in tbl_blotter
-                updateQuery.Parameters.AddWithValue("@settlementID", txtSettlementID.Text);
+                
                 updateQuery.Parameters.AddWithValue("@blotterNo", txtBlotterNo.Text);
                 updateQuery.Parameters.AddWithValue("@fullName", txtFullName.Text);
                 updateQuery.Parameters.AddWithValue("@complainantName", txtComplainantName.Text);
                 updateQuery.Parameters.AddWithValue("@schedule", dtpSettlementDate.Text);
                 updateQuery.Parameters.AddWithValue("@time", dtpSettlementTime.Text);
 
-                updateQuery.CommandText = "UPDATE tbl_settlementsched SET blotterNo = @blotterNo, fullname = @fullName, complainant_name = @complainantName, settlement_date = @schedule, settlement_time = @time WHERE settlementID = @settlementID";
+                updateQuery.CommandText = "UPDATE tbl_settlementsched SET fullname = @fullName, complainant_name = @complainantName, settlement_date = @schedule, settlement_time = @time WHERE blotterNo = @blotterNo";
 
                 //Controls validation
                 if (string.IsNullOrEmpty(txtFullName.Text) || string.IsNullOrEmpty(txtComplainantName.Text))

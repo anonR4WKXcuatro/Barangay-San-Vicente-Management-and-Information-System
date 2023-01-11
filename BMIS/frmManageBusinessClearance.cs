@@ -72,36 +72,52 @@ namespace BMIS
                 this.txtOwnersAddress.Text = value;
             }
         }
+        public string CaptainName
+        {
+            get
+            {
+                return this.txtBrgyCaptain.Text;
+            }
+            set
+            {
+                this.txtBrgyCaptain.Text = value;
+            }
+        }
         private void BusinessClearanceRPT()
         {
-            BusinessClearance businessClearanceRPT = new BusinessClearance();
-            TextObject officialReceiptNo, permitNo, residentID, ownersName, ownerShipName, ownersAddress, businessName, businessAddress, businessNature, clearanceType, clearancePurpose, amount;
+            using (var connection = new MySqlConnection(connectionString))
+            {
+                BusinessClearance businessClearanceRPT = new BusinessClearance();
+                TextObject officialReceiptNo, permitNo, residentID, ownersName, ownerShipName, ownersAddress, businessName, businessAddress, businessNature, amount, captainName;
 
-            officialReceiptNo = (TextObject)businessClearanceRPT.ReportDefinition.Sections["Section2"].ReportObjects["officialReceiptNo"];
-            permitNo = (TextObject)businessClearanceRPT.ReportDefinition.Sections["Section3"].ReportObjects["permitNo"];
-            residentID = (TextObject)businessClearanceRPT.ReportDefinition.Sections["Section2"].ReportObjects["resIDNo"];
-            ownersName = (TextObject)businessClearanceRPT.ReportDefinition.Sections["Section3"].ReportObjects["residentName"];
-            ownerShipName = (TextObject)businessClearanceRPT.ReportDefinition.Sections["Section3"].ReportObjects["ownershipName"];
-            ownersAddress = (TextObject)businessClearanceRPT.ReportDefinition.Sections["Section3"].ReportObjects["ownerAddress"];
-            businessName = (TextObject)businessClearanceRPT.ReportDefinition.Sections["Section3"].ReportObjects["businessName"];
-            businessAddress = (TextObject)businessClearanceRPT.ReportDefinition.Sections["Section3"].ReportObjects["businessAddress"];
-            businessNature = (TextObject)businessClearanceRPT.ReportDefinition.Sections["Section3"].ReportObjects["businessNature"];
-            amount = (TextObject)businessClearanceRPT.ReportDefinition.Sections["Section3"].ReportObjects["amount"];
+                officialReceiptNo = (TextObject)businessClearanceRPT.ReportDefinition.Sections["Section2"].ReportObjects["officialReceiptNo"];
+                permitNo = (TextObject)businessClearanceRPT.ReportDefinition.Sections["Section3"].ReportObjects["permitNo"];
+                residentID = (TextObject)businessClearanceRPT.ReportDefinition.Sections["Section2"].ReportObjects["resIDNo"];
+                ownersName = (TextObject)businessClearanceRPT.ReportDefinition.Sections["Section3"].ReportObjects["residentName"];
+                ownerShipName = (TextObject)businessClearanceRPT.ReportDefinition.Sections["Section3"].ReportObjects["ownershipName"];
+                ownersAddress = (TextObject)businessClearanceRPT.ReportDefinition.Sections["Section3"].ReportObjects["ownerAddress"];
+                businessName = (TextObject)businessClearanceRPT.ReportDefinition.Sections["Section3"].ReportObjects["businessName"];
+                businessAddress = (TextObject)businessClearanceRPT.ReportDefinition.Sections["Section3"].ReportObjects["businessAddress"];
+                businessNature = (TextObject)businessClearanceRPT.ReportDefinition.Sections["Section3"].ReportObjects["businessNature"];
+                amount = (TextObject)businessClearanceRPT.ReportDefinition.Sections["Section3"].ReportObjects["amount"];
+                captainName = (TextObject)businessClearanceRPT.ReportDefinition.Sections["Section3"].ReportObjects["captainName"];
 
-            officialReceiptNo.Text = txtOfficialReceiptNo.Text;
-            permitNo.Text = txtPermitNo.Text;
-            residentID.Text = txtResidentID.Text;
-            ownersName.Text = txtFullName.Text;
-            ownerShipName.Text = txtFullName.Text;
-            ownersAddress.Text = txtOwnersAddress.Text;
-            businessName.Text = txtBusinessName.Text;
-            businessAddress.Text = txtBusinessAddress.Text;
-            businessNature.Text = txtNatureBusiness.Text;
-            amount.Text = txtAmount.Text;
+                officialReceiptNo.Text = txtOfficialReceiptNo.Text;
+                permitNo.Text = txtPermitNo.Text;
+                residentID.Text = txtResidentID.Text;
+                ownersName.Text = txtFullName.Text;
+                ownerShipName.Text = txtFullName.Text;
+                ownersAddress.Text = txtOwnersAddress.Text;
+                businessName.Text = txtBusinessName.Text;
+                businessAddress.Text = txtBusinessAddress.Text;
+                businessNature.Text = txtNatureBusiness.Text;
+                amount.Text = txtAmount.Text;
+                captainName.Text = txtBrgyCaptain.Text;
 
-            frm1.crystalReportViewer1.ReportSource = businessClearanceRPT;
-            frm1.ShowDialog();
-            Hide();
+                frm1.crystalReportViewer1.ReportSource = businessClearanceRPT;
+                frm1.ShowDialog();
+                Hide();
+            }
         }
 
         private void btnPrint_Click(object sender, EventArgs e)

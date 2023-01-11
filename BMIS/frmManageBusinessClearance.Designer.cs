@@ -35,6 +35,8 @@ namespace BMIS
             this.ManageCertification = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txtBrgyCaptain = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.txtPurpose = new Guna.UI2.WinForms.Guna2TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.txtCertificateType = new Guna.UI2.WinForms.Guna2TextBox();
@@ -113,6 +115,8 @@ namespace BMIS
             // 
             this.panel2.BackColor = System.Drawing.Color.Transparent;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.txtBrgyCaptain);
+            this.panel2.Controls.Add(this.label12);
             this.panel2.Controls.Add(this.txtPurpose);
             this.panel2.Controls.Add(this.label11);
             this.panel2.Controls.Add(this.txtCertificateType);
@@ -139,6 +143,42 @@ namespace BMIS
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(920, 500);
             this.panel2.TabIndex = 47;
+            // 
+            // txtBrgyCaptain
+            // 
+            this.txtBrgyCaptain.BorderRadius = 15;
+            this.txtBrgyCaptain.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtBrgyCaptain.DefaultText = "";
+            this.txtBrgyCaptain.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtBrgyCaptain.DisabledState.FillColor = System.Drawing.Color.LightYellow;
+            this.txtBrgyCaptain.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtBrgyCaptain.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtBrgyCaptain.Enabled = false;
+            this.txtBrgyCaptain.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtBrgyCaptain.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtBrgyCaptain.ForeColor = System.Drawing.Color.Black;
+            this.txtBrgyCaptain.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtBrgyCaptain.Location = new System.Drawing.Point(480, 444);
+            this.txtBrgyCaptain.Name = "txtBrgyCaptain";
+            this.txtBrgyCaptain.PasswordChar = '\0';
+            this.txtBrgyCaptain.PlaceholderText = "";
+            this.txtBrgyCaptain.ReadOnly = true;
+            this.txtBrgyCaptain.SelectedText = "";
+            this.txtBrgyCaptain.Size = new System.Drawing.Size(417, 43);
+            this.txtBrgyCaptain.TabIndex = 71;
+            this.txtBrgyCaptain.Visible = false;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label12.Location = new System.Drawing.Point(486, 424);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(121, 17);
+            this.label12.TabIndex = 70;
+            this.label12.Text = "BRGY CAPTAIN";
+            this.label12.Visible = false;
             // 
             // txtPurpose
             // 
@@ -585,5 +625,7 @@ namespace BMIS
         private System.Windows.Forms.Label label4;
         private Guna.UI2.WinForms.Guna2TextBox txtPurpose;
         private System.Windows.Forms.Label label11;
+        private Guna.UI2.WinForms.Guna2TextBox txtBrgyCaptain;
+        private System.Windows.Forms.Label label12;
     }
 }

@@ -8,6 +8,7 @@ namespace BMIS
     public partial class frmManageClearance : Form
     {
         private string connectionString = "server=localhost; port=3306; user=root; password=admin123; database=bmis_db";
+
         PrintPreviewForm frm1 = new PrintPreviewForm();
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         //To round border.
@@ -25,6 +26,9 @@ namespace BMIS
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
+        }
+        private void frmManageClearance_Load(object sender, EventArgs e)
+        {
         }
         public string ResidentID
         {
@@ -109,11 +113,23 @@ namespace BMIS
                 this.txtCertificateType.Text = value;
             }
         }
+        public string CaptainName
+        {
+            get
+            {
+                return this.txtBrgyCaptain.Text;
+            }
+            set
+            {
+                this.txtBrgyCaptain.Text = value;
+            }
+        }
 
         private void BarangayClearanceRPT()
         {
+          
             BarangayClearance brgyClearanceRPT = new BarangayClearance();
-            TextObject officialReceiptNo, residentID, residentName, residentCivilStatus, residentNationality, purpose, my;
+            TextObject officialReceiptNo, residentID, residentName, residentCivilStatus, residentNationality, purpose, my,captainName;
             string d = DateTime.Now.Day.ToString();
             string m = DateTime.Now.ToString("MMMM");
             string y = DateTime.Now.Year.ToString();
@@ -125,6 +141,8 @@ namespace BMIS
             residentNationality = (TextObject)brgyClearanceRPT.ReportDefinition.Sections["Section3"].ReportObjects["residentNationality"];
             purpose = (TextObject)brgyClearanceRPT.ReportDefinition.Sections["Section3"].ReportObjects["purpose"];
             my = (TextObject)brgyClearanceRPT.ReportDefinition.Sections["Section3"].ReportObjects["my"];
+            captainName = (TextObject)brgyClearanceRPT.ReportDefinition.Sections["Section3"].ReportObjects["captainName"];
+
             officialReceiptNo.Text = txtOfficialReceiptNo.Text;
             residentID.Text = txtResidentID.Text;
             residentName.Text = txtFullName.Text + ",   " + txtAge.Text;
@@ -132,6 +150,8 @@ namespace BMIS
             residentNationality.Text = txtResidentNationality.Text;
             purpose.Text = txtPurpose.Text;
             my.Text = monthYear;
+            captainName.Text = txtBrgyCaptain.Text;
+
             frm1.crystalReportViewer1.ReportSource = brgyClearanceRPT;
             frm1.ShowDialog();
             Hide();
@@ -139,7 +159,7 @@ namespace BMIS
         private void CertificateOfResidencyRPT()
         {
             BarangayCertificate barangayCertificateRPT = new BarangayCertificate();
-            TextObject officialReceiptNo, residentID, residentName, residentCivilStatus, residentNationality, residentAddress, purpose, my;
+            TextObject officialReceiptNo, residentID, residentName, residentCivilStatus, residentNationality, residentAddress, purpose, my, captainName;
             string d = DateTime.Now.Day.ToString();
             string m = DateTime.Now.ToString("MMMM");
             string y = DateTime.Now.Year.ToString();
@@ -152,6 +172,8 @@ namespace BMIS
             residentAddress = (TextObject)barangayCertificateRPT.ReportDefinition.Sections["Section3"].ReportObjects["residentAddress"];
             purpose = (TextObject)barangayCertificateRPT.ReportDefinition.Sections["Section3"].ReportObjects["purpose"];
             my = (TextObject)barangayCertificateRPT.ReportDefinition.Sections["Section3"].ReportObjects["my"];
+            captainName = (TextObject)barangayCertificateRPT.ReportDefinition.Sections["Section3"].ReportObjects["captainName"];
+
             officialReceiptNo.Text = txtOfficialReceiptNo.Text;
             residentID.Text = txtResidentID.Text;
             residentName.Text = txtFullName.Text + ",   " + txtAge.Text;
@@ -160,6 +182,8 @@ namespace BMIS
             residentAddress.Text = txtAddress.Text;
             purpose.Text = txtPurpose.Text;
             my.Text = monthYear;
+            captainName.Text = txtBrgyCaptain.Text;
+
             frm1.crystalReportViewer1.ReportSource = barangayCertificateRPT;
             frm1.ShowDialog();
             Hide();
@@ -167,7 +191,7 @@ namespace BMIS
         private void IndigencyRPT()
         {
             Indigency indigencyRPT = new Indigency();
-            TextObject officialReceiptNo, residentID, residentName, residentCivilStatus, residentNationality, purpose, my;
+            TextObject officialReceiptNo, residentID, residentName, residentCivilStatus, residentNationality, purpose, my, captainName;
             string d = DateTime.Now.Day.ToString();
             string m = DateTime.Now.ToString("MMMM");
             string y = DateTime.Now.Year.ToString();
@@ -179,6 +203,8 @@ namespace BMIS
             residentNationality = (TextObject)indigencyRPT.ReportDefinition.Sections["Section3"].ReportObjects["residentNationality"];
             purpose = (TextObject)indigencyRPT.ReportDefinition.Sections["Section3"].ReportObjects["purpose"];
             my = (TextObject)indigencyRPT.ReportDefinition.Sections["Section3"].ReportObjects["my"];
+            captainName = (TextObject)indigencyRPT.ReportDefinition.Sections["Section3"].ReportObjects["captainName"];
+
             officialReceiptNo.Text = txtOfficialReceiptNo.Text;
             residentID.Text = txtResidentID.Text;
             residentName.Text = txtFullName.Text + ",   " + txtAge.Text;
@@ -186,6 +212,7 @@ namespace BMIS
             residentNationality.Text = txtResidentNationality.Text;
             purpose.Text = txtPurpose.Text;
             my.Text = monthYear;
+            captainName.Text = txtBrgyCaptain.Text;
 
             frm1.crystalReportViewer1.ReportSource = indigencyRPT;
             frm1.ShowDialog();
@@ -248,15 +275,20 @@ namespace BMIS
                 Console.Write("Do Nothing");
             }
         }
+
+
+
+
+        private void txtPurpose_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.KeyChar = char.ToUpper(e.KeyChar);
+        }
+
         private void btnClose_Click(object sender, EventArgs e)
         {
             txtOfficialReceiptNo.Text = null;
             txtPurpose.Text = null;
             Close();
-        }
-
-        private void frmManageClearance_Load(object sender, EventArgs e)
-        {
         }
     }
 }

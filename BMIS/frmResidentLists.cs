@@ -57,40 +57,40 @@ namespace BMIS
             frm1.ShowDialog();
         }
         private void frmResidentLists_Load(object sender, EventArgs e)
-        {
-            frmResidentProfile rp = new frmResidentProfile();
-
+        {         
             using (var connection = new MySqlConnection(connectionString))
-            using (var selectQuery = new MySqlCommand("SELECT * FROM tbl_resident", connection))
             {
-                connection.Open();
-                using (var sqlDA = new MySqlDataAdapter(selectQuery))
+                using (var selectQuery = new MySqlCommand("SELECT * FROM tbl_resident", connection))
                 {
-                    DataSet dSet = new DataSet();
-                    sqlDA.Fill(dSet);
-                    dgvResidentTable.AutoGenerateColumns = false;
-                    dgvResidentTable.ColumnCount = 20;
-                    dgvResidentTable.Columns[0].DataPropertyName = "residentID";
-                    dgvResidentTable.Columns[1].DataPropertyName = "fullname";
-                    dgvResidentTable.Columns[2].DataPropertyName = "fathername";
-                    dgvResidentTable.Columns[3].DataPropertyName = "mothername";
-                    dgvResidentTable.Columns[4].DataPropertyName = "sex";
-                    dgvResidentTable.Columns[5].DataPropertyName = "age";
-                    dgvResidentTable.Columns[6].DataPropertyName = "civil_status";
-                    dgvResidentTable.Columns[7].DataPropertyName = "occupation";
-                    dgvResidentTable.Columns[8].DataPropertyName = "address";
-                    dgvResidentTable.Columns[9].DataPropertyName = "image";
-                    dgvResidentTable.Columns[10].DataPropertyName = "nationality";
-                    dgvResidentTable.Columns[11].DataPropertyName = "religion";
-                    dgvResidentTable.Columns[12].DataPropertyName = "birthdate";
-                    dgvResidentTable.Columns[13].DataPropertyName = "contact_no";
-                    dgvResidentTable.Columns[14].DataPropertyName = "category";
-                    dgvResidentTable.Columns[15].DataPropertyName = "purok";
-                    dgvResidentTable.Columns[16].DataPropertyName = "voter_status";
-                    dgvResidentTable.Columns[17].DataPropertyName = "isDead";
-                    dgvResidentTable.DataSource = dSet.Tables[0];
+                    connection.Open();
+                    using (var sqlDA = new MySqlDataAdapter(selectQuery))
+                    {
+                        DataSet dSet = new DataSet();
+                        sqlDA.Fill(dSet);
+                        dgvResidentTable.AutoGenerateColumns = false;
+                        dgvResidentTable.ColumnCount = 20;
+                        dgvResidentTable.Columns[0].DataPropertyName = "residentID";
+                        dgvResidentTable.Columns[1].DataPropertyName = "fullname";
+                        dgvResidentTable.Columns[2].DataPropertyName = "fathername";
+                        dgvResidentTable.Columns[3].DataPropertyName = "mothername";
+                        dgvResidentTable.Columns[4].DataPropertyName = "sex";
+                        dgvResidentTable.Columns[5].DataPropertyName = "age";
+                        dgvResidentTable.Columns[6].DataPropertyName = "civil_status";
+                        dgvResidentTable.Columns[7].DataPropertyName = "occupation";
+                        dgvResidentTable.Columns[8].DataPropertyName = "address";
+                        dgvResidentTable.Columns[9].DataPropertyName = "image";
+                        dgvResidentTable.Columns[10].DataPropertyName = "nationality";
+                        dgvResidentTable.Columns[11].DataPropertyName = "religion";
+                        dgvResidentTable.Columns[12].DataPropertyName = "birthdate";
+                        dgvResidentTable.Columns[13].DataPropertyName = "contact_no";
+                        dgvResidentTable.Columns[14].DataPropertyName = "category";
+                        dgvResidentTable.Columns[15].DataPropertyName = "purok";
+                        dgvResidentTable.Columns[16].DataPropertyName = "voter_status";
+                        dgvResidentTable.Columns[17].DataPropertyName = "isDead";
+                        dgvResidentTable.DataSource = dSet.Tables[0];
+                    }
+                    searchData("");
                 }
-                searchData("");
             }
         }
 
@@ -171,6 +171,7 @@ namespace BMIS
                     auth.txtResidentID.Text = row.Cells[0].Value.ToString();
                 }
                 auth.ShowDialog();
+
             }
         }
     }

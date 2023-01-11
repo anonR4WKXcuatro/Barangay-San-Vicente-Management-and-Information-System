@@ -342,16 +342,16 @@ namespace BMIS
             {
                 txtUserImagePath.Text = opf.FileName;
                 length = new FileInfo(opf.FileName).Length;
-                maxImageSize = 1000000; // 1 Megabyte(MB) || 1,000,000 Byte
+                maxImageSize = 2000000; // 65 KB || 1MB = 1,000,000 Bytes
 
-                if (maxImageSize >= length) // EXECUTE WHEN IMAGE EXCEEDS MORE THAN 1 Megabyte(MB) || 1,000,000 Byte
+                if (maxImageSize >= length) // EXECUTE WHEN IMAGE EXCEEDS MORE THAN 65 Kilobytes (KB)
                 {
                     picUserImage.Image = new Bitmap(opf.FileName);
                     picUserImage.ImageLocation = opf.FileName;
                 }
                 else
                 {
-                    MessageBox.Show("Image size must not exceed 1 Megabyte(MB)", "Warning", MessageBoxButtons.OK,
+                    MessageBox.Show("Image size must not exceed 65 KiloByte(KB)", "Warning", MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
                 }
             }
